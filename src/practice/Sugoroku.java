@@ -30,50 +30,51 @@ public class Sugoroku extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession(true);
-		SugorokuBean bean = (SugorokuBean) session.getAttribute("sugorokubean");
-		if (bean == null) {
-			// 初回時の処理(Data処理クラスのオブジェクトを生成し、セッションデータとして格納する)
-			bean = new SugorokuBean();
-			bean.initial();
-			session.setAttribute("sugorokubean", bean);
-		}
+//		SugorokuBean bean = (SugorokuBean) session.getAttribute("sugorokubean");
 
-		int num;
-		try {
-			num = Integer.parseInt(request.getParameter("number"));
-		} catch (NumberFormatException ne) {
-			num = 0;
+		String buttonId = request.getParameter("page");
+		if (buttonId == null) {
+			buttonId = "init";
 		}
-
-		/**
-		 * num = 0: 初回起動時
-		 * num = 1: サイコロをもう一度振る
-		 * num = 2: サイコロの数表示
-		 * num = 3: ゴール
-		 * num = 4: 最初から始める
-		 * num = 5: ゲームオーバー
-		 */
+		System.out.println(buttonId);
 		String nextPage;
-		if (num == 0) {
-			bean.initial();
-			System.out.println("buf[0] in sugoroku.java" + bean.getBuf(0));
-			nextPage = "/SugorokuBeanRe.jsp";
-		} else if (num == 1) {
-			nextPage = "/SugorokuBeanRe.jsp";
-		} else if (num == 2) {
-			nextPage = "/SugorokuBeanNum.jsp";
-		} else if (num == 3) {
-			nextPage = "/SugorokuBeanOut.jsp";
-		} else if (num == 4) {
-			bean.initial();
-			session.setAttribute("sugorokubean", bean);
-			nextPage = "/SugorokuBeanRe.jsp";
-		} else {
-			nextPage = "/SugorokuBeanOver.jsp";
+		switch (buttonId) {
+			case "init":
+				session = initBean(session);
+				nextPage = "/main4p.jsp";
+				break;
+			case "main":
+				System.out.println("main page");
+				nextPage = "/main4p.jsp";
+				break;
+			case "event":
+				nextPage = "/event.jsp";
+				break;
+			case "clear":
+				System.out.println("clear page");
+				nextPage = "/clear.jsp";
+				break;
+			case "over":
+				nextPage = "/over.jsp";
+				break;
+			default:
+				System.out.println("error buttonId:" + buttonId);
+				nextPage = "";
 		}
 
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(nextPage);
 		rd.forward(request, response);
+	}
+
+	private static HttpSession initBean(HttpSession session) {
+		// 初回時の処理(Data処理クラスのオブジェクトを生成し、セッションデータとして格納する)
+		SugorokuBean bean = new SugorokuBean();
+		System.out.println("buf[0] in sugoroku.java: " + bean.getBuf(0));
+		bean.initial();
+		session.setAttribute("sugorokubean", bean);
+		System.out.println("generate sugorokubean");
+		System.out.println("buf[0] in sugoroku.java: " + bean.getBuf(0));
+		return session;
 	}
 
 }

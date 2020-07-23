@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="application"
+<jsp:useBean id="sugorokubean" scope="session"
 	class="practice.SugorokuBean" />
 <!DOCTYPE html>
 <html>
@@ -59,11 +59,11 @@
 						<div class="mxauto">
 							<%
 								if (sugorokubean.getLocation() == sugorokubean.getSQUARE() - 1) {
-								out.println("<a href='Sugoroku?number=3' class='btn btn-primary btn-lg'>進む</a><br>");
+								out.println("<a href='Sugoroku?page=clear' class='btn btn-primary btn-lg'>進む</a><br>");
 							} else if (sugorokubean.getBloodAlcLv() >= 20) {
-								out.println("<a href='Sugoroku?number=5' class='btn btn-primary btn-lg'>進む</a><br>");
+								out.println("<a href='Sugoroku?page=over' class='btn btn-primary btn-lg'>進む</a><br>");
 							} else {
-								out.println("<a href='Sugoroku?number=1' class='btn btn-primary btn-lg'>進む</a><br>");
+								out.println("<a href='Sugoroku?page=main' class='btn btn-primary btn-lg'>進む</a><br>");
 							}
 							%>
 						</div>
@@ -75,8 +75,5 @@
 
 	</div>
 
-	<%
-		session.setAttribute("sugorokubean", sugorokubean);
-	%>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="application" class="practice.SugorokuBean" />
+<jsp:useBean id="sugorokubean" scope="session" class="practice.SugorokuBean" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +27,8 @@
   <div class="card-body">
     <h4 class="card-title">操作</h4><br>
     <p class="card-text" style="text-align: left">すごろくを振ってゴールまで辿り着こう！<br>飲み過ぎには気をつけて...</p><br><br>
-    <a href="Sugoroku?number=2" class="btn btn-primary btn-lg">サイコロをふる</a><br><br>
-    <a href="Sugoroku?number=4" class="btn btn-primary btn-sm">最初から</a>
+    <a href="Sugoroku?page=event" class="btn btn-primary btn-lg">サイコロをふる</a><br><br>
+    <a href="Sugoroku?page=init" class="btn btn-primary btn-sm">最初から</a>
   </div>
   </div>
 
@@ -97,7 +97,6 @@
 
 </div>
 
-  	<% session.setAttribute("sugorokubean", sugorokubean); %>
 </body>
 
 <footer>
