@@ -39,20 +39,44 @@ public class SugorokuController extends HttpServlet {
 		String nextPage;
 		switch (buttonId) {
 			case "init":
-				session = initBean(session);
-				nextPage = "/main4p.jsp";
+				// initialization process
+				InitAction initAction = new InitAction();
+				nextPage = "/init.jsp";
 				break;
-			case "main":
-				nextPage = "/main4p.jsp";
+			case "start":
+				nextPage = "selectChara.jsp";
 				break;
-			case "event":
+			case "playDecision":
+			case "back":
+			case "next":
+			case "ultimateDecision":
+				if (buttonId.equals("playDecision")) {
+					// generate new sugoroku which manages players, squares and turn
+					SugorokuNormal sugoroku = new SugorokuNormal(nPlayer, playerType);
+				}
+				if (nPlayer == 1) {
+					nextPage = "/main1p.jsp";
+				} else if (nPlayer == 2) {
+					nextPage = "/main2p.jsp";
+				} else if (nPlayer == 3) {
+					nextPage = "/main3p.jsp";
+				} else if (nPlayer == 4) {
+					nextPage = "/main4p.jsp";
+				}
+				if (SugorokuNormal.isClear) {
+					nextPage = "/clear.jsp";
+				} else if (SugorokuNormal.isOver) {
+					nextPage = "/over.jsp";
+				}
+				break;
+			case "dice":
+				sugoroku.rollDice();
+				sugoroku.goForward();
+				sugoroku.drinkLiquor();
 				nextPage = "/event.jsp";
 				break;
-			case "clear":
-				nextPage = "/clear.jsp";
-				break;
-			case "over":
-				nextPage = "/over.jsp";
+			case "ultimate":
+				nextPage = "/ultimate.jsp";
 				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);
@@ -63,13 +87,9 @@ public class SugorokuController extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	private static HttpSession initBean(HttpSession session) {
-		// 初回時の処理(Data処理クラスのオブジェクトを生成し、セッションデータとして格納する)
-		SugorokuBean bean = new SugorokuBean();
-		bean.initial();
-		session.setAttribute("sugorokubean", bean);
-		System.out.println("generate sugorokubean and setAttribute as sugorokubean");
-		return session;
+	static String mainAction(HttpServletRequest request, String buttonId) {
+		String nextPage;
+
 	}
 
 }
