@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class SugorokuBean {
 
-	private static final int DICE_MAX = 6;
-	private static final int SQUARE = 25 + 1;
-	private boolean[] buf = new boolean[SQUARE];
-	private int[] event = new int[SQUARE];
-	private int[] alcohol = new int[] {10, 8, 4, 3, 3, -1, -2};
-	private int location = 0;
-	private int count = 0;
-	private int bloodAlcLv = 0;
+//	private static final int DICE_MAX = 6;
+//	private static final int SQUARE = 25 + 1;
+//	private boolean[] buf = new boolean[SQUARE];
+//	private int[] event = new int[SQUARE];
+//	private int[] alcohol = new int[] {10, 8, 4, 3, 3, -1, -2};
+//	private int location = 0;
+//	private int count = 0;
+//	private int bloodAlcLv = 0;
 
 	public void initial() {
 

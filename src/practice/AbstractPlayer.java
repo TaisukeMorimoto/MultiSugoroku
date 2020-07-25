@@ -16,6 +16,7 @@ public abstract class AbstractPlayer implements Player {
 		this.SQUARE = SQUARE;
 		this.DICE_MAX = DICE_MAX;
 		this.locationArray = new boolean[SQUARE];
+		initStatus();
 	}
 
 	public void initStatus() {

@@ -1,7 +1,7 @@
 package test;
 
 import practice.Liquor;
-import practice.Miyashita;
+import practice.UltimatePlayer;
 import practice.SugorokuNormal;
 
 public class MiyashitaTest {
@@ -10,7 +10,7 @@ public class MiyashitaTest {
 		// sugoroku/playerの生成
 		SugorokuNormal sugoroku = new SugorokuNormal();
 		System.out.println("「すごろくノーマル」を生成しました。");
-		Miyashita miyashita = new Miyashita(26, 6);
+		UltimatePlayer miyashita = new UltimatePlayer(26, 6);
 		System.out.println("player1の名前は" + miyashita.getName() + "です。");
 
 		// roll play
