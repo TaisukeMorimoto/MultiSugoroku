@@ -21,6 +21,7 @@ public class UltimatePlayerTest {
 		UltimatePlayer p3 = playerList.get(2);
 		UltimatePlayer p4 = playerList.get(3);
 
+		// 一人ずつサイコロふる
 		onePlay(p2, sugoroku);
 		onePlay(p2, sugoroku);
 		onePlay(p2, sugoroku);
