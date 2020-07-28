@@ -4,7 +4,7 @@ import java.util.Random;
 
 public abstract class AbstractPlayer implements Player {
 
-	protected int DICE_MAX = 6;
+	protected int DICE_MAX;
 	protected int SQUARE = 0;
 	protected int location = 0;
 	protected boolean[] locationArray;

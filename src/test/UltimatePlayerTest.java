@@ -11,7 +11,7 @@ public class UltimatePlayerTest {
 	public static void main(String[] args) {
 
 		SugorokuNormal sugoroku = new SugorokuNormal();
-		sugoroku.getLiquorList();
+//		sugoroku.getLiquorList();
 		System.out.println("「すごろくノーマル」を生成しました。");
 
 

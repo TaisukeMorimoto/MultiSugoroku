@@ -10,6 +10,7 @@ import java.util.Random;
 public class SugorokuNormal implements Sugoroku {
 
 	private static final int SQUARE = 25 + 1;
+	private static final int DICE_MAX = 6;
 	private ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
 
 	public SugorokuNormal() {
@@ -19,11 +20,6 @@ public class SugorokuNormal implements Sugoroku {
 			// move liquor instance from allList to liquorList at random
 			liquorList.add(liquorAllList.get(new Random().nextInt(liquorAllList.size())));
 		}
-	}
-
-	@Override
-	public ArrayList<Liquor> getLiquorList() {
-		return liquorList;
 	}
 
 	static ArrayList<Liquor> getLiquorAllList() {
@@ -44,6 +40,19 @@ public class SugorokuNormal implements Sugoroku {
 	        System.out.println(e);
 	      }
 		return liquorAllList;
+	}
+
+	@Override
+	public ArrayList<Liquor> getLiquorList() {
+		return liquorList;
+	}
+
+	public static int getSquare() {
+		return SQUARE;
+	}
+
+	public static int getDiceMax() {
+		return DICE_MAX;
 	}
 
 }
