@@ -40,7 +40,7 @@ public class SugorokuController extends HttpServlet {
 		switch (buttonId) {
 			case "init":
 				// initialization process
-				InitAction initAction = new InitAction();
+//				InitAction initAction = new InitAction();
 				nextPage = "/init.jsp";
 				break;
 			case "start":

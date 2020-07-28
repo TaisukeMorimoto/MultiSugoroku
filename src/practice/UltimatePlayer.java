@@ -26,7 +26,8 @@ public class UltimatePlayer extends AbstractPlayer {
 	private String ultimate2Target;
 	private int ultimate2Squares;
 	private int ultimate2Alc;
-	private int isRest;
+	private int numRest;
+	private int nowRest = 0; // 0:normal 1:last rest tern 2:...
 	private int ultimateGage;
 	private String ultimateConditions;
 	private boolean canUltimate = false;
@@ -54,7 +55,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 ultimate2Target = data[9];
 	        	 ultimate2Squares = Integer.parseInt(data[10]);
 	        	 ultimate2Alc = Integer.parseInt(data[11]);
-	        	 isRest = Integer.parseInt(data[12]);
+	        	 numRest = Integer.parseInt(data[12]);
 	        	 ultimateGage = Integer.parseInt(data[13]);
 	        	 ultimateConditions = data[14];
 	          }
@@ -84,27 +85,29 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	/**
-	 *  res = {param1, ultimate1Square, ultimate1Alc, isRest}
+	 *  res = {param1, ultimate1Square, ultimate1Alc, numRest}
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate() {
-		int[] res = {0, 0, 0, 0};
+		int[] res1 = {0, 0, 0, 0};
+		int[] res2 = {0, 0, 0, 0};
 		if (canUltimate == false) {
 			System.out.println("必殺技がまだ溜まってないから使えないよ");
 		} else {
 			System.out.println("<<<<" + name + "の必殺技!>>>>   " + ultimateName);
-			res = doUltimate1();
+			res1 = doUltimate1();
 			if (isUltimate2) {
 				System.out.println("ultimate2あり");
-				doUltimate2();
+				res2 = doUltimate2();
 			}
+			// !! resを多次元配列に変更する !!
 			canUltimate = false;
 		}
-		return res;
+		return ;
 	}
 
 	/**
-	 *  res = {param1, ultimate1Square, ultimate1Alc, isRest}
+	 *  res = {param1, ultimate1Square, ultimate1Alc, numRest}
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate1(){
@@ -136,7 +139,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	/**
-	 *  res = {param1, ultimate1Square, ultimate1Alc, isRest}
+	 *  res = {param1, ultimate1Square, ultimate1Alc, numRest}
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate2(){
@@ -149,9 +152,16 @@ public class UltimatePlayer extends AbstractPlayer {
 			res[0] = 3;
 			res[1] = ultimate2Squares;
 			res[2] = ultimate2Alc;
-			res[3] = isRest;
+			res[3] = numRest;
  		}
 		return res;
+	}
+
+	public void restOneTime() {
+		if (nowRest != 0) {
+			nowRest--;
+			count++;
+		}
 	}
 
 	@Override
@@ -188,6 +198,23 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void drinkLiquor(Liquor liquor) {
 		System.out.println(name + "の特性により、アルコール濃度が" + specialityAlc);
 		bloodAlcLv += liquor.getLiquorAlcLv() + specialityAlc;
+		if (bloodAlcLv < 0) {
+			bloodAlcLv = 0;
+		}
+		if ("above".equals(ultimateConditions)) {
+			if (bloodAlcLv > ultimateGage) {
+				canUltimate = true;
+			}
+		} else {
+			if (bloodAlcLv < ultimateGage) {
+				canUltimate = true;
+			}
+		}
+	}
+
+	public void drinkLiquorForUltimate(int alc) {
+		System.out.println(name + "の特性により、アルコール濃度が" + specialityAlc);
+		bloodAlcLv += alc + specialityAlc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
 		}
@@ -298,12 +325,12 @@ public class UltimatePlayer extends AbstractPlayer {
 		this.ultimate2Alc = ultimate2Alc;
 	}
 
-	public int getIsRest() {
-		return isRest;
+	public int getnumRest() {
+		return numRest;
 	}
 
-	public void setIsRest(int isRest) {
-		this.isRest = isRest;
+	public void setNumRest(int numRest) {
+		this.numRest = numRest;
 	}
 
 	public int getUltimateGage() {
@@ -336,6 +363,18 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public void setEnName(String enName) {
 		this.enName = enName;
+	}
+
+	public int getNowRest() {
+		return nowRest;
+	}
+
+	public void setNowRest(int nowRest) {
+		this.nowRest = nowRest;
+	}
+
+	public int getNumRest() {
+		return numRest;
 	}
 
 

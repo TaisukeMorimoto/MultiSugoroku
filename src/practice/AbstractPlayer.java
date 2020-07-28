@@ -5,8 +5,9 @@ import java.util.Random;
 public abstract class AbstractPlayer implements Player {
 
 	protected int DICE_MAX;
-	protected int SQUARE = 0;
+	protected int SQUARE;
 	protected int location = 0;
+	protected int dice;
 	protected boolean[] locationArray;
 	protected int count = 0;
 	protected int bloodAlcLv = 0;
@@ -30,6 +31,7 @@ public abstract class AbstractPlayer implements Player {
 	@Override
 	public int rollDice() {
 		int dice = new Random().nextInt(DICE_MAX) + 1;
+		this.dice = dice;
 		return dice;
 	}
 
