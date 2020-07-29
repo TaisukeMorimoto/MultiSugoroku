@@ -18,6 +18,7 @@ public class SugorokuManager {
 	private Sugoroku sugoroku;
 	private int nPlayer;
 	private int turn = 0;
+	public String[] playerNameArray;
 	private ArrayList<UltimatePlayer> playerList = new ArrayList<UltimatePlayer>();
 
 	public SugorokuManager(int nPlayer) {
@@ -26,6 +27,10 @@ public class SugorokuManager {
 		SQUARE = SugorokuNormal.getSquare();
 		DICE_MAX = SugorokuNormal.getDiceMax();
 		this.nPlayer = nPlayer;
+		playerNameArray = new String[nPlayer];
+		for (int i=0; i<nPlayer; i++) {
+			playerNameArray[i] = "";
+		}
 	}
 
 	public void StartPlaying(String playerName) {

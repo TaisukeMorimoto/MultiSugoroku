@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 public class InitAction {
 
-	public void execute(HttpServletRequest req) {
+	public String execute(HttpServletRequest req) {
 
 
+
+		return "/start.jsp";
 
 	}
 
