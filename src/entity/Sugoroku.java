@@ -1,4 +1,4 @@
-package practice;
+package entity;
 
 import java.util.ArrayList;
 

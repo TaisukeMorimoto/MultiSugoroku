@@ -1,4 +1,4 @@
-package practice;
+package entity;
 
 public interface Player {
 

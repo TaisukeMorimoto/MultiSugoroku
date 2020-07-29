@@ -1,8 +1,8 @@
 package test;
 
-import practice.Liquor;
-import practice.UltimatePlayer;
-import practice.SugorokuNormal;
+import entity.Liquor;
+import entity.SugorokuNormal;
+import entity.UltimatePlayer;
 
 public class MiyashitaTest {
 

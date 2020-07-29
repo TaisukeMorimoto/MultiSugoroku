@@ -1,6 +1,6 @@
 package test;
 
-import practice.SugorokuNormal;
+import entity.SugorokuNormal;
 
 public class SugorokuNormalTest {
 

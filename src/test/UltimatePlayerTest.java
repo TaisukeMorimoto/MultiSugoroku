@@ -2,9 +2,9 @@ package test;
 
 import java.util.ArrayList;
 
-import practice.Liquor;
-import practice.SugorokuNormal;
-import practice.UltimatePlayer;
+import entity.Liquor;
+import entity.SugorokuNormal;
+import entity.UltimatePlayer;
 
 public class UltimatePlayerTest {
 

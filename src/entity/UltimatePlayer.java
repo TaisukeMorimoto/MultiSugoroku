@@ -1,4 +1,4 @@
-package practice;
+package entity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,6 +18,7 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	// about my ultimate skill
 	private String ultimateName;
+	private String ultimateText;
 	private String ultimate1Target;
 	private int ultimate1Squares1;
 	private int ultimate1Squares2;
@@ -47,17 +48,19 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 name = data[0];
 	        	 this.setEnName(data[1]);
 	        	 ultimateName = data[2];
-	        	 ultimate1Target = data[3];
-	        	 ultimate1Squares1 = Integer.parseInt(data[5]);
-	        	 ultimate1Squares2 = Integer.parseInt(data[6]);
-	        	 ultimate1Alc = Integer.parseInt(data[7]);
-	        	 isUltimate2 = Boolean.valueOf(data[8]).booleanValue();
-	        	 ultimate2Target = data[9];
-	        	 ultimate2Squares = Integer.parseInt(data[10]);
-	        	 ultimate2Alc = Integer.parseInt(data[11]);
-	        	 numRest = Integer.parseInt(data[12]);
-	        	 ultimateGage = Integer.parseInt(data[13]);
-	        	 ultimateConditions = data[14];
+	        	 ultimateText = data[3];
+	        	 Boolean isUltimate1 = Boolean.valueOf(data[9]).booleanValue();;
+	        	 ultimate1Target = data[5];
+	        	 ultimate1Squares1 = Integer.parseInt(data[6]);
+	        	 ultimate1Squares2 = Integer.parseInt(data[7]);
+	        	 ultimate1Alc = Integer.parseInt(data[8]);
+	        	 isUltimate2 = Boolean.valueOf(data[9]).booleanValue();
+	        	 ultimate2Target = data[10];
+	        	 ultimate2Squares = Integer.parseInt(data[11]);
+	        	 ultimate2Alc = Integer.parseInt(data[12]);
+	        	 numRest = Integer.parseInt(data[13]);
+	        	 ultimateGage = Integer.parseInt(data[14]);
+	        	 ultimateConditions = data[15];
 	          }
 	        }
 	        br.close();
@@ -85,11 +88,12 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	/**
-	 *  res = {param1, ultimate1Square, ultimate1Alc, numRest}
+	 *  res = {param1, ultimate1Square, ultimate1Alc,
+	 *  	   param2, ultimate2Square, ultimateAlc, numRest}
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate() {
-		int[] res1 = {0, 0, 0, 0};
+		int[] res1 = {0, 0, 0};
 		int[] res2 = {0, 0, 0, 0};
 		if (canUltimate == false) {
 			System.out.println("必殺技がまだ溜まってないから使えないよ");
@@ -100,10 +104,12 @@ public class UltimatePlayer extends AbstractPlayer {
 				System.out.println("ultimate2あり");
 				res2 = doUltimate2();
 			}
-			// !! resを多次元配列に変更する !!
 			canUltimate = false;
 		}
-		return ;
+		int[] res = new int[res1.length + res2.length];
+		System.arraycopy(res1, 0, res, 0, res1.length);
+		System.arraycopy(res2, 0, res, res1.length, res2.length);
+		return res;
 	}
 
 	/**
@@ -111,7 +117,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate1(){
-		int res[] = {0, 0, 0, 0};
+		int res[] = {0, 0, 0};
 		if (ultimate1Target.equals("all")) {
 			bloodAlcLv += ultimate1Alc;
 			int[] array = {ultimate1Squares1, ultimate1Squares2};
@@ -139,7 +145,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	/**
-	 *  res = {param1, ultimate1Square, ultimate1Alc, numRest}
+	 *  res = {param2, ultimate2Square, ultimate2Alc, numRest}
 	 * param1 =  1:all 2:me 3:select
 	 */
 	public int[] doUltimate2(){
@@ -168,7 +174,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void goForward(int dice) {
 		// update location and locationArray
 		locationArray[location] = false;
-		System.out.println(name + "の特性により、さいころの目が" + specialitySpuares);
+		System.out.println("<" + name + ">specialities dice: " + specialitySpuares);
 		location += dice + specialitySpuares;
 		// if location is over goal
 		if (location >= SQUARE - 1) {
@@ -185,7 +191,6 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void goForwardForUltimate(int dice) {
 		// update location and locationArray
 		locationArray[location] = false;
-		System.out.println(name + "の特性により、さいころの目が" + specialitySpuares);
 		location += dice + specialitySpuares;
 		// if location is over goal
 		if (location >= SQUARE - 1) {
@@ -196,7 +201,7 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	@Override
 	public void drinkLiquor(Liquor liquor) {
-		System.out.println(name + "の特性により、アルコール濃度が" + specialityAlc);
+		System.out.println("<" + name + ">specialities alchole: " + specialityAlc);
 		bloodAlcLv += liquor.getLiquorAlcLv() + specialityAlc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
@@ -213,7 +218,6 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	public void drinkLiquorForUltimate(int alc) {
-		System.out.println(name + "の特性により、アルコール濃度が" + specialityAlc);
 		bloodAlcLv += alc + specialityAlc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;

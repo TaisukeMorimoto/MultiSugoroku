@@ -1,4 +1,4 @@
-package practice;
+package web;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import entity.SugorokuNormal;
 
 /**
  * Servlet implementation class Sugoroku
@@ -40,7 +42,8 @@ public class SugorokuController extends HttpServlet {
 		switch (buttonId) {
 			case "init":
 				// initialization process
-//				InitAction initAction = new InitAction();
+				InitAction initAction = new InitAction();
+				initAction.execute(request);
 				nextPage = "/init.jsp";
 				break;
 			case "start":
@@ -51,8 +54,8 @@ public class SugorokuController extends HttpServlet {
 			case "next":
 			case "ultimateDecision":
 				if (buttonId.equals("playDecision")) {
-					// generate new sugoroku which manages players, squares and turn
-					SugorokuNormal sugoroku = new SugorokuNormal(nPlayer, playerType);
+					MainAction mainAction = new MainAction();
+					mainAction.execute(request);
 				}
 				if (nPlayer == 1) {
 					nextPage = "/main1p.jsp";
@@ -70,12 +73,13 @@ public class SugorokuController extends HttpServlet {
 				}
 				break;
 			case "dice":
-				sugoroku.rollDice();
-				sugoroku.goForward();
-				sugoroku.drinkLiquor();
+				RollDiceAction rollDiceAction = new RollDiceAction();
+				rollDiceAction.execute(request);
 				nextPage = "/event.jsp";
 				break;
 			case "ultimate":
+				UltimateAction ultimateAction = new UltimateAction();
+				ultimateAction.execute(request);
 				nextPage = "/ultimate.jsp";
 				break;
 			default:
@@ -86,10 +90,4 @@ public class SugorokuController extends HttpServlet {
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 	}
-
-	static String mainAction(HttpServletRequest request, String buttonId) {
-		String nextPage;
-
-	}
-
 }
