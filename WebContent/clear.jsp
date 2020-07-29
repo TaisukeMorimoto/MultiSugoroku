@@ -1,43 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="session" class="practice.SugorokuBean" />
+<jsp:useBean id="sugorokubean" scope="application" class="practice.SugorokuBean" />
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<title>すごろく</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>MAP</title>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1><%=manager.playerList[manager.getTurn()].getPlayer()%>さんの勝利！！</h1>
+            <button type="button" onclick="location.href='sugoroku?page=play'" class="btn btn-default">もう一度遊ぶ</button>
+            <button type="button" onclick="location.href='sugoroku?page=init'" class="btn btn-default">最初から</button>
+        </header>
+    </div>
+    <div class="container">
+        <div class="card-deck">
+            <%
+                for(int i = 0; i < 4; i++){
+                    out.println("<div class='card-mb-4'><div class='card-body'><h2 class='card-title'><%=manager.getPlayerList[" + i + "].getName()%></h2>")
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+                    if(manager.playerList[i].getAlcohol() < 5){
+                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[1]>'>");
+                    }else if(manager.playerList[i].getAlcohol() >= 5 && manager.playerList[i].getAlcohol() < 10){
+                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[2]>'>");
+                    }else if(manager.playerList[i].getAlcohol() >= 10 && manager.playerList[i].getAlcohol() < 15){
+                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[3]>'>");
+                    }else if(manager.playerList[i].getAlcohol() >= 15 && manager.playerList[i].getAlcohol() < 20){
+                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[4]>'>");
 
-<!-- header -->
-  <header>
-  	<h1 class="headline">
-      <a>泥酔すごろく</a>
-    </h1>
-  </header><br><br>
+                    out.println("<div class='card-text'><table class='table'><tr><th>進捗</th><th><%=manager.playerList[" + i + "].getLocation()%>/<%=manager.getSQUARE() - 1%></th></tr><tr><td>血中アルコール濃度</td><td><%=manager.playerList[" + i + "].getAlcohol()%>％</td></tr></table></div></div></div>");
+                }
 
-<div class="container">
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <%
+                    out.println("<tr>");
+                    for (int i = 0; i <= manager.getSQUARE() -1; i++) {
+                        if (manager.playerList[manager.getTurn() - 1].getLocationArray(i)) {
+                            out.println("<td><img src='<%=manager.getPlayerList[" + i +"].getImagePath[1]>'></td>");
+                        } else {
+                            out.println("<td></td>");
+                        }
+                    }
+                    out.println("</tr>");
+                %>
+            </tr>
+        </table>
+    </div>
 
+    <button type="button" onclick="location.href='sugoroku?page=init'" class="btn btn-default">最初から</button>
 
-  <div class="card text-white bg-dark mb-3" style="width: 70rem; margin: 0 auto;"><br>
-   <div class="card-body text-center">
-   <h2 class="card-title"><%=sugorokubean.getCount()%>回目でゴール！</h2><br><br>
-   <div class="card-text"><p style="font-sice:30px">
-   	飲み会から生き残った。この経験があれば、もうどんな飲み会も怖くない。<br>
- 	血中アルコール濃度は<%=sugorokubean.getBloodAlcLv()%>でした。
-   <br><br></p></div>
-   <a><img src="images/gameclear.png" alt="gameclear"  width='30%' height='30%'></a>
-   </div>
-   <div class="mxauto text-center">
-   <a href='Sugoroku?page=init' class='btn btn-primary'>スタートに戻る</a><br><br><br>
-   </div>
- </div>
-
-</div>
 </body>
 </html>

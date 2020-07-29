@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(22, 44, 65);
+}
+
+.container{
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+header{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    top: 0;
+    z-index: 100;
+    background-color: rgb(157, 125, 150);
+}
+
+header h1{
+    font-size: 40px;
+    text-align: center;
+
+}
+
+.row button{
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, .5);
+}
+
+.container button{
+    color: #fff;
+}
+
+.card-deck card-mb-4{
+    width: 200px;
+    border-radius: 20px;
+}
+
+.card-body h2{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card-text th{
+    font-size: 18px;
+    color: #333;
+    background-color: rgb(218, 235, 243);
+    text-align: center;
+}
+
+.card-text td{
+    font-size: 18   px;
+    color: #333;
+    background-color: rgb(187, 217, 215);
+    text-align: center;
+}
+
+.container h3{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #333;
+    background-color: rgb(218, 235, 243);
+}
+
+button{
+    text-align: right;
+}

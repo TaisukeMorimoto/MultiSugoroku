@@ -1,7 +1,0 @@
-キャラ,class,技名,効果1,対象,マス,マス2,アルコール,効果2,対象,マス,アルコール,休み,発動条件,以上か以下か
-幹事の宮下,Miyashita,幹事挨拶「乾杯」,宮下テキスト,true,all,0,0,4,false,all,0,0,0,10,below
-泣き上戸の大竹,Otake,さよならは悲しい言葉じゃない,大竹テキスト,true,me,2,2,1,true,select,0,0,1,15,above
-断り上手の狩野,Kano,今日、この後デートなんで♡,狩野テキスト,true,me,5,5,0,false,all,0,0,0,15,below
-アルハラの鈴木,Suzuki,飲んでなくない？wowow↑,鈴木テキスト,true,select,0,0,6,false,all,0,0,0,10,above
-千鳥足の堅田,Katada,ええ、酔ってないですよ〜,堅田テキスト,true,select,10,10,0,false,all,0,0,0,15,above
-介抱の井上,Inoue,大丈夫ですか!!!,井上テキスト,true,me,2,2,-5,true,select,0,-5,0,5,above

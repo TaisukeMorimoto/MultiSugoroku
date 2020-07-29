@@ -12,9 +12,11 @@ public class SugorokuNormal implements Sugoroku {
 	private static final int SQUARE = 25 + 1;
 	private static final int DICE_MAX = 6;
 	private ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
+	private static String realPath;
 
-	public SugorokuNormal() {
+	public SugorokuNormal(String realPath) {
 
+		this.realPath = realPath;
 		ArrayList<Liquor> liquorAllList = getLiquorAllList();
 		for (int i = 0; i < SQUARE ; i++) {
 			// move liquor instance from allList to liquorList at random
@@ -25,7 +27,7 @@ public class SugorokuNormal implements Sugoroku {
 	static ArrayList<Liquor> getLiquorAllList() {
 		ArrayList<Liquor> liquorAllList = new ArrayList<Liquor>();
 	    try {
-	        File f = new File("src/csv/liquor.csv");
+	        File f = new File(realPath + "/WEB-INF/csv/liquor.csv");
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);

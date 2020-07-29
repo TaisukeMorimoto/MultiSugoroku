@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(22, 44, 65);
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+header{
+    background-color: rgb(157, 125, 150);
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+header h1{
+    font-weight: bold;
+}
+
+.selection-group input[type="radio"] {
+    display: none;/*ラジオボタンを見えないようにするCSS*/
+}
+
+.selection-group input[type="radio"]:checked + label img {
+    background-color: rgb(157, 125, 150);
+}
+
+label img {
+    margin: 3px;
+    padding: 8px;
+    float: left;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    vertical-align:bottom;
+    width: 100%;
+}
+
+label img:hover{
+    opacity: .7;
+}
+
+.futatsuna{
+    position: relative;
+}
+
+.futatsuna p{
+    position: absolute;
+    color: #fff;
+    top: 10;
+    left: 20;
+    font-size: 200%;
+    font-weight: bold;   
+}
+
+
+.container button{
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgb(157, 125, 150);
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    border-color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+}
+
+
+.futatsuna:hover .skill {
+    display: inline;
+}
+
+.skill {
+    position   : absolute;
+    z-index: 2;
+    display: none;
+    padding: 2px;
+    background-color:  rgb(62, 207, 252, .8);
+    width:307px;
+    height: 307px;                         
+    left: 3.8%;
+    top: 10px;
+    font-size: 200%;
+    color: #fff;
+}
+

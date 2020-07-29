@@ -1,41 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="session" class="practice.SugorokuBean" />
+<jsp:useBean id="sugorokubean" scope="application" class="practice.SugorokuBean" />
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<title>すごろく</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="map.js"></script>
+    <link rel="stylesheet" href="event.css">
+    <title>EVENT</title>
 </head>
 <body>
+    <header>
+	    <img src="<%=manager.getPlayerList[manager.getTurn()].getImagePath[5]">
+	    <h1><%=manager.playerList[manager.getTurn()].getPlayer()&>さん　GAMEOVER　です</h1>
+    </header>
+    <div class="container">
+        <section class="result">
+            <h2>最終結果</h2>
+            <table class='table'>
+                <tr><th>進捗</th><th><%=manager.playerList[manager.getTurn()].getLocation()%>/<%=manager.sugoroku.getSQUARE()</th></tr>
+                <tr><td>血中アルコール濃度</td><td><%=manager.playerList[manager.getTurn()].getBloodAlcLv()%>％</td></tr>
+            </table>
+        </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <button type="button" onclick="location.href='sugoroku?page=back'" class="btn btn-default">次のプレイヤーへ</button>
+        <button type="button" onclick="location.href='sugoroku?page=init'" class="btn btn-default">最初から</button>
 
-<!-- header -->
-  <header>
-  	<h1 class="headline">
-      <a>泥酔すごろく</a>
-    </h1>
-  </header><br><br>
-
-<div class="container">
-
-
-  <div class="card text-white bg-dark mb-3" style="width: 70rem; margin: 0 auto;"><br>
-   <div class="card-body text-center">
-   <img src="images/gameover2.jpg" width='30%' height='30%'><br><br>
-   <div class="card-text"><p style="font-size: 20px;">
-   		血中アルコール濃度は<%=sugorokubean.getBloodAlcLv()%>です。致死量。
-   <br><br></p></div>
-   </div>
-   <div class="mxauto text-center">
-   <a href='Sugoroku?page=init' class='btn btn-primary'>再チャレンジ</a><br><br><br>
-   </div>
- </div>
-
-</div>
+    </div>
 </body>
-</html>

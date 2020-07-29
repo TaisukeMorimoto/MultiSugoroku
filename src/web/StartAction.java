@@ -3,25 +3,24 @@ package web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import logic.SugorokuManager;
+import model.SugorokuManager;
 
 public class StartAction {
 
-	public String execute(HttpServletRequest req) {
+	public String execute(HttpServletRequest req, String realPath) {
 
 		HttpSession session = req.getSession(true);
-		SugorokuManager manager = (SugorokuManager) session.getAttribute("manager");
+
+		String nextPage = null;
 
 		int nPlayer = Integer.parseInt(req.getParameter("nPlayer"));
+		SugorokuManager manager = new SugorokuManager(realPath);
+		manager.InitSugorokuManager(nPlayer);
 
-		if (manager == null) {
-			manager = new SugorokuManager(nPlayer);
-		}
+		nextPage = "/selectChara.jsp";
+		session.setAttribute("manager", manager);
 
-		req.setAttribute("player", 0);
-		req.setAttribute("manager", manager);
-
-		return "selectChara.jsp";
+		return nextPage;
 	}
 
 }

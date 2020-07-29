@@ -1,6 +1,6 @@
 package test;
 
-import logic.SugorokuManager;
+import model.SugorokuManager;
 
 public class SugorokuManagerTest {
 

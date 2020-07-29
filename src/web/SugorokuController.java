@@ -2,7 +2,6 @@ package web;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +22,12 @@ public class SugorokuController extends HttpServlet {
         super();
     }
 
+    public void doPost (HttpServletRequest request, HttpServletResponse response)
+    		throws IOException, ServletException
+    		{
+    		this.doGet(request, response);
+    		}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -32,6 +37,7 @@ public class SugorokuController extends HttpServlet {
 		if (buttonId == null) {
 			buttonId = "init";
 		}
+
 		System.out.println(buttonId);
 		String nextPage = null;
 		switch (buttonId) {
@@ -41,16 +47,17 @@ public class SugorokuController extends HttpServlet {
 				nextPage = initAction.execute(request);
 				break;
 			case "start":
+				String realPath = this.getServletContext().getRealPath("");
 				StartAction startAction = new StartAction();
-				nextPage = startAction.execute(request);
+				nextPage = startAction.execute(request, realPath);
 				break;
 			case "playDecision":
 			case "back":
 			case "next":
 			case "ultimateDecision":
 				if (buttonId.equals("playDecision")) {
-					ChooseCharaAction chooseCharaAction = new ChooseCharaAction();
-					nextPage = chooseCharaAction.execute(request);
+					SelectCharaAction selectCharaAction = new SelectCharaAction();
+					nextPage = selectCharaAction.execute(request);
 				}
 				break;
 //			case "dice":
@@ -65,10 +72,8 @@ public class SugorokuController extends HttpServlet {
 //				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);
-				nextPage = "";
+				nextPage = "error.jsp";
 		}
-
-		RequestDispatcher rd = getServletContext().getRequestDispatcher(nextPage);
-		rd.forward(request, response);
+		request.getRequestDispatcher(nextPage).forward(request, response);
 	}
 }

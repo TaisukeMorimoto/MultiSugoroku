@@ -1,79 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="session"
-	class="practice.SugorokuBean" />
+    pageEncoding="UTF-8"%>
+<jsp:useBean id="sugorokubean" scope="application" class="practice.SugorokuBean" />
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-	crossorigin="anonymous">
-<title>すごろく</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="map.js"></script>
+    <link rel="stylesheet" href="event.css">
+    <title>EVENT</title>
 </head>
 <body>
+    <header>
+	    <img>
+	    <div><%=manager.playerList[manager.getTurn()].getDice()&>がでました。</div>
+    </header>
+    <div class="container">
+        <section class="square">
+            <%
+                if(<%=manager.playerList[manager.getTurn()].getSpecialitySquares()%> != 0){
+                    <h2><%=manager.playerList[manager.getTurn()].getPlayer()%>の能力で進むマスが<%=manager.playerList[manager.getTurn()].getSpecialitySquares()%>されます</h2>
+                }else{
+                    <h2><%=manager.playerList[manager.getTurn()].getDice()&>マス進みます</h2>
+                }
+            %>
+            <div class="event">
+                <h3><%=manager.sugoroku.liquorList[manager.playerList[manager.getTurn()].getLocation()].getLiquorText()%></h3><br>
+                <h2>血中アルコール濃度が<%=manager.sugoroku.liquorList[manager.playerList[manager.getTurn()].getLocation()].getLiquorAlcLv()%>されます</h2>
+            </div>
+        </section>
+        <section class="alcohol">
+            <%
+            if(<%=manager.playerList[manager.getTurn()].getSpecialityAlc()%> != 0){
+                <h2><%=manager.playerList[manager.getTurn()].getPlayer()%>の能力でアルコールの吸収が<%=manager.playerList[manager.getTurn()].getSpecialityAlc()%>されます</h2>
+            }else{
+                <h2></h2>
+            }
+            %>
+            <div class="bloodAlcLv">
+                <h2>現在の血中アルコール濃度は<%=manager.playerList[manager.getTurn()].getBloodAlcLv()%>％になりました。</h2>
+            </div>
+        </section>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-		crossorigin="anonymous"></script>
+        <button type="button" onclick="location.href='Sugoroku?page=next'" class="btn btn-default">進む</button>
+        <button type="button" onclick="location.href='sugoroku?page=init'"  class="btn btn-default">最初から</button>
 
-	<!-- header -->
-	<header>
-		<h1 class="headline">
-			<a>泥酔すごろく</a>
-		</h1>
-	</header>
-	<br>
-	<br>
-
-	<div class="container">
-
-		<div class="card text-white bg-dark mb-3"
-			style="width: 70rem; margin: 0 auto;">
-			<div class="row no-gutters">
-				<div class="col-md-4 my-auto">
-					<img class="card-img" src="images/drinkatonce.png">
-				</div>
-				<div class="col-md-8">
-					<br>
-					<div class="card-body">
-						<h3 class="card-title"><%=sugorokubean.rollDice()%>がでました。
-						</h3>
-						<br> <br>
-						<div class="card-text">
-							<p style="font-size: 30px;">
-								「<%=sugorokubean.getDrinkText()%>」<br>
-								<%=sugorokubean.getAlcoholLvText()%></p>
-							<br> 現在の血中アルコール濃度は<%=sugorokubean.alcIntake()%>です。<br>
-							<br> <br>
-						</div>
-						<div class="mxauto">
-							<%
-								if (sugorokubean.getLocation() == sugorokubean.getSQUARE() - 1) {
-								out.println("<a href='Sugoroku?page=clear' class='btn btn-primary btn-lg'>進む</a><br>");
-							} else if (sugorokubean.getBloodAlcLv() >= 20) {
-								out.println("<a href='Sugoroku?page=over' class='btn btn-primary btn-lg'>進む</a><br>");
-							} else {
-								out.println("<a href='Sugoroku?page=main' class='btn btn-primary btn-lg'>進む</a><br>");
-							}
-							%>
-						</div>
-						<br> <br> <br>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
+    </div>
 </body>
-</html>

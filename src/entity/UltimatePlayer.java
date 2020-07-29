@@ -34,10 +34,10 @@ public class UltimatePlayer extends AbstractPlayer {
 	private boolean canUltimate = false;
 
 
-	public UltimatePlayer(int SQUARE, int DICE_MAX, String enName) {
+	public UltimatePlayer(int SQUARE, int DICE_MAX, String realPath, String enName) {
 		super(SQUARE, DICE_MAX);
 	    try {
-	        File f = new File("src/csv/ultimate.csv");
+	        File f = new File(realPath + "/WEB-INF/csv/ultimate.csv");
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
@@ -68,7 +68,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	        System.out.println(e + "in ultimate.csv");
 	      }
 	    try {
-	        File f = new File("src/csv/specialities.csv");
+	        File f = new File(realPath + "/WEB-INF/csv/specialities.csv");
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
