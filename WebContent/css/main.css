@@ -90,6 +90,12 @@ button{
 .table td {
   border-color: #bbb;
 }
+
+.md-icon {
+	width: 50%;
+	hight: 50%;
+}
+
 .sm-icon {
 	width: 400%;
 	hight: 400%;

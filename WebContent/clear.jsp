@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sugorokubean" scope="application" class="practice.SugorokuBean" />
+<jsp:useBean id="manager" scope="application" class="model.SugorokuManager" />
 
 
 <!DOCTYPE html>
@@ -11,56 +11,88 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="main.js"></script>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>MAP</title>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><%=manager.playerList[manager.getTurn()].getPlayer()%>さんの勝利！！</h1>
-            <button type="button" onclick="location.href='sugoroku?page=play'" class="btn btn-default">もう一度遊ぶ</button>
-            <button type="button" onclick="location.href='sugoroku?page=init'" class="btn btn-default">最初から</button>
+            <h1><%=manager.getPlayerList().get(manager.getTurn()).getName()%>さんの勝利！！</h1>
+            <form action="Sugoroku" method="post">
+            <button type="submit" name="page" value="playDicision" class="btn btn-default">もう一度あそぶ</button>
+            <button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
+            </form>
         </header>
     </div>
-    <div class="container">
+<div class="container">
         <div class="card-deck">
             <%
                 for(int i = 0; i < 4; i++){
-                    out.println("<div class='card-mb-4'><div class='card-body'><h2 class='card-title'><%=manager.getPlayerList[" + i + "].getName()%></h2>")
+                    out.print("<div class='card-mb-4'><div class='card-body'><h2 class='card-title'>");
+                    out.print(manager.getPlayerList().get(i).getName());
+                    out.println("</h2>");
 
-                    if(manager.playerList[i].getAlcohol() < 5){
-                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[1]>'>");
-                    }else if(manager.playerList[i].getAlcohol() >= 5 && manager.playerList[i].getAlcohol() < 10){
-                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[2]>'>");
-                    }else if(manager.playerList[i].getAlcohol() >= 10 && manager.playerList[i].getAlcohol() < 15){
-                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[3]>'>");
-                    }else if(manager.playerList[i].getAlcohol() >= 15 && manager.playerList[i].getAlcohol() < 20){
-                        out.println("<img class='card-img' src='<%=manager.getPlayerList[" + i +"].getImagePath[4]>'>");
+                    if(manager.getPlayerList().get(i).getBloodAlcLv() < 5){
+                    	String imagePath = "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
+                        out.print("<img class='card-img' src='");
+                        out.print(imagePath);
+                        System.out.print(imagePath);
+                        out.print("'>");
+                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 5 && manager.getPlayerList().get(i).getBloodAlcLv() < 10){
+                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
+                        out.print("<img class='card-img' src='");
+                        out.print(imagePath);
+                        out.print("'>");
+                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 10 && manager.getPlayerList().get(i).getBloodAlcLv() < 15){
+                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
+                        out.print("<img class='card-img' src='");
+                        out.print(imagePath);
+                        out.print("'>");
+                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 15 && manager.getPlayerList().get(i).getBloodAlcLv() < 20){
+                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
+                        out.print("<img class='card-img' src='");
+                        out.print(imagePath);
+                        out.print("'>");
+                    }
 
-                    out.println("<div class='card-text'><table class='table'><tr><th>進捗</th><th><%=manager.playerList[" + i + "].getLocation()%>/<%=manager.getSQUARE() - 1%></th></tr><tr><td>血中アルコール濃度</td><td><%=manager.playerList[" + i + "].getAlcohol()%>％</td></tr></table></div></div></div>");
+                    out.print("<div class='card-text'><table class='table'><tr><th>進捗</th><th>");
+                    out.print(manager.getPlayerList().get(i).getLocation());
+                    out.println("/");
+                    int square = manager.getSQUARE() - 1;
+                    out.print(square);
+                    out.print("</th></tr><tr><td>血中アルコール濃度</td><td>");
+                    out.print(manager.getPlayerList().get(i).getBloodAlcLv());
+                    out.print("％</td></tr></table></div></div></div>");
                 }
+            %>
 
         </div>
-    </div>
-    <div class="container">
+</div>
+<div class="container">
         <table class="table">
             <tr>
                 <%
-                    out.println("<tr>");
-                    for (int i = 0; i <= manager.getSQUARE() -1; i++) {
-                        if (manager.playerList[manager.getTurn() - 1].getLocationArray(i)) {
-                            out.println("<td><img src='<%=manager.getPlayerList[" + i +"].getImagePath[1]>'></td>");
-                        } else {
-                            out.println("<td></td>");
+                	for (int i=0; i<4; i++){
+                        out.print("<tr>");
+                        for (int j=0; j<=manager.getSQUARE()-1; j++){
+                        	boolean[] locationArray = manager.getPlayerList().get(i).getLocationArray();
+                        	if (locationArray[j]){
+								String imagePath =  "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
+                        		out.print("<td><img class='sm-icon' src='");
+                        		out.print(imagePath);
+                        		out.print("'></td>");
+                        	} else {
+								String imagePath =  "image/location.png";
+                        		out.print("<td><img class='location' src='");
+                        		out.print(imagePath);
+                        		out.print("'></td>");
+                        	}
                         }
-                    }
+                	}
                     out.println("</tr>");
                 %>
             </tr>
         </table>
-    </div>
-
-    <button type="button" onclick="location.href='sugoroku?page=init'" class="btn btn-default">最初から</button>
-
+</div>
 </body>
 </html>

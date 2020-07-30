@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>MAP</title>
 </head>
@@ -24,20 +24,20 @@
                     <%
                         if(manager.getPlayerList().get(manager.getTurn()).getNowRest() == 0){
                             if(manager.getPlayerList().get(manager.getTurn()).getCanUltimate()== true){
-                                out.print("<form><button type='submit' name='page' value='start' class='btn btn-default'>必殺技</button></form>");
+                                out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default'>必殺技</button></form>");
                             }else if(manager.getPlayerList().get(manager.getTurn()).getCanUltimate() == false){
-                            	out.print("<form><button type='submit' name='page' value='start' class='btn btn-default' disabled>必殺技</button></form>");                          }
+                            	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");                          }
                         }else{
-                        	out.print("<form><button type='submit' name='page' value='start' class='btn btn-default' disabled>必殺技</button></form>");
+                        	out.print("<form action='Sugoroku' method='post' class='row'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");
                         }
                     %>
                 </div>
                 <div class="col-sm-3">
                     <%
                         if(manager.getPlayerList().get(manager.getTurn()).getNowRest() == 0){
-                            out.print("<form><button type='submit' name='page' value='dice' class='btn btn-default'>サイコロをふる</button></form>");
+                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>サイコロをふる</button></form>");
                         }else {
-                        	out.print("<form><button type='submit' name='page' value='start' class='btn btn-default'>次のプレイヤーへ</button></form>");
+                        	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>次のプレイヤーへ</button></form>");
                         }
 					%>
                 </div>
@@ -114,8 +114,9 @@
                 %>
             </tr>
         </table>
+    <form action="Sugoroku" method="post">
+		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
+	</form>
 </div>
-
-	<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
 </body>
 </html>

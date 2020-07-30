@@ -20,10 +20,11 @@ public class NextAction {
 			nextPage = "/over.jsp";
 
 		// judge whether game is clear
-		} else if(manager.getPlayerList().get(manager.getTurn()).getLocation() >= SugorokuManager.getSQUARE() - 1){
-			nextPage = "clear.jsp";
+		} else if(manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1){
+			nextPage = "/clear.jsp";
 
 		} else {
+			manager.goNextPayer();
 
 			if (manager.getnPlayer() == 1) {
 //				nextPage = "/main1p.jsp";
@@ -39,8 +40,6 @@ public class NextAction {
 			}
 
 		}
-
-		manager.goNextPayer();
 
 		session.setAttribute("manager", manager);
 

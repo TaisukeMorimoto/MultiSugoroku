@@ -87,4 +87,12 @@ public abstract class AbstractPlayer implements Player {
 		this.bloodAlcLv = bloodAlcLv;
 	}
 
+	public int getDice() {
+		return dice;
+	}
+
+	public void setDice(int dice) {
+		this.dice = dice;
+	}
+
 }
