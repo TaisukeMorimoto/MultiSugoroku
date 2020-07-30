@@ -24,7 +24,7 @@
         <div class="container">
             <form action="Sugoroku" method="post" class="row">
             <div class="selection-group">
-                <input id="suzuki" type="radio" name="chara" value="Suzuki" checked>
+                <input id="suzuki" type="radio" name="chara" value="suzuki" checked>
                 <label for="suzuki">
                     <div class="futatsuna"><span class="skill">必殺技<br>飲んでなくない？wowwow⤴</span>
                         <img src="image/aruhara.jpg">
@@ -32,7 +32,7 @@
                     </div>
                 </label>
 
-                <input id="katada" type="radio" name="chara" value="Katada">
+                <input id="katada" type="radio" name="chara" value="katada">
                 <label for="katada">
                     <div class="futatsuna"><span class="skill">必殺技<br>えぇ、酔ってないですよ～</span>
                         <img src="image/chidoriasi.jpg">
@@ -40,7 +40,7 @@
                     </div>
                 </label>
 
-                <input id="miyashita" type="radio" name="chara" value="Miyashita">
+                <input id="miyashita" type="radio" name="chara" value="miyashita">
                 <label for="miyashita">
                     <div class="futatsuna"><span class="skill">必殺技<br>幹事挨拶『乾杯』</span>
                         <img src="image/kanji.jpg">
@@ -48,7 +48,7 @@
                     </div>
                 </label>
 
-                <input id="kano" type="radio" name="chara" value="Kano">
+                <input id="kano" type="radio" name="chara" value="kano">
                 <label for="kano">
                     <div class="futatsuna"><span class="skill">必殺技<br>今日、この後デートあるんで♡</span>
                         <img src="image/kotowarijouzu.jpg">
@@ -56,7 +56,7 @@
                     </div>
                 </label>
 
-                <input id="otake" type="radio" name="chara" value="Otake">
+                <input id="otake" type="radio" name="chara" value="otake">
                 <label for="otake">
                     <div class="futatsuna"><span class="skill">必殺技<br>さよならは悲しい言葉じゃない</span>
                         <img src="image/nakijougo.jpg">
@@ -64,7 +64,7 @@
                     </div>
                 </label>
 
-                <input id="inoue" type="radio" name="chara" value="Inoue">
+                <input id="inoue" type="radio" name="chara" value="inoue">
                 <label for="inoue">
                     <div class="futatsuna"><span class="skill">必殺技<br>大丈夫ですかー！？！？</span>
                         <img src="image/kaihou.jpg">

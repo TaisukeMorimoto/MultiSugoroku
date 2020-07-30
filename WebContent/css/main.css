@@ -4,13 +4,12 @@ body{
     background-color: rgb(22, 44, 65);
 }
 
-.container{
+body .container{
     max-width: 1500px;
     margin: 0 auto;
     margin-bottom: 20px;
     color: #fff;
     font-weight: bold;
-    background-color: #fff;
 }
 
 header{
@@ -28,29 +27,20 @@ header h1{
 
 }
 
-.row button{
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    background-color: #fff;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, .5);
-}
-
-.container button{
-    color: #fff;
+.card-deck {
+	padding: 0 auto;
 }
 
 .card-deck card-mb-4{
-    width: 200px;
+    width: 100px;
     border-radius: 20px;
 }
 
-.card-body h2{
+.card-title a{
     font-size: 20px;
     text-align: center;
     font-weight: bold;
+    color: rgb(157, 125, 150);
 }
 
 .card-text th{
@@ -77,4 +67,36 @@ header h1{
 
 button{
     text-align: right;
+}
+
+.container button{
+    margin: 40px auto;
+    background-color: rgb(218, 235, 243);
+    border-radius: 5px;
+    color: #000;
+    padding: 10px auto;
+    width: 100%;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, .7);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.container button:hover{
+    background-color: rgb(157, 125, 150);
+    color: #fff;
+}
+
+.table th,
+.table td {
+  border-color: #bbb;
+}
+.sm-icon {
+	width: 400%;
+	hight: 400%;
+	z-index: 100;
+}
+
+.location {
+	width: 40%;
+	hight: 40%;
 }

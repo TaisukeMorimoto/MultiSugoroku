@@ -9,8 +9,10 @@ import entity.UltimatePlayer;
 
 public class SugorokuManager {
 
-	private static int SQUARE;
-	private static int DICE_MAX;
+	private int SQUARE;
+	private int DICE_MAX;
+	private int limitAlcLv = 20;
+	private int overNum = 100;
 	private UltimatePlayer player1;
 	private UltimatePlayer player2;
 	private UltimatePlayer player3;
@@ -289,5 +291,36 @@ public class SugorokuManager {
 		this.realPath = realPath;
 	}
 
+	public int getLimitAlcLv() {
+		return limitAlcLv;
+	}
+
+	public void setLimitAlcLv(int limitAlcLv) {
+		this.limitAlcLv = limitAlcLv;
+	}
+
+	public int getSQUARE() {
+		return SQUARE;
+	}
+
+	public void setSQUARE(int sQUARE) {
+		SQUARE = sQUARE;
+	}
+
+	public int getDICE_MAX() {
+		return DICE_MAX;
+	}
+
+	public void setDICE_MAX(int dICE_MAX) {
+		DICE_MAX = dICE_MAX;
+	}
+
+	public int getOverNum() {
+		return overNum;
+	}
+
+	public void setOverNum(int overNum) {
+		this.overNum = overNum;
+	}
 
 }

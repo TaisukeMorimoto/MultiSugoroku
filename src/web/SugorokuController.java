@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  * Servlet implementation class Sugoroku
  */
@@ -52,24 +51,30 @@ public class SugorokuController extends HttpServlet {
 				nextPage = startAction.execute(request, realPath);
 				break;
 			case "playDecision":
-			case "back":
-			case "next":
-			case "ultimateDecision":
-				if (buttonId.equals("playDecision")) {
-					SelectCharaAction selectCharaAction = new SelectCharaAction();
-					nextPage = selectCharaAction.execute(request);
-				}
+				SelectCharaAction selectCharaAction = new SelectCharaAction();
+				nextPage = selectCharaAction.execute(request);
 				break;
-//			case "dice":
-//				RollDiceAction rollDiceAction = new RollDiceAction();
-//				rollDiceAction.execute(request);
-//				nextPage = "/event.jsp";
-//				break;
-//			case "ultimate":
-//				UltimateAction ultimateAction = new UltimateAction();
-//				ultimateAction.execute(request);
-//				nextPage = "/ultimate.jsp";
-//				break;
+			case "back":
+				BackAction backAction = new BackAction();
+				nextPage = backAction.execute(request);
+			case "next":
+				NextAction nextAction = new NextAction();
+				nextPage = nextAction.execute(request);
+				break;
+			case "ultimateDecision":
+				UltimateDecisionAction ultimateDecisionAction = new UltimateDecisionAction();
+				ultimateDecisionAction.execute(request);
+				break;
+			case "dice":
+				RollDiceAction rollDiceAction = new RollDiceAction();
+				rollDiceAction.execute(request);
+				nextPage = "/event.jsp";
+				break;
+			case "ultimate":
+				UltimateAction ultimateAction = new UltimateAction();
+				ultimateAction.execute(request);
+				nextPage = "/ultimate.jsp";
+				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);
 				nextPage = "error.jsp";

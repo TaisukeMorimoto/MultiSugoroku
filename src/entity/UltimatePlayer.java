@@ -353,7 +353,7 @@ public class UltimatePlayer extends AbstractPlayer {
 		this.ultimateConditions = ultimateConditions;
 	}
 
-	public boolean isCanUltimate() {
+	public boolean getCanUltimate() {
 		return canUltimate;
 	}
 
