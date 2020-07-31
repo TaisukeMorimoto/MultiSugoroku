@@ -165,6 +165,7 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public void restOneTime() {
 		if (nowRest != 0) {
+			System.out.println("<"+this.getName()+"> rest one time");
 			nowRest--;
 			count++;
 		}
@@ -370,6 +371,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	public int getNowRest() {
+		System.out.println("<" + name + "> nowrest: " + nowRest);
 		return nowRest;
 	}
 

@@ -16,12 +16,20 @@
 </head>
 <body>
     <div class="container">
+                <h1>全員　GAMEOVER　です。</h1>
         <header>
-            <h1><%=manager.getPlayerList().get(manager.getTurn()).getName()%>さんの勝利！！</h1>
-            <form action="Sugoroku" method="post">
-            	<button type="submit" name="page" value="init" class="btn btn-default">もう一度あそぶ</button>
-           	    <button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
-            </form>
+        	<div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                	<form action="Sugoroku" method="post">
+					<button type="submit" name="page" value="init" class="btn btn-default">もう一度あそぶ</button>
+                </div>
+                <div class="col-sm-3">
+					<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
+					</form>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
         </header>
     </div>
 <div class="container">

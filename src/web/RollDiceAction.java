@@ -16,6 +16,7 @@ public class RollDiceAction {
 
 		manager.rollDiceOnePlayer();
 		if (manager.getPlayerList().get(manager.getTurn()).getNowRest() > 0) {
+			manager.goNextPayer();
 			if (manager.getnPlayer() == 1) {
 //				nextPage = "/main1p.jsp";
 				nextPage = "/error.jsp";
@@ -38,7 +39,6 @@ public class RollDiceAction {
 			nextPage = "/event.jsp";
 		}
 
-		nextPage = "/selectChara.jsp";
 		session.setAttribute("manager", manager);
 
 		return nextPage;

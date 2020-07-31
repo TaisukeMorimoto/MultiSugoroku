@@ -21,13 +21,12 @@
     </header>
     <div class="container">
         <section class="square">
-            <%
+<%--             <%
 		        String imagePath = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
-		        out.print("<img class='md-icon' src='");
+		        out.print("<img src='");
 		        out.print(imagePath);
-		        System.out.print(imagePath);
 		        out.print("'>");
-        	%>
+        	%> --%>
             <%
                 if(manager.getPlayerList().get(manager.getTurn()).getSpecialitySpuares() != 0){
                 	String name = manager.getPlayerList().get(manager.getTurn()).getName();
@@ -69,6 +68,7 @@
             %>
             <div class="bloodAlcLv">
                 <h2>現在の血中アルコール濃度は<%=manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv()%>％になりました。</h2>
+                <h2>現在地は<%=manager.getPlayerList().get(manager.getTurn()).getLocation()%>です。</h2>
             </div>
         </section>
 

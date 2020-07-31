@@ -57,28 +57,28 @@ public class SugorokuController extends HttpServlet {
 			case "back":
 				BackAction backAction = new BackAction();
 				nextPage = backAction.execute(request);
+				break;
 			case "next":
 				NextAction nextAction = new NextAction();
 				nextPage = nextAction.execute(request);
 				break;
 			case "ultimateDecision":
 				UltimateDecisionAction ultimateDecisionAction = new UltimateDecisionAction();
-				ultimateDecisionAction.execute(request);
+				nextPage = ultimateDecisionAction.execute(request);
 				break;
 			case "dice":
 				RollDiceAction rollDiceAction = new RollDiceAction();
-				rollDiceAction.execute(request);
-				nextPage = "/event.jsp";
+				nextPage = rollDiceAction.execute(request);
 				break;
 			case "ultimate":
 				UltimateAction ultimateAction = new UltimateAction();
-				ultimateAction.execute(request);
-				nextPage = "/ultimate.jsp";
+				nextPage = ultimateAction.execute(request);
 				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);
 				nextPage = "error.jsp";
 		}
+		System.out.println("nextPage: " + nextPage);
 		request.getRequestDispatcher(nextPage).forward(request, response);
 	}
 }

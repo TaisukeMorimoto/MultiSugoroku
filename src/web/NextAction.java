@@ -15,7 +15,7 @@ public class NextAction {
 		String nextPage = null;
 
 		// judge whether game is over
-		if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() > manager.getLimitAlcLv()) {
+		if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() >= manager.getLimitAlcLv()) {
 			manager.getPlayerList().get(manager.getTurn()).setNowRest(manager.getOverNum());
 			nextPage = "/over.jsp";
 

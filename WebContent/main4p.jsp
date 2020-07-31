@@ -57,7 +57,6 @@
                     	String imagePath = "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
                         out.print("<img class='card-img' src='");
                         out.print(imagePath);
-                        System.out.print(imagePath);
                         out.print("'>");
                     }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 5 && manager.getPlayerList().get(i).getBloodAlcLv() < 10){
                     	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";

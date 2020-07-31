@@ -108,10 +108,12 @@ public class SugorokuManager {
 	}
 
 	public void goNextPayer() {
+		System.out.println("<"+playerList.get(turn).getName()+"> go next player");
 		turn += 1;
 		if (turn >= nPlayer) {
 			turn = 0;
 		}
+		System.out.println("<"+playerList.get(turn).getName()+"> start next player");
 	}
 
 	// do ultimate when ultimate1 target is select type

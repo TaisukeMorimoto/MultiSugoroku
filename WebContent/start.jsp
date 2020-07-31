@@ -26,7 +26,7 @@
                 <label>プレイヤー人数を選んでください</label>
                 <div class="radio" onclick="playerChoice()">
                     <label id="1_lb">
-                        <input type="radio" name="nPlayer" value="1" checked id="1"> 1人
+                        <input type="radio" name="nPlayer" value="1" id="1"> 1人
                     </label>
                     <label id="2_lb">
                         <input type="radio" name="nPlayer" value="2" id="2"> 2人
@@ -35,7 +35,7 @@
                         <input type="radio" name="nPlayer" value="3" id="3"> 3人
                     </label>
                     <label id="4_lb">
-                        <input type="radio" name="nPlayer" value="4" id="4"> 4人
+                        <input type="radio" name="nPlayer" value="4" checked id="4"> 4人
                     </label>
                 </div>
             </div>

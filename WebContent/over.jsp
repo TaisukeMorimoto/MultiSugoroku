@@ -17,9 +17,8 @@
     <header>
     	<%
 	        String imagePath = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
-	        out.print("<img class='md-icon' src='");
+	        out.print("<img style='width:30% height:30%' src='");
 	        out.print(imagePath);
-	        System.out.print(imagePath);
 	        out.print("'>");
         %>
 	    <h1><%=manager.getPlayerList().get(manager.getTurn()).getName()%>さん　GAMEOVER　です</h1>
