@@ -46,9 +46,13 @@ public class SugorokuController extends HttpServlet {
 				nextPage = initAction.execute(request);
 				break;
 			case "start":
-				String realPath = this.getServletContext().getRealPath("");
 				StartAction startAction = new StartAction();
-				nextPage = startAction.execute(request, realPath);
+				nextPage = startAction.execute(request);
+				break;
+			case "play":
+				String realPath = this.getServletContext().getRealPath("");
+				PlayAction playAction = new PlayAction();
+				nextPage = playAction.execute(request, realPath);
 				break;
 			case "playDecision":
 				SelectCharaAction selectCharaAction = new SelectCharaAction();

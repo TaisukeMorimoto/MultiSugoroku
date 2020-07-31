@@ -6,7 +6,7 @@ public class InitAction {
 
 	public String execute(HttpServletRequest req) {
 
-		String nextPage = "/start.jsp";
+		String nextPage = "/title.jsp";
 
 		return nextPage;
 

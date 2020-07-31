@@ -14,28 +14,23 @@
     <link rel="stylesheet" href="css/start.css">
     <title>START</title>
 </head>
-<body>
     <div class="container">
-        <header>
-            <h1>泥酔すごろく</h1>
-        </header>
-    </div>
-    <div class="container">
+    	<img src="image/staff2.png" style="width:30%; height:30%">
         <form action="Sugoroku" method="post" class="row">
             <div class="form-group">
-                <label>プレイヤー人数を選んでください</label>
+                <label>何名様でお越しですか？</label>
                 <div class="radio" onclick="playerChoice()">
                     <label id="1_lb">
-                        <input type="radio" name="nPlayer" value="1" id="1"> 1人
+                        <input type="radio" name="nPlayer" value="1" id="1"> 1名様
                     </label>
                     <label id="2_lb">
-                        <input type="radio" name="nPlayer" value="2" id="2"> 2人
+                        <input type="radio" name="nPlayer" value="2" id="2"> 2名様
                     </label>
                     <label id="3_lb">
-                        <input type="radio" name="nPlayer" value="3" id="3"> 3人
+                        <input type="radio" name="nPlayer" value="3" id="3"> 3名様
                     </label>
                     <label id="4_lb">
-                        <input type="radio" name="nPlayer" value="4" checked id="4"> 4人
+                        <input type="radio" name="nPlayer" value="4" checked id="4"> 4名様
                     </label>
                 </div>
             </div>
@@ -61,7 +56,7 @@
                 </div>
             </section>
 
-            <button type="submit" name="page" value="start" class="btn btn-default">PLAY</button>
+            <button type="submit" name="page" value="play" class="btn btn-default">PLAY</button>
 
         </form>
     </div>

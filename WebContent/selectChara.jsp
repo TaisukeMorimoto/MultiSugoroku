@@ -11,14 +11,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="js/selectChara.js"></script>
-        <link rel="stylesheet" href="css/selectChara.css">
+        <link rel="stylesheet" href="css/selectChara2.css">
         <title>キャラクター選択</title>
     </head>
     <body>
-
-        <header>
-            <h1>プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください</h1>
-        </header>
+        <div class="container">
+        	<h1>プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください</h1>
+        </div>
 
         <hr>
         <div class="container">

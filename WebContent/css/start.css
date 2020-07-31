@@ -71,4 +71,8 @@ label + label {
     color: #fff;
 }
 
+img {
+	width: 50%;
+	height: 50%;
+}
 
