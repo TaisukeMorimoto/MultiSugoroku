@@ -16,16 +16,16 @@
     </head>
     <body>
         <div class="container">
-        	<h1>プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください</h1>
-        </div>
-
+        <header>
+        	<h2>プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください</h2>
+        </header>
         <hr>
-        <div class="container">
-            <form action="Sugoroku" method="post" class="row">
+            <form action="Sugoroku" method="post">
             <div class="selection-group">
                 <input id="suzuki" type="radio" name="chara" value="suzuki" checked>
                 <label for="suzuki">
-                    <div class="futatsuna"><span class="skill">必殺技<br>飲んでなくない？wowwow⤴</span>
+                    <div class="futatsuna"><span class="skill">必殺技
+                    <br>飲んでなくない？wowwow⤴</span>
                         <img src="image/suzuki.jpg">
                         <p>アルハラの鈴木</p>
                     </div>
@@ -41,7 +41,11 @@
 
                 <input id="miyashita" type="radio" name="chara" value="miyashita">
                 <label for="miyashita">
-                    <div class="futatsuna"><span class="skill">必殺技<br>幹事挨拶『乾杯』</span>
+                    <div class="futatsuna">
+                    	<span class="skill">
+                    		必殺技<br>
+                    		幹事挨拶『乾杯』<br><br>
+                    	</span>
                         <img src="image/miyashita.jpg">
                         <p>幹事の宮下</p>
                     </div>

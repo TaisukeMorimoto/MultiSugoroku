@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import model.SugorokuManager;
 
-public class BackAction {
+public class BackFromOverAction {
 
 	public String execute(HttpServletRequest req) {
 
@@ -26,8 +26,6 @@ public class BackAction {
 		} else if (manager.getnPlayer() == 4) {
 			nextPage = "/main4p.jsp";
 		}
-
-		manager.goNextPayer();
 
 		session.setAttribute("manager", manager);
 

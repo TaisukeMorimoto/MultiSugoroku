@@ -12,6 +12,14 @@ body{
     font-weight: bold;
 }
 
+.containerTitle{
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
 header{
     margin-top: 200px;
     margin-bottom: 50px;
@@ -71,8 +79,31 @@ label + label {
     color: #fff;
 }
 
-img {
-	width: 50%;
-	height: 50%;
-}
+.example {
+  position: relative;
+  }
 
+.example a {/*aタグを画像の真ん中に*/
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  /*以下装飾*/
+  margin:0;/*余計な隙間を除く*/
+  font-size: 60px;/*文字サイズ*/
+  border: solid white 2px; /*線で囲う*/
+  padding: 1px 35px 1px 35px;/*文字と線の間の余白*/
+  color: white;/*文字色*/
+  text-decoration: none;/*下線を表示させない*/
+  border-radius: 5px;
+  }
+
+.example a:hover{/*カーソルを当てたとき*/
+  background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+  }
+
+.example img {
+  width: 100%;
+  }

@@ -58,9 +58,13 @@ public class SugorokuController extends HttpServlet {
 				SelectCharaAction selectCharaAction = new SelectCharaAction();
 				nextPage = selectCharaAction.execute(request);
 				break;
-			case "back":
-				BackAction backAction = new BackAction();
+			case "backFromOver":
+				BackFromOverAction backAction = new BackFromOverAction();
 				nextPage = backAction.execute(request);
+				break;
+			case "backFromUltimate":
+				BackFromUltimateAction backUltimateAction = new BackFromUltimateAction();
+				nextPage = backUltimateAction.execute(request);
 				break;
 			case "next":
 				NextAction nextAction = new NextAction();

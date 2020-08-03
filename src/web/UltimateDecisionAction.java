@@ -39,6 +39,7 @@ public class UltimateDecisionAction {
 		} else if (manager.getnPlayer() == 4) {
 			nextPage = "/main4p.jsp";
 		}
+
 		session.setAttribute("manager", manager);
 
 		return nextPage;

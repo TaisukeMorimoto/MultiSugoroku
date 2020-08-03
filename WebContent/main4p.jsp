@@ -16,42 +16,43 @@
 <body>
     <div class="container">
         <header>
-            <h1><%=manager.getPlayerList().get(manager.getTurn()).getCount() + 1%>ターン目です</h1><br>
-            <h1><%=manager.getPlayerList().get(manager.getTurn()).getName()%>さんの番です</h1><br>
-<div class="row">
-				<div class="col-sm-3"></div>
-                <div class="col-sm-3">
+        	<div class="row">
+        	<div class="col-sm-6">
+            	<h1>　　<%=manager.getPlayerList().get(manager.getTurn()).getCount() + 1%><a>ターン目</a></h1><br>
+            	<h1>　　<%=manager.getPlayerList().get(manager.getTurn()).getName()%>さん<a>の番です</a></h1><br>
+			</div>
+				<div class="col-sm-1"></div>
+                <div class="col-sm-4">
                     <%
                         if(manager.getPlayerList().get(manager.getTurn()).getNowRest() == 0){
                             if(manager.getPlayerList().get(manager.getTurn()).getCanUltimate()== true){
                                 out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default'>必殺技</button></form>");
                             }else if(manager.getPlayerList().get(manager.getTurn()).getCanUltimate() == false){
-                            	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");                          }
+                            	out.print("<form action='Sugoroku' method='post'><div class='disable'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");                          }
                         }else{
                         	out.print("<form action='Sugoroku' method='post' class='row'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");
                         }
                     %>
-                </div>
-                <div class="col-sm-3">
                     <%
                         if(manager.getPlayerList().get(manager.getTurn()).getNowRest() == 0){
                             out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>サイコロをふる</button></form>");
                         }else {
-                        	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>次のプレイヤーへ</button></form>");
+                        	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>次のプレイヤーへ</button></form></div>");
                         }
 					%>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-1"></div>
             </div>
         </header>
     </div>
 <div class="container">
         <div class="card-deck">
+
             <%
                 for(int i = 0; i < 4; i++){
-                    out.print("<div class='card-mb-4'><div class='card-body'><h2 class='card-title'>");
+                    out.print("<div class='card-mb-4' style='width: 16rem;'><div class='card-body'><h2 class='card-title'>");
                     out.print(manager.getPlayerList().get(i).getName());
-                    out.println("</h2>");
+                    out.print("</h2>");
 
                     if(manager.getPlayerList().get(i).getBloodAlcLv() < 5){
                     	String imagePath = "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
@@ -75,9 +76,9 @@
                         out.print("'>");
                     }
 
-                    out.print("<div class='card-text'><table class='table'><tr><th>進捗</th><th>");
+                    out.print("<div class='card-text'><table class='table'><tr><th>現在地</th><th>");
                     out.print(manager.getPlayerList().get(i).getLocation());
-                    out.println("/");
+                    out.print("/");
                     int square = manager.getSQUARE() - 1;
                     out.print(square);
                     out.print("</th></tr><tr><td>血中アルコール濃度</td><td>");
@@ -85,7 +86,6 @@
                     out.print("％</td></tr></table></div></div></div>");
                 }
             %>
-
         </div>
 </div>
 <div class="container">
@@ -98,11 +98,16 @@
                         	boolean[] locationArray = manager.getPlayerList().get(i).getLocationArray();
                         	if (locationArray[j]){
 								String imagePath =  "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        		out.print("<td><img class='sm-icon' src='");
+                        		out.print("<td><img style='width:40px; height:40px;' src='");
                         		out.print(imagePath);
                         		out.print("'></td>");
-                        	} else {
-								String imagePath =  "image/location.png";
+                        	} else if (j == manager.getSQUARE()-1){
+   								String imagePath =  "image/flag.png";
+                           		out.print("<td><img style='width:30px; height:30px;' src='");
+                           		out.print(imagePath);
+                           		out.print("'></td>");
+                        	} else{
+								String imagePath =  "image/round.png";
                         		out.print("<td><img class='location' src='");
                         		out.print(imagePath);
                         		out.print("'></td>");

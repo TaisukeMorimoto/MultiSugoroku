@@ -1,5 +1,6 @@
 package model;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import entity.Liquor;
@@ -29,7 +30,12 @@ public class SugorokuManager {
 	}
 
 	public SugorokuManager(String realPath) {
-		this.realPath = realPath;
+    	if (realPath == null) {
+	    	String path = new File(".").getAbsoluteFile().getParent();
+    		this.realPath = path + "/WebContent";
+    	} else {
+    		this.realPath = realPath;
+    	}
 	}
 
 	public void InitSugorokuManager(int nPlayer) {
@@ -39,7 +45,7 @@ public class SugorokuManager {
 		DICE_MAX = SugorokuNormal.getDiceMax();
 		this.nPlayer = nPlayer;
 		for (int i=0; i<nPlayer; i++) {
-			playerNameList.add("a");
+			playerNameList.add("");
 		}
 	}
 
@@ -142,6 +148,7 @@ public class SugorokuManager {
 				} else if (res[3] == 3) {
 					reflectUltimate2ToSelect(enName, res);
 				}
+				playerList.get(i).setCanUltimate(false);
 			}
 		}
 	}
@@ -159,20 +166,25 @@ public class SugorokuManager {
 
 				if (res[0] == 1) {
 					reflectUltimate1ToAll(res);
+					System.out.println("対象1：全員");
 				} else if (res[0] == 2) {
 					reflectUltimate1ToMe(res, i);
+					System.out.println("対象1：自分");
 				} else if (res[0] == 3) {
 					System.out.println("logic error: branch not specified in doUltimate1");
 //					reflectUltimate1ToSelect(enName, res);
 				}
 				if (res[3] == 1) {
 					reflectUltimate2ToAll(res);
+					System.out.println("対象2：全員");
 				} else if (res[3] == 2) {
 					reflectUltimate2ToMe(res, i);
+					System.out.println("対象2：自分");
 				} else if (res[3] == 3) {
 					System.out.println("logic error: branch not specified in doUltimate2");
 //					reflectUltimate2ToSelect(enName, res);
 				}
+				playerList.get(i).setCanUltimate(false);
 			}
 		}
 	}

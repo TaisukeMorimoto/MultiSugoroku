@@ -36,9 +36,10 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public UltimatePlayer(int SQUARE, int DICE_MAX, String realPath, String enName) {
 		super(SQUARE, DICE_MAX);
+		File f;
 	    try {
-	        File f = new File(realPath + "/WEB-INF/csv/ultimate.csv");
-	        BufferedReader br = new BufferedReader(new FileReader(f));
+	    	f = new File(realPath + "/WEB-INF/csv/ultimate.csv");
+			BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
 	        // 1行ずつCSVファイルを読み込む
@@ -63,12 +64,16 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 ultimateConditions = data[15];
 	          }
 	        }
+	        System.out.println("generate " + enName);
+	        System.out.println(enName + " has a " + ultimateName);
+	        System.out.println("ultimate1squares: " + ultimate1Squares1);
+	        System.out.println("ultimate1alc: " + ultimate1Alc);
 	        br.close();
 	      } catch (IOException e) {
 	        System.out.println(e + "in ultimate.csv");
 	      }
 	    try {
-	        File f = new File(realPath + "/WEB-INF/csv/specialities.csv");
+	    	f = new File(realPath + "/WEB-INF/csv/specialities.csv");
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
@@ -96,9 +101,9 @@ public class UltimatePlayer extends AbstractPlayer {
 		int[] res1 = {0, 0, 0};
 		int[] res2 = {0, 0, 0, 0};
 		if (canUltimate == false) {
-			System.out.println("必殺技がまだ溜まってないから使えないよ");
+			System.out.println("必殺技がまだ溜まってないから使えない");
 		} else {
-			System.out.println("<<<<" + name + "の必殺技!>>>>   " + ultimateName);
+			System.out.println("<<<<" + name + "の必殺技>>>>   " + ultimateName);
 			res1 = doUltimate1();
 			if (isUltimate2) {
 				System.out.println("ultimate2あり");
@@ -109,6 +114,13 @@ public class UltimatePlayer extends AbstractPlayer {
 		int[] res = new int[res1.length + res2.length];
 		System.arraycopy(res1, 0, res, 0, res1.length);
 		System.arraycopy(res2, 0, res, res1.length, res2.length);
+		System.out.println("ultimate1 target: " + res[0]);
+		System.out.println("ultimate1 square: " + res[1]);
+		System.out.println("ultimate1 alc: " + res[2]);
+		System.out.println("ultimate2 target: " + res[3]);
+		System.out.println("ultimate2 square: " + res[4]);
+		System.out.println("ultimate2 alc: " + res[5]);
+		System.out.println("ultimate2 rest: " + res[6]);
 		return res;
 	}
 
@@ -196,6 +208,8 @@ public class UltimatePlayer extends AbstractPlayer {
 		// if location is over goal
 		if (location >= SQUARE - 1) {
 			location = SQUARE - 1;
+		} else if (location < 0) {
+			location = 0;
 		}
 		locationArray[location] = true;
 	}
@@ -219,6 +233,8 @@ public class UltimatePlayer extends AbstractPlayer {
 	}
 
 	public void drinkLiquorForUltimate(int alc) {
+		System.out.println(enName + "は現在" + bloodAlcLv + "%");
+		System.out.println(enName + "は必殺技により" + alc +"%飲む");
 		bloodAlcLv += alc + specialityAlc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
@@ -232,7 +248,9 @@ public class UltimatePlayer extends AbstractPlayer {
 				canUltimate = true;
 			}
 		}
+		System.out.println(enName + "は現在" + bloodAlcLv + "%");
 	}
+
 
 	public String getName() {
 		return name;
@@ -381,6 +399,14 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public int getNumRest() {
 		return numRest;
+	}
+
+	public String getUltimateText() {
+		return ultimateText;
+	}
+
+	public void setUltimateText(String ultimateText) {
+		this.ultimateText = ultimateText;
 	}
 
 

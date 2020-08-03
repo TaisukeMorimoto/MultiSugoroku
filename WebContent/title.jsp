@@ -15,23 +15,34 @@
     <title>START</title>
 </head>
 <body>
-    <div class="container">
+
+ <!--    <div class="container">
         <header>
             <h1>泥酔すごろく</h1>
         </header>
-    </div>
-    <div class="container">
-<!--             <section class="information">
+    </div> -->
+
+<!--     <div class="container">
+			<img src="image/title.proto.jpg">
+            <section class="information">
                 <h2>ルール説明</h2>
                 <div class="rule">
                     <p>・血中アルコール濃度20％に達する前にゴールしよう<br>
                     ・それぞれのキャラクターは一度だけ必殺技が使えるぞ<br>
                     ・キャラクターの特性を活かして一番最初にゴールしよう！</p>
                 </div>
-            </section> -->
+            </section>
         <form action="Sugoroku" method="post" class="row">
             <button type="submit" name="page" value="start" class="btn btn-default">PLAY</button>
         </form>
-    </div>
+    </div> -->
+
+	<div class="containerTitle">
+     <div class="example">
+  		<img src="image/title.proto.jpg" />
+  		<a href="Sugoroku?page=start"><i class="fa fa-twitter" ></i> START</a>
+	</div>
+	</div>
+
 </body>
 </html>

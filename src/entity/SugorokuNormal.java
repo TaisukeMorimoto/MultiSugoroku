@@ -15,7 +15,6 @@ public class SugorokuNormal implements Sugoroku {
 	private static String realPath;
 
 	public SugorokuNormal(String realPath) {
-
 		this.realPath = realPath;
 		ArrayList<Liquor> liquorAllList = getLiquorAllList();
 		for (int i = 0; i < SQUARE ; i++) {
@@ -27,7 +26,7 @@ public class SugorokuNormal implements Sugoroku {
 	static ArrayList<Liquor> getLiquorAllList() {
 		ArrayList<Liquor> liquorAllList = new ArrayList<Liquor>();
 	    try {
-	        File f = new File(realPath + "/WEB-INF/csv/liquor.csv");
+	    	File f = new File(realPath + "/WEB-INF/csv/liquor.csv");
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
