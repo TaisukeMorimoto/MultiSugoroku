@@ -16,11 +16,30 @@
     </head>
     <body>
         <div class="container">
-        <header>
-        	<h2>プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください</h2>
-        </header>
-        <hr>
-            <form action="Sugoroku" method="post">
+		<header>
+			<div class="row">
+        	<div class="col-sm-7">
+	            <!--吹き出しはじまり-->
+				<div class="balloon5">
+				  <div class="faceicon">
+					<img src="image/staff2.png" alt="...">
+				  </div>
+				  <div class="chatting">
+				    <div class="says">
+						プレイヤー<%=manager.getSelectPlayer()%>は、キャラクターを選択してください
+				    </div>
+				  </div>
+				</div>
+				<!--吹き出し終わり-->
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-3">
+				<button type="submit" name="page" value="playDecision" class="btn btn-default" form="selectChara">決定</button>
+			</div>
+			<div class="col-sm-1"></div>
+			</div>
+		</header>
+			<form action="Sugoroku" method="post" id="selectChara">
             <div class="selection-group">
                 <input id="suzuki" type="radio" name="chara" value="suzuki" checked>
                 <label for="suzuki">
@@ -76,7 +95,6 @@
                 </label>
 
             </div>
-            <button type="submit" name="page" value="playDecision" class="btn btn-default">決定</button>
             <button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
             </form>
         </div>

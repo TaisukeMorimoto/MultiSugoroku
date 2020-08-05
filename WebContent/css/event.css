@@ -5,23 +5,13 @@ body{
 }
 
 .container{
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.containerTitle{
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 header{
-    margin-top: 200px;
+    margin-top: 50px;
     margin-bottom: 50px;
     padding: 5px;
     top: 0;
@@ -57,7 +47,7 @@ label + label {
     border-radius: 5px;
     background-color: rgb(157, 125, 150);
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     padding-top: 2px;
     padding-left: 3px;
 }
@@ -107,3 +97,50 @@ label + label {
 .example img {
   width: 100%;
   }
+
+ .balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img{
+  width: 100%;
+  height: auto;
+  border: solid 3px rgb(157, 125, 150);
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: rgb(157, 125, 150);
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid rgb(157, 125, 150);
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}

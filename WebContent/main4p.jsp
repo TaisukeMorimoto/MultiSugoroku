@@ -17,11 +17,20 @@
     <div class="container">
         <header>
         	<div class="row">
+        	<div class="col-sm-1"></div>
+        	<div class="col-sm-1">
+		   		<%
+		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+		   			int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
+					String name0 = manager.getPlayerList().get(manager.getTurn()).getName();
+		   		%>
+		   		<img src=<%=imagePath0%> class="img-icon" alt="...">
+        	</div>
         	<div class="col-sm-6">
-            	<h1>　　<%=manager.getPlayerList().get(manager.getTurn()).getCount() + 1%><a>ターン目</a></h1><br>
-            	<h1>　　<%=manager.getPlayerList().get(manager.getTurn()).getName()%>さん<a>の番です</a></h1><br>
+            	<h3>　　<%=turn%><a>ターン目</a></h3>
+            	<h3>　　<%=name0%>さん<a>の番です</a></h3>
 			</div>
-				<div class="col-sm-1"></div>
+
                 <div class="col-sm-4">
                     <%
                         if(manager.getPlayerList().get(manager.getTurn()).getNowRest() == 0){
@@ -41,54 +50,144 @@
                         }
 					%>
                 </div>
-                <div class="col-sm-1"></div>
             </div>
         </header>
     </div>
-<div class="container">
-        <div class="card-deck">
 
-            <%
-                for(int i = 0; i < 4; i++){
-                    out.print("<div class='card-mb-4' style='width: 16rem;'><div class='card-body'><h2 class='card-title'>");
-                    out.print(manager.getPlayerList().get(i).getName());
-                    out.print("</h2>");
+	<div class="container">
+   	<div class="row" style="color: black">
+   		<!-- player1 -->
+   		<%
+   			String imagePath1 = "image/" + manager.getPlayerList().get(0).getEnName() + ".jpg";
+   			String name = manager.getPlayerList().get(0).getName();
+   		%>
+	   	<div class="col-sm-6">
+			<div class="card mb-3" style="max-width: 500px;">
+		      <div class="row no-gutters">
+		        <div class="col-sm-3">
+		          <img src=<%=imagePath1%> class="img-main" alt="...">
+		        </div>
+		        <div class="col-sm-1"></div>
+		        <div class="col-sm-8">
+		          <div class="card-body">
+		            <h4 class="card-title"><%=name%></h4>
+		            <div class="card-text">
+		            	<table class="table">
+				        	<tr>
+				        		<th>現在地</th>
+				        		<th>血中アルコール濃度</th>
+				        	</tr>
+				        	<tr>
+				        		<td><%=manager.getPlayerList().get(0).getLocation()%>/<%=manager.getSQUARE()-1%></td>
+				        		<td><%=manager.getPlayerList().get(0).getBloodAlcLv()%>%</td>
+				        	</tr>
+				        </table>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+	    <!-- player2 -->
+   		<%
+   			String imagePath2 = "image/" + manager.getPlayerList().get(1).getEnName() + ".jpg";
+   			String name2 = manager.getPlayerList().get(1).getName();
+   		%>
+	   	<div class="col-sm-6">
+			<div class="card mb-3" style="max-width: 500px;">
+		      <div class="row no-gutters">
+		        <div class="col-sm-3">
+		          <img src=<%=imagePath2%> class="img-main" alt="...">
+		        </div>
+		        <div class="col-sm-1"></div>
+		        <div class="col-sm-8">
+		          <div class="card-body">
+		            <h4 class="card-title"><%=name2%></h4>
+		            <div class="card-text">
+		            	<table class="table">
+				        	<tr>
+				        		<th>現在地</th>
+				        		<th>血中アルコール濃度</th>
+				        	</tr>
+				        	<tr>
+				        		<td><%=manager.getPlayerList().get(1).getLocation()%>/<%=manager.getSQUARE()-1%></td>
+				        		<td><%=manager.getPlayerList().get(1).getBloodAlcLv()%>%</td>
+				        	</tr>
+				        </table>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+	    <!-- player3 -->
+   		<%
+   			String imagePath3 = "image/" + manager.getPlayerList().get(2).getEnName() + ".jpg";
+   			String name3 = manager.getPlayerList().get(2).getName();
+   		%>
+	   	<div class="col-sm-6">
+			<div class="card mb-3" style="max-width: 500px;">
+		      <div class="row no-gutters">
+		        <div class="col-sm-3">
+		          <img src=<%=imagePath3%> class="img-main" alt="...">
+		        </div>
+		        <div class="col-sm-1"></div>
+		        <div class="col-sm-8">
+		          <div class="card-body">
+		            <h4 class="card-title"><%=name3%></h4>
+		            <div class="card-text">
+		            	<table class="table">
+				        	<tr>
+				        		<th>現在地</th>
+				        		<th>血中アルコール濃度</th>
+				        	</tr>
+				        	<tr>
+				        		<td><%=manager.getPlayerList().get(2).getLocation()%>/<%=manager.getSQUARE()-1%></td>
+				        		<td><%=manager.getPlayerList().get(2).getBloodAlcLv()%>%</td>
+				        	</tr>
+				        </table>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+		<!-- player4 -->
+   		<%
+   			String imagePath4 = "image/" + manager.getPlayerList().get(3).getEnName() + ".jpg";
+   			String name4 = manager.getPlayerList().get(3).getName();
+   		%>
+	   	<div class="col-sm-6">
+			<div class="card mb-3" style="max-width: 500px;">
+		      <div class="row no-gutters">
+		        <div class="col-sm-3">
+		          <img src=<%=imagePath1%> class="img-main" alt="...">
+		        </div>
+		        <div class="col-sm-1"></div>
+		        <div class="col-sm-8">
+		          <div class="card-body">
+		            <h4 class="card-title"><%=name%></h4>
+		            <div class="card-text">
+		            	<table class="table">
+				        	<tr>
+				        		<th>現在地</th>
+				        		<th>血中アルコール濃度</th>
+				        	</tr>
+				        	<tr>
+				        		<td><%=manager.getPlayerList().get(3).getLocation()%>/<%=manager.getSQUARE()-1%></td>
+				        		<td><%=manager.getPlayerList().get(3).getBloodAlcLv()%>%</td>
+				        	</tr>
+				        </table>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+	    </div>
+	 </div>
+	 </div>
 
-                    if(manager.getPlayerList().get(i).getBloodAlcLv() < 5){
-                    	String imagePath = "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        out.print("<img class='card-img' src='");
-                        out.print(imagePath);
-                        out.print("'>");
-                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 5 && manager.getPlayerList().get(i).getBloodAlcLv() < 10){
-                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        out.print("<img class='card-img' src='");
-                        out.print(imagePath);
-                        out.print("'>");
-                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 10 && manager.getPlayerList().get(i).getBloodAlcLv() < 15){
-                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        out.print("<img class='card-img' src='");
-                        out.print(imagePath);
-                        out.print("'>");
-                    }else if(manager.getPlayerList().get(i).getBloodAlcLv() >= 15 && manager.getPlayerList().get(i).getBloodAlcLv() < 20){
-                    	String imagePath = "image/" +  manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        out.print("<img class='card-img' src='");
-                        out.print(imagePath);
-                        out.print("'>");
-                    }
-
-                    out.print("<div class='card-text'><table class='table'><tr><th>現在地</th><th>");
-                    out.print(manager.getPlayerList().get(i).getLocation());
-                    out.print("/");
-                    int square = manager.getSQUARE() - 1;
-                    out.print(square);
-                    out.print("</th></tr><tr><td>血中アルコール濃度</td><td>");
-                    out.print(manager.getPlayerList().get(i).getBloodAlcLv());
-                    out.print("％</td></tr></table></div></div></div>");
-                }
-            %>
-        </div>
-</div>
-<div class="container">
+	<div class="container">
         <table class="table">
             <tr>
                 <%
@@ -108,9 +207,10 @@
                            		out.print("'></td>");
                         	} else{
 								String imagePath =  "image/round.png";
-                        		out.print("<td><img class='location' src='");
-                        		out.print(imagePath);
-                        		out.print("'></td>");
+                        		/* out.print("<td><img class='location' src='"); */
+                        		out.print("<td></td>");
+                        		/* out.print(imagePath); */
+                        		/* out.print("'></td>"); */
                         	}
                         }
                 	}
@@ -121,6 +221,6 @@
     <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
 	</form>
-</div>
+	</div>
 </body>
 </html>

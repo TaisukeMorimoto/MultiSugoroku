@@ -11,11 +11,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/start.js"></script>
-    <link rel="stylesheet" href="css/start.css">
+    <link rel="stylesheet" href="css/start2.css">
     <title>START</title>
 </head>
     <div class="container">
-    	<img src="image/staff2.png" style="width:30%; height:30%">
+
+    	<header>
+            <!--吹き出しはじまり-->
+			<div class="balloon5">
+			  <div class="faceicon">
+				<img src="image/staff2.png" alt="...">
+			  </div>
+			  <div class="chatting">
+			    <div class="says">
+					いらっしゃいませ
+			    </div>
+			  </div>
+			</div>
+			<!--吹き出し終わり-->
+		</header>
+
         <form action="Sugoroku" method="post" class="row">
             <div class="form-group">
                 <label>何名様でお越しですか？</label>
@@ -50,9 +65,9 @@
             <section class="information">
                 <h2>ルール説明</h2>
                 <div class="rule">
-                    <p>・血中アルコール濃度20％に達する前にゴールしよう<br>
-                    ・それぞれのキャラクターは一度だけ必殺技が使えるぞ<br>
-                    ・キャラクターの特性を活かして一番最初にゴールしよう！</p>
+                    <p>・血中アルコール濃度が20％に達する前にゴールしよう<br>
+                    ・それぞれのキャラクターは必殺技と特性を持っているぞ<br>
+                    ・キャラクターの特徴を活かして一番最初にゴールしよう！</p>
                 </div>
             </section>
 
