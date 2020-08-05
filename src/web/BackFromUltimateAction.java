@@ -14,7 +14,14 @@ public class BackFromUltimateAction {
 
 		String nextPage = null;
 
-		if (manager.getnPlayer() == 1) {
+		// when player is over
+		if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() >= manager.getLimitAlcLv()) {
+			manager.getPlayerList().get(manager.getTurn()).setNowRest(manager.getOverNum());
+			nextPage = "over.jsp" ;
+		// when player is clear
+		} else if (manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1) {
+			nextPage = "clear.jsp";
+		} else if (manager.getnPlayer() == 1) {
 //				nextPage = "/main1p.jsp";
 			nextPage = "/error.jsp";
 		} else if (manager.getnPlayer() == 2) {

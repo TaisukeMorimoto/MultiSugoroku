@@ -32,6 +32,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	private int ultimateGage;
 	private String ultimateConditions;
 	private boolean canUltimate = false;
+	private int numUltimate = 1;
 
 
 	public UltimatePlayer(int SQUARE, int DICE_MAX, String realPath, String enName) {
@@ -100,9 +101,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	public int[] doUltimate() {
 		int[] res1 = {0, 0, 0};
 		int[] res2 = {0, 0, 0, 0};
-		if (canUltimate == false) {
-			System.out.println("必殺技がまだ溜まってないから使えない");
-		} else {
+		if (canUltimate) {
 			System.out.println("<<<<" + name + "の必殺技>>>>   " + ultimateName);
 			res1 = doUltimate1();
 			if (isUltimate2) {
@@ -110,6 +109,9 @@ public class UltimatePlayer extends AbstractPlayer {
 				res2 = doUltimate2();
 			}
 			canUltimate = false;
+			numUltimate -= 1;
+		} else {
+			System.out.println("必殺技がまだ溜まってないから使えない");
 		}
 		int[] res = new int[res1.length + res2.length];
 		System.arraycopy(res1, 0, res, 0, res1.length);
@@ -204,7 +206,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void goForwardForUltimate(int dice) {
 		// update location and locationArray
 		locationArray[location] = false;
-		location += dice + specialitySpuares;
+		location += dice;
 		// if location is over goal
 		if (location >= SQUARE - 1) {
 			location = SQUARE - 1;
@@ -222,11 +224,11 @@ public class UltimatePlayer extends AbstractPlayer {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if (bloodAlcLv > ultimateGage) {
+			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		} else {
-			if (bloodAlcLv < ultimateGage) {
+			if ((bloodAlcLv < ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		}
@@ -235,16 +237,16 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void drinkLiquorForUltimate(int alc) {
 		System.out.println(enName + "は現在" + bloodAlcLv + "%");
 		System.out.println(enName + "は必殺技により" + alc +"%飲む");
-		bloodAlcLv += alc + specialityAlc;
+		bloodAlcLv += alc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if (bloodAlcLv > ultimateGage) {
+			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		} else {
-			if (bloodAlcLv < ultimateGage) {
+			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		}
@@ -407,6 +409,14 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public void setUltimateText(String ultimateText) {
 		this.ultimateText = ultimateText;
+	}
+
+	public int getNumUltimate() {
+		return numUltimate;
+	}
+
+	public void setNumUltimate(int numUltimate) {
+		this.numUltimate = numUltimate;
 	}
 
 

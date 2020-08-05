@@ -15,6 +15,7 @@ public class RollDiceAction {
 		String nextPage = null;
 
 		manager.rollDiceOnePlayer();
+		// when player is rest
 		if (manager.getPlayerList().get(manager.getTurn()).getNowRest() > 0) {
 			manager.goNextPayer();
 			if (manager.getnPlayer() == 1) {
@@ -29,13 +30,8 @@ public class RollDiceAction {
 			} else if (manager.getnPlayer() == 4) {
 				nextPage = "/main4p.jsp";
 			}
-		// whether game is over bracause of ultimate
-		} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() >= manager.getLimitAlcLv()) {
-			manager.getPlayerList().get(manager.getTurn()).setNowRest(manager.getOverNum());
-			nextPage = "over.jsp" ;
-		} else if (manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1) {
-			nextPage = "clear.jsp";
 		} else {
+			//when player roll dice usually
 			nextPage = "/event.jsp";
 		}
 

@@ -43,7 +43,8 @@
                     out.print(specialitySquares);
                     out.print("されます。<br>");
                 }
-            	out.print(manager.getPlayerList().get(manager.getTurn()).getDice());
+				int resDice = manager.getPlayerList().get(manager.getTurn()).getDice() +  manager.getPlayerList().get(manager.getTurn()).getSpecialitySpuares();
+            	out.print(resDice);
             	out.print("マス進み、飲み物を頼みます。");
             %>
             </h5>
