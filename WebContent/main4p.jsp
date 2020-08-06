@@ -64,14 +64,21 @@
    	<div class="row" style="color: black">
    		<!-- player1 -->
    		<%
-   			String imagePath1 = "image/" + manager.getPlayerList().get(0).getEnName() + ".jpg";
-   			String name1 = manager.getPlayerList().get(0).getName();
+			int arrayNumber = 0;
+   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   			String name = manager.getPlayerList().get(arrayNumber).getName();
+   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
+   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			int location = manager.getPlayerList().get(arrayNumber).getLocation();
+   			int bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
+   			float alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
+   			float locRatio = location*100/(manager.getSQUARE()-1);
    		%>
 	   	<div class="col-sm-6">
 			<div class="card mb-3" style="max-width: 500px;">
 		      <div class="row no-gutters">
 		        <div class="col-sm-3">
-		          <img src=<%=imagePath1%> class="img-main" alt="...">
+		          <img src=<%=imagePath%> class="img-main" alt="...">
 		        </div>
 		        <div class="col-sm-1"></div>
 		        <div class="col-sm-8">
@@ -80,33 +87,47 @@
 					  <div class="tab-content">
 					    <div id="status" class="tab-pane active">
 				          <div class="card-body">
-				            <h4 class="card-title"><%=name1%></h4>
+				            <h4 class="card-title"><%=name%></h4>
 				            <div class="card-text">
-				            	<table class="table">
-						        	<tr>
-						        		<th>現在地</th>
-						        		<th>血中アルコール濃度</th>
-						        	</tr>
-						        	<tr>
-						        		<td><%=manager.getPlayerList().get(0).getLocation()%>/<%=manager.getSQUARE()-1%></td>
-						        		<td><%=manager.getPlayerList().get(0).getBloodAlcLv()%>%</td>
-						        	</tr>
-						        </table>
+						        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
+						        <div class="progress">
+  									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=locRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=locRatio%>%">
+  									</div>
+								</div>
+						        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
+						        <div class="progress">
+  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=alcRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=alcRatio%>%">
+  									</div>
+								</div>
 				            </div>
 				          </div>
 					    </div>
 					    <!-- 2個目のタブ -->
 					    <div id="ultimate" class="tab-pane">
-					    	<h4 class="card-title"><br><%=manager.getPlayerList().get(0).getUltimateName()%></h4>
-							<div class="card-text"><br><%=manager.getPlayerList().get(0).getUltimateText()%></div>
+					    	<h4 class="card-title"><br><%=ultimateName%></h4>
+							<div class="card-text"><%=ultimateText%></div><br><br>
+					    </div>
+					    <!-- 3個目のタブ -->
+					    <div id="speciality" class="tab-pane">
+					    	<h4 class="card-title"><br>特性</h4>
+							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
 					    </div>
 					  </div>
-					  <!-- タブを二個作る -->
-					  <ul class="nav nav-tabs">
-					    <li class="nav-item">
+					  <!-- タブのナビゲーション -->
+					  <ul class="nav nav-pills justify-content-end" >
+					    <li class="nav-item pill-1"">
 					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
-					    <li class="nav-item">
+					    <li class="nav-item pill-2">
+					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					    </li>
+					    <li class="nav-item pill-3">
 					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
@@ -115,107 +136,234 @@
 		      </div>
 		    </div>
 	    </div>
-	    <!-- player2 -->
+   		<!-- player2 -->
    		<%
-   			String imagePath2 = "image/" + manager.getPlayerList().get(1).getEnName() + ".jpg";
-   			String name2 = manager.getPlayerList().get(1).getName();
+			arrayNumber = 1;
+   			imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   			name = manager.getPlayerList().get(arrayNumber).getName();
+   			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
+   			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			location = manager.getPlayerList().get(arrayNumber).getLocation();
+   			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
+   			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
+   			locRatio = location*100/(manager.getSQUARE()-1);
    		%>
 	   	<div class="col-sm-6">
 			<div class="card mb-3" style="max-width: 500px;">
 		      <div class="row no-gutters">
 		        <div class="col-sm-3">
-		          <img src=<%=imagePath2%> class="img-main" alt="...">
+		          <img src=<%=imagePath%> class="img-main" alt="...">
 		        </div>
 		        <div class="col-sm-1"></div>
 		        <div class="col-sm-8">
-		          <div class="card-body">
-		            <h4 class="card-title"><%=name2%></h4>
-		            <div class="card-text">
-		            	<table class="table">
-				        	<tr>
-				        		<th>現在地</th>
-				        		<th>血中アルコール濃度</th>
-				        	</tr>
-				        	<tr>
-				        		<td><%=manager.getPlayerList().get(1).getLocation()%>/<%=manager.getSQUARE()-1%></td>
-				        		<td><%=manager.getPlayerList().get(1).getBloodAlcLv()%>%</td>
-				        	</tr>
-				        </table>
-		            </div>
-		          </div>
+					<div class="p-3">
+					  <!-- 1個目のタブ -->
+					  <div class="tab-content">
+					    <div id="status" class="tab-pane active">
+				          <div class="card-body">
+				            <h4 class="card-title"><%=name%></h4>
+				            <div class="card-text">
+						        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
+						        <div class="progress">
+  									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=locRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=locRatio%>%">
+  									</div>
+								</div>
+						        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
+						        <div class="progress">
+  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=alcRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=alcRatio%>%">
+  									</div>
+								</div>
+				            </div>
+				          </div>
+					    </div>
+					    <!-- 2個目のタブ -->
+					    <div id="ultimate" class="tab-pane">
+					    	<h4 class="card-title"><br><%=ultimateName%></h4>
+							<div class="card-text"><%=ultimateText%></div><br><br>
+					    </div>
+					    <!-- 3個目のタブ -->
+					    <div id="speciality" class="tab-pane">
+					    	<h4 class="card-title"><br>特性</h4>
+							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+					    </div>
+					  </div>
+					  <!-- タブのナビゲーション -->
+					  <ul class="nav nav-pills justify-content-end" >
+					    <li class="nav-item pill-1"">
+					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					    </li>
+					    <li class="nav-item pill-2">
+					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					    </li>
+					    <li class="nav-item pill-3">
+					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					    </li>
+					  </ul>
+					 </div>
 		        </div>
 		      </div>
 		    </div>
 	    </div>
-	    <!-- player3 -->
+   		<!-- player3 -->
    		<%
-   			String imagePath3 = "image/" + manager.getPlayerList().get(2).getEnName() + ".jpg";
-   			String name3 = manager.getPlayerList().get(2).getName();
+			arrayNumber = 2;
+   			imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   			name = manager.getPlayerList().get(arrayNumber).getName();
+   			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
+   			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			location = manager.getPlayerList().get(arrayNumber).getLocation();
+   			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
+   			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
+   			locRatio = location*100/(manager.getSQUARE()-1);
    		%>
 	   	<div class="col-sm-6">
 			<div class="card mb-3" style="max-width: 500px;">
 		      <div class="row no-gutters">
 		        <div class="col-sm-3">
-		          <img src=<%=imagePath3%> class="img-main" alt="...">
+		          <img src=<%=imagePath%> class="img-main" alt="...">
 		        </div>
 		        <div class="col-sm-1"></div>
 		        <div class="col-sm-8">
-		          <div class="card-body">
-		            <h4 class="card-title"><%=name3%></h4>
-		            <div class="card-text">
-		            	<table class="table">
-				        	<tr>
-				        		<th>現在地</th>
-				        		<th>血中アルコール濃度</th>
-				        	</tr>
-				        	<tr>
-				        		<td><%=manager.getPlayerList().get(2).getLocation()%>/<%=manager.getSQUARE()-1%></td>
-				        		<td><%=manager.getPlayerList().get(2).getBloodAlcLv()%>%</td>
-				        	</tr>
-				        </table>
-		            </div>
-		          </div>
+					<div class="p-3">
+					  <!-- 1個目のタブ -->
+					  <div class="tab-content">
+					    <div id="status" class="tab-pane active">
+				          <div class="card-body">
+				            <h4 class="card-title"><%=name%></h4>
+				            <div class="card-text">
+						        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
+						        <div class="progress">
+  									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=locRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=locRatio%>%">
+  									</div>
+								</div>
+						        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
+						        <div class="progress">
+  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=alcRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=alcRatio%>%">
+  									</div>
+								</div>
+				            </div>
+				          </div>
+					    </div>
+					    <!-- 2個目のタブ -->
+					    <div id="ultimate" class="tab-pane">
+					    	<h4 class="card-title"><br><%=ultimateName%></h4>
+							<div class="card-text"><%=ultimateText%></div><br><br>
+					    </div>
+					    <!-- 3個目のタブ -->
+					    <div id="speciality" class="tab-pane">
+					    	<h4 class="card-title"><br>特性</h4>
+							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+					    </div>
+					  </div>
+					  <!-- タブのナビゲーション -->
+					  <ul class="nav nav-pills justify-content-end" >
+					    <li class="nav-item pill-1"">
+					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					    </li>
+					    <li class="nav-item pill-2">
+					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					    </li>
+					    <li class="nav-item pill-3">
+					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					    </li>
+					  </ul>
+					 </div>
 		        </div>
 		      </div>
 		    </div>
 	    </div>
-		<!-- player4 -->
+   		<!-- player4 -->
    		<%
-   			String imagePath4 = "image/" + manager.getPlayerList().get(3).getEnName() + ".jpg";
-   			String name4 = manager.getPlayerList().get(3).getName();
+			arrayNumber = 3;
+   			imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   			name = manager.getPlayerList().get(arrayNumber).getName();
+   			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
+   			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			location = manager.getPlayerList().get(arrayNumber).getLocation();
+   			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
+   			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
+   			locRatio = location*100/(manager.getSQUARE()-1);
    		%>
 	   	<div class="col-sm-6">
 			<div class="card mb-3" style="max-width: 500px;">
 		      <div class="row no-gutters">
 		        <div class="col-sm-3">
-		          <img src=<%=imagePath4%> class="img-main" alt="...">
+		          <img src=<%=imagePath%> class="img-main" alt="...">
 		        </div>
 		        <div class="col-sm-1"></div>
 		        <div class="col-sm-8">
-		          <div class="card-body">
-		            <h4 class="card-title"><%=name4%></h4>
-		            <div class="card-text">
-		            	<table class="table">
-				        	<tr>
-				        		<th>現在地</th>
-				        		<th>血中アルコール濃度</th>
-				        	</tr>
-				        	<tr>
-				        		<td><%=manager.getPlayerList().get(3).getLocation()%>/<%=manager.getSQUARE()-1%></td>
-				        		<td><%=manager.getPlayerList().get(3).getBloodAlcLv()%>%</td>
-				        	</tr>
-				        </table>
-		            </div>
-		          </div>
+					<div class="p-3">
+					  <!-- 1個目のタブ -->
+					  <div class="tab-content">
+					    <div id="status" class="tab-pane active">
+				          <div class="card-body">
+				            <h4 class="card-title"><%=name%></h4>
+				            <div class="card-text">
+						        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
+						        <div class="progress">
+  									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=locRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=locRatio%>%">
+  									</div>
+								</div>
+						        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
+						        <div class="progress">
+  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+  									aria-valuenow=<%=alcRatio%>
+  									aria-valuemin="0" aria-valuemax="1"
+  									style="width: <%=alcRatio%>%">
+  									</div>
+								</div>
+				            </div>
+				          </div>
+					    </div>
+					    <!-- 2個目のタブ -->
+					    <div id="ultimate" class="tab-pane">
+					    	<h4 class="card-title"><br><%=ultimateName%></h4>
+							<div class="card-text"><%=ultimateText%></div><br><br>
+					    </div>
+					    <!-- 3個目のタブ -->
+					    <div id="speciality" class="tab-pane">
+					    	<h4 class="card-title"><br>特性</h4>
+							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+					    </div>
+					  </div>
+					  <!-- タブのナビゲーション -->
+					  <ul class="nav nav-pills justify-content-end" >
+					    <li class="nav-item pill-1"">
+					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					    </li>
+					    <li class="nav-item pill-2">
+					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					    </li>
+					    <li class="nav-item pill-3">
+					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					    </li>
+					  </ul>
+					 </div>
 		        </div>
 		      </div>
 		    </div>
 	    </div>
+
 	 </div>
 	 </div>
 
 	<div class="container">
-        <table class="table">
+<%--         <table class="table">
             <tr>
                 <%
                 	for (int i=0; i<4; i++){
@@ -244,7 +392,7 @@
                     out.println("</tr>");
                 %>
             </tr>
-        </table>
+        </table> --%>
     <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
 	</form>

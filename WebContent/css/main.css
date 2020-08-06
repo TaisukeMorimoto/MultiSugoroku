@@ -86,7 +86,8 @@ button{
 
 .img-main{
 	width: 170px;
-	hight:170px;
+	hight: 170px;
+	border-radius: 10%;
 }
 
 .img-icon{
@@ -109,4 +110,23 @@ button{
 .location {
 	width: 40%;
 	hight: 40%;
+}
+
+.pill-1 a {
+	font-size: 11px;
+}
+.pill-2 a {
+	font-size: 11px;
+}
+
+.pill-3 a {
+	font-size: 11px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+
+    color: #000;
+
+    background-color: rgb(218, 235, 243);
+
 }
