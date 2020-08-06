@@ -34,7 +34,7 @@
 	        <p class="card-text" style="color:black;">
             <table class='table'>
                 <tr><th>進捗</th><th><%=manager.getPlayerList().get(manager.getTurn()).getLocation()%>/
-                					<%=manager.getSQUARE()%></th></tr>
+                					<%=manager.getSQUARE()-1%></th></tr>
                 <tr><td>血中アルコール濃度</td><td><%=manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv()%>％</td></tr>
             </table>
 	        </p>

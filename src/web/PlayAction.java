@@ -14,8 +14,10 @@ public class PlayAction {
 		String nextPage = null;
 
 		int nPlayer = Integer.parseInt(req.getParameter("nPlayer"));
+		String course = req.getParameter("course");
+		System.out.println("selected course is " + course);
 		SugorokuManager manager = new SugorokuManager(realPath);
-		manager.InitSugorokuManager(nPlayer);
+		manager.InitSugorokuManager(nPlayer, course);
 
 		nextPage = "/selectChara.jsp";
 		session.setAttribute("manager", manager);

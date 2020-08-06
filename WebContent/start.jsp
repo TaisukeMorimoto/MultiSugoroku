@@ -36,13 +36,13 @@
                 <label>何名様でお越しですか？</label>
                 <div class="radio" onclick="playerChoice()">
                     <label id="1_lb">
-                        <input type="radio" name="nPlayer" value="1" id="1"> 1名様
+                        <input type="radio" name="nPlayer" value="1" id="1" disabled> 1名様
                     </label>
                     <label id="2_lb">
-                        <input type="radio" name="nPlayer" value="2" id="2"> 2名様
+                        <input type="radio" name="nPlayer" value="2" id="2" disabled> 2名様
                     </label>
                     <label id="3_lb">
-                        <input type="radio" name="nPlayer" value="3" id="3"> 3名様
+                        <input type="radio" name="nPlayer" value="3" id="3" disabled> 3名様
                     </label>
                     <label id="4_lb">
                         <input type="radio" name="nPlayer" value="4" checked id="4"> 4名様
@@ -53,13 +53,13 @@
                 <label>コース選択</label>
                 <div class="radio" onclick="squareChoice()">
                     <label id="2_ls">
-                        <input type="radio" name="square" value="20" checked id="2"> 2時間飲み放題
+                        <input type="radio" name="course" value="2hours" checked id="2"> 2時間飲み放題
                     </label>
                     <label id="3_ls">
-                        <input type="radio" name="square" value="30" id="3"> 終電コース
+                        <input type="radio" name="course" value="long" id="3"> 終電コース
                     </label>
                     <label id="4_ls">
-                        <input type="radio" name="square" value="40" id="4"> 朝までコース
+                        <input type="radio" name="course" value="allday" id="4"> 朝までコース
                 </div>
             </div>
             <section class="information">

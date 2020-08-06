@@ -50,7 +50,7 @@
     		out.print("<div class='radio' onclick='playerChoice()'>");
     		for (int i=0; i<manager.getnPlayer(); i++){
     			if(!(manager.getTurn()==i)){
-    				out.print("<label><input type='radio' name='player' value='");
+    				out.print("<label><input type='radio' name='select' value='");
     				out.print(i+1);
     				out.print("'>");
     				out.print(manager.getPlayerList().get(i).getName());

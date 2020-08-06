@@ -18,6 +18,7 @@ public class UltimateDecisionAction {
 		// selected player
 		String selectPlayer = req.getParameter("select");
 
+		System.out.println("selected player: " + selectPlayer);
 		// do ultimate
 		if (selectPlayer == null) {
 			manager.doUltimateOnePlayer();

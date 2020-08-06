@@ -14,6 +14,8 @@ public class BackFromOverAction {
 
 		String nextPage = null;
 
+		manager.goNextPayer();
+
 		if (manager.getnPlayer() == 1) {
 //				nextPage = "/main1p.jsp";
 			nextPage = "/error.jsp";

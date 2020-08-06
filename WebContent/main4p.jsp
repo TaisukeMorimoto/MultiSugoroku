@@ -85,7 +85,7 @@
 					<div class="p-3">
 					  <!-- 1個目のタブ -->
 					  <div class="tab-content">
-					    <div id="status" class="tab-pane active">
+					    <div id="status1" class="tab-pane active">
 				          <div class="card-body">
 				            <h4 class="card-title"><%=name%></h4>
 				            <div class="card-text">
@@ -109,12 +109,12 @@
 				          </div>
 					    </div>
 					    <!-- 2個目のタブ -->
-					    <div id="ultimate" class="tab-pane">
+					    <div id="ultimate1" class="tab-pane">
 					    	<h4 class="card-title"><br><%=ultimateName%></h4>
 							<div class="card-text"><%=ultimateText%></div><br><br>
 					    </div>
 					    <!-- 3個目のタブ -->
-					    <div id="speciality" class="tab-pane">
+					    <div id="speciality1" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
 							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
 					    </div>
@@ -122,13 +122,13 @@
 					  <!-- タブのナビゲーション -->
 					  <ul class="nav nav-pills justify-content-end" >
 					    <li class="nav-item pill-1"">
-					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					      <a href="#status1" class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
 					    <li class="nav-item pill-2">
-					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					      <a href="#speciality1" class="nav-link" data-toggle="tab">特性</a>
 					    </li>
 					    <li class="nav-item pill-3">
-					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					      <a href="#ultimate1" class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
 					 </div>
@@ -159,7 +159,7 @@
 					<div class="p-3">
 					  <!-- 1個目のタブ -->
 					  <div class="tab-content">
-					    <div id="status" class="tab-pane active">
+					    <div id="status2" class="tab-pane active">
 				          <div class="card-body">
 				            <h4 class="card-title"><%=name%></h4>
 				            <div class="card-text">
@@ -183,12 +183,12 @@
 				          </div>
 					    </div>
 					    <!-- 2個目のタブ -->
-					    <div id="ultimate" class="tab-pane">
+					    <div id="ultimate2" class="tab-pane">
 					    	<h4 class="card-title"><br><%=ultimateName%></h4>
 							<div class="card-text"><%=ultimateText%></div><br><br>
 					    </div>
 					    <!-- 3個目のタブ -->
-					    <div id="speciality" class="tab-pane">
+					    <div id="speciality2" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
 							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
 					    </div>
@@ -196,13 +196,13 @@
 					  <!-- タブのナビゲーション -->
 					  <ul class="nav nav-pills justify-content-end" >
 					    <li class="nav-item pill-1"">
-					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					      <a href="#status2" class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
 					    <li class="nav-item pill-2">
-					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					      <a href="#speciality2" class="nav-link" data-toggle="tab">特性</a>
 					    </li>
 					    <li class="nav-item pill-3">
-					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					      <a href="#ultimate2" class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
 					 </div>
@@ -233,7 +233,7 @@
 					<div class="p-3">
 					  <!-- 1個目のタブ -->
 					  <div class="tab-content">
-					    <div id="status" class="tab-pane active">
+					    <div id="status3" class="tab-pane active">
 				          <div class="card-body">
 				            <h4 class="card-title"><%=name%></h4>
 				            <div class="card-text">
@@ -257,12 +257,12 @@
 				          </div>
 					    </div>
 					    <!-- 2個目のタブ -->
-					    <div id="ultimate" class="tab-pane">
+					    <div id="ultimate3" class="tab-pane">
 					    	<h4 class="card-title"><br><%=ultimateName%></h4>
 							<div class="card-text"><%=ultimateText%></div><br><br>
 					    </div>
 					    <!-- 3個目のタブ -->
-					    <div id="speciality" class="tab-pane">
+					    <div id="speciality3" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
 							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
 					    </div>
@@ -270,13 +270,13 @@
 					  <!-- タブのナビゲーション -->
 					  <ul class="nav nav-pills justify-content-end" >
 					    <li class="nav-item pill-1"">
-					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					      <a href="#status3" class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
 					    <li class="nav-item pill-2">
-					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					      <a href="#speciality3" class="nav-link" data-toggle="tab">特性</a>
 					    </li>
 					    <li class="nav-item pill-3">
-					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					      <a href="#ultimate3" class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
 					 </div>
@@ -307,7 +307,7 @@
 					<div class="p-3">
 					  <!-- 1個目のタブ -->
 					  <div class="tab-content">
-					    <div id="status" class="tab-pane active">
+					    <div id="status4" class="tab-pane active">
 				          <div class="card-body">
 				            <h4 class="card-title"><%=name%></h4>
 				            <div class="card-text">
@@ -331,12 +331,12 @@
 				          </div>
 					    </div>
 					    <!-- 2個目のタブ -->
-					    <div id="ultimate" class="tab-pane">
+					    <div id="ultimate4" class="tab-pane">
 					    	<h4 class="card-title"><br><%=ultimateName%></h4>
 							<div class="card-text"><%=ultimateText%></div><br><br>
 					    </div>
 					    <!-- 3個目のタブ -->
-					    <div id="speciality" class="tab-pane">
+					    <div id="speciality4" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
 							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
 					    </div>
@@ -344,13 +344,13 @@
 					  <!-- タブのナビゲーション -->
 					  <ul class="nav nav-pills justify-content-end" >
 					    <li class="nav-item pill-1"">
-					      <a href="#status" class="nav-link active" data-toggle="tab">ステータス</a>
+					      <a href="#status4" class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
 					    <li class="nav-item pill-2">
-					      <a href="#speciality" class="nav-link" data-toggle="tab">特性</a>
+					      <a href="#speciality4" class="nav-link" data-toggle="tab">特性</a>
 					    </li>
 					    <li class="nav-item pill-3">
-					      <a href="#ultimate" class="nav-link" data-toggle="tab">必殺技</a>
+					      <a href="#ultimate4" class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
 					 </div>
@@ -361,38 +361,7 @@
 
 	 </div>
 	 </div>
-
 	<div class="container">
-<%--         <table class="table">
-            <tr>
-                <%
-                	for (int i=0; i<4; i++){
-                        out.print("<tr>");
-                        for (int j=0; j<=manager.getSQUARE()-1; j++){
-                        	boolean[] locationArray = manager.getPlayerList().get(i).getLocationArray();
-                        	if (locationArray[j]){
-								String imagePath =  "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
-                        		out.print("<td><img style='width:40px; height:40px; border-radius: 50%;' src='");
-                        		out.print(imagePath);
-                        		out.print("'></td>");
-                        	} else if (j == manager.getSQUARE()-1){
-   								String imagePath =  "image/flag.png";
-                           		out.print("<td><img style='width:30px; height:30px;' src='");
-                           		out.print(imagePath);
-                           		out.print("'></td>");
-                        	} else{
-								String imagePath =  "image/round.png";
-                        		/* out.print("<td><img class='location' src='"); */
-                        		out.print("<td></td>");
-                        		/* out.print(imagePath); */
-                        		/* out.print("'></td>"); */
-                        	}
-                        }
-                	}
-                    out.println("</tr>");
-                %>
-            </tr>
-        </table> --%>
     <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
 	</form>

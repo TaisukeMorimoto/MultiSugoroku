@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import entity.Liquor;
 import entity.Sugoroku;
+import entity.SugorokuAllDay;
+import entity.SugorokuLong;
 import entity.SugorokuNormal;
 import entity.UltimatePlayer;
 
@@ -38,10 +40,21 @@ public class SugorokuManager {
     	}
 	}
 
-	public void InitSugorokuManager(int nPlayer) {
+	public void InitSugorokuManager(int nPlayer, String course) {
 		// create sugoroku board
-		sugoroku = new SugorokuNormal(realPath);
-		SQUARE = SugorokuNormal.getSquare();
+		if (course.equals("2hours")) {
+			sugoroku = new SugorokuNormal(realPath);
+			System.out.println("generate normal sugoroku board");
+		} else if (course.equals("long")) {
+			sugoroku = new SugorokuLong(realPath);
+			System.out.println("generate long sugoroku board");
+			System.out.println(sugoroku.getSQUARE());
+		} else if (course.equals("allday")) {
+			sugoroku = new SugorokuAllDay(realPath);
+		} else {
+			System.out.println("the course hasn't implemented yet");
+		}
+		SQUARE = sugoroku.getSQUARE();
 		DICE_MAX = SugorokuNormal.getDiceMax();
 		this.nPlayer = nPlayer;
 		for (int i=0; i<nPlayer; i++) {
@@ -87,6 +100,17 @@ public class SugorokuManager {
 		player4 = new UltimatePlayer(SQUARE, DICE_MAX, realPath, playerName4);
 		playerList.add(player4);
 		nPlayer = 4;
+	}
+
+	public boolean checkAllDie() {
+		boolean isAllDie = true;
+		for (int i = 0; i<nPlayer-1; i++) {
+			if (playerList.get(i).getNowRest() < 50) {
+				isAllDie = false;
+				break;
+			}
+		}
+		return isAllDie;
 	}
 
 	public void rollDiceOnePlayer() {
@@ -192,9 +216,12 @@ public class SugorokuManager {
 	// ultimate1 target is all players
 	public void reflectUltimate1ToAll(int[] res) {
 		for (int u=0; u<=nPlayer-1; u++) {
-			// method which do not count when goforward in ultimate event
-			playerList.get(u).goForwardForUltimate(res[1]);
-			playerList.get(u).drinkLiquorForUltimate(res[2]);
+			// 自分はすでに反映済み
+			if (!(u == turn)){
+				// method which do not count when goforward in ultimate event
+				playerList.get(u).goForwardForUltimate(res[1]);
+				playerList.get(u).drinkLiquorForUltimate(res[2]);
+			}
 	}
 }
 

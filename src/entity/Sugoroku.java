@@ -6,4 +6,6 @@ public interface Sugoroku {
 
 	ArrayList<Liquor> getLiquorList();
 
+	int getSQUARE();
+
 }

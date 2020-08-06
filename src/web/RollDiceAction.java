@@ -30,6 +30,8 @@ public class RollDiceAction {
 			} else if (manager.getnPlayer() == 4) {
 				nextPage = "/main4p.jsp";
 			}
+		} else if (manager.checkAllDie()) {
+			nextPage = "/allOver.jsp";
 		} else {
 			//when player roll dice usually
 			nextPage = "/event.jsp";
