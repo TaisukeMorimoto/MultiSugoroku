@@ -69,6 +69,7 @@
    			String name = manager.getPlayerList().get(arrayNumber).getName();
    			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
    			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			String specialityText = manager.getPlayerList().get(arrayNumber).getSpecialityText();
    			int location = manager.getPlayerList().get(arrayNumber).getLocation();
    			int bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
    			float alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
@@ -116,7 +117,7 @@
 					    <!-- 3個目のタブ -->
 					    <div id="speciality1" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+							<div class="card-text"><%=specialityText%><br><br><br></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->
@@ -143,6 +144,7 @@
    			name = manager.getPlayerList().get(arrayNumber).getName();
    			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
    			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			specialityText = manager.getPlayerList().get(arrayNumber).getSpecialityText();
    			location = manager.getPlayerList().get(arrayNumber).getLocation();
    			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
    			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
@@ -190,7 +192,7 @@
 					    <!-- 3個目のタブ -->
 					    <div id="speciality2" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+							<div class="card-text"><%=specialityText%><br><br><br></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->
@@ -217,6 +219,7 @@
    			name = manager.getPlayerList().get(arrayNumber).getName();
    			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
    			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			specialityText = manager.getPlayerList().get(arrayNumber).getSpecialityText();
    			location = manager.getPlayerList().get(arrayNumber).getLocation();
    			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
    			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
@@ -264,7 +267,7 @@
 					    <!-- 3個目のタブ -->
 					    <div id="speciality3" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+							<div class="card-text"><%=specialityText%><br><br><br></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->
@@ -291,6 +294,7 @@
    			name = manager.getPlayerList().get(arrayNumber).getName();
    			ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
    			ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
+   			specialityText = manager.getPlayerList().get(arrayNumber).getSpecialityText();
    			location = manager.getPlayerList().get(arrayNumber).getLocation();
    			bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
    			alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
@@ -338,7 +342,7 @@
 					    <!-- 3個目のタブ -->
 					    <div id="speciality4" class="tab-pane">
 					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text">ここに特性の説明が入る。<br><br><br><br><br></div>
+							<div class="card-text"><%=specialityText%><br><br><br></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->

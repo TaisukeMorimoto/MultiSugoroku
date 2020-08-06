@@ -15,6 +15,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	// about my specialities
 	private int specialitySpuares;
 	private int specialityAlc;
+	private String specialityText;
 
 	// about my ultimate skill
 	private String ultimateName;
@@ -83,8 +84,9 @@ public class UltimatePlayer extends AbstractPlayer {
 	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
 	          if (data[1].equals(enName)){
 	        	 name = data[0];
-	        	 specialitySpuares = Integer.parseInt(data[2]);
-	        	 specialityAlc = Integer.parseInt(data[3]);
+	        	 specialityText = data[2];
+	        	 specialitySpuares = Integer.parseInt(data[3]);
+	        	 specialityAlc = Integer.parseInt(data[4]);
 	          }
 	        }
 	        br.close();
@@ -417,6 +419,14 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public void setNumUltimate(int numUltimate) {
 		this.numUltimate = numUltimate;
+	}
+
+	public String getSpecialityText() {
+		return specialityText;
+	}
+
+	public void setSpecialityText(String specialityText) {
+		this.specialityText = specialityText;
 	}
 
 
