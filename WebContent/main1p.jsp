@@ -23,7 +23,19 @@
         <header>
         	<div class="row">
 		   		<%
-		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+	   				/* アルコールレベルのジャッジ */
+	   				String alcStatus0 = "";
+	   				if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 5) {
+	   					alcStatus0 = "1";
+	   				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 10){
+	   					alcStatus0 = "2";
+	   				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 15) {
+	   					alcStatus0 = "3";
+	   				} else {
+	   					alcStatus0 = "4";
+	   				}
+
+		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName()+ alcStatus0 + ".jpg";
 		   			int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
 					String name0 = manager.getPlayerList().get(manager.getTurn()).getName();
 		   		%>
@@ -56,7 +68,18 @@
    		<!-- player -->
    		<%
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
-	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   				/* アルコールレベルのジャッジ */
+   				String alcStatus = "";
+   				if (manager.getPlayerList().get(turn).getBloodAlcLv() < 5) {
+   					alcStatus = "1";
+   				} else if (manager.getPlayerList().get(turn).getBloodAlcLv() < 10){
+   					alcStatus = "2";
+   				} else if (manager.getPlayerList().get(turn).getBloodAlcLv() < 15) {
+   					alcStatus = "3";
+   				} else {
+   					alcStatus = "4";
+   				}
+	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + alcStatus + ".jpg";
 	   			String name = manager.getPlayerList().get(arrayNumber).getName();
 	   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 	   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();

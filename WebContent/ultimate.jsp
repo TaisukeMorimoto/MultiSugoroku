@@ -20,7 +20,7 @@
      	String name = manager.getPlayerList().get(manager.getTurn()).getName();
      	String target1 = manager.getPlayerList().get(manager.getTurn()).getUltimate1Target();
      	String target2 = manager.getPlayerList().get(manager.getTurn()).getUltimate2Target();
-     	String imagePath1 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+     	String imagePath1 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + "1.jpg";
      %>
          <h1><%=name%>の必殺技</h1>
      </header>

@@ -22,7 +22,7 @@
 	  <div class="row no-gutters">
 	    <div class="col-md-4">
 	    <%
-	    	String imagePath = "image/" +  manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+	    	String imagePath = "image/" +  manager.getPlayerList().get(manager.getTurn()).getEnName() + "5.jpg";
 	        out.print("<img class='card-img' src='");
 	        out.print(imagePath);
 	        out.print("'>");
