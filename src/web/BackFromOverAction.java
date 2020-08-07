@@ -18,6 +18,8 @@ public class BackFromOverAction {
 
 		if (manager.checkAllDie()) {
 			nextPage = "/allOver.jsp";
+		} else if (manager.getnPlayer() == 1) {
+			nextPage = "/main1p.jsp";
 		} else {
 			nextPage = "/main.jsp";
 		}

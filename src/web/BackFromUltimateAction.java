@@ -21,6 +21,8 @@ public class BackFromUltimateAction {
 		// when player is clear
 		} else if (manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1) {
 			nextPage = "clear.jsp";
+		} else if (manager.getnPlayer() == 1) {
+			nextPage = "/main1p.jsp";
 		} else {
 			nextPage = "/main.jsp";
 		}

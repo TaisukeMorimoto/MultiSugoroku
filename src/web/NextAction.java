@@ -26,11 +26,12 @@ public class NextAction {
 		} else if(manager.checkAllDie()) {
 			nextPage = "/allOver.jsp";
 
+		} else if (manager.getnPlayer() ==1) {
+			manager.goNextPayer();
+			nextPage = "/main1p.jsp";
 		} else {
 			manager.goNextPayer();
-
 			nextPage = "/main.jsp";
-
 		}
 
 		session.setAttribute("manager", manager);

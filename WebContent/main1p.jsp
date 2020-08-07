@@ -22,30 +22,19 @@
     <div class="container">
         <header>
         	<div class="row">
-        	<div class="col-sm-1">
 		   		<%
 		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
 		   			int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
 					String name0 = manager.getPlayerList().get(manager.getTurn()).getName();
 		   		%>
-		   		<img src=<%=imagePath0%> class="img-icon" alt="...">
-        	</div>
         	<div class="col-sm-6">
             	<h3>　　<%=turn%><a>ターン目</a></h3>
-            	<h3>　　<%=name0%>さん<a>の番です</a></h3>
 			</div>
 
                 <div class="col-sm-4">
                     <%
                     	int nowRest = manager.getPlayerList().get(manager.getTurn()).getNowRest();
                     	boolean canUltimate = manager.getPlayerList().get(manager.getTurn()).getCanUltimate();
-                    %>
-					<%
-                        if((nowRest == 0) && (canUltimate)){
-                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default'>必殺技</button></form>");
-                        } else {
-                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");
-                        }
                     %>
                     <%
                         if(nowRest == 0){
@@ -60,9 +49,11 @@
         </header>
     </div>
 
+
+
+
 	<div class="container">
-   	<div class="row" style="color: black">
-   		<!-- player card -->
+   		<!-- player -->
    		<%
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
 	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
@@ -74,79 +65,99 @@
 	   			int bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
 	   			float alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
 	   			float locRatio = location*100/(manager.getSQUARE()-1);
-	   			String status = "status" + (arrayNumber+1);
 	   			String speciality = "speciality" + (arrayNumber+1);
 	   			String ultimate = "ultimate" + (arrayNumber+1);
-	   			String statusSh = "#status" + (arrayNumber+1);
-	   			String specialitySh = "#speciality" + (arrayNumber+1);
-	   			String ultimateSh = "#ultimate" + (arrayNumber+1);
+	   			String status = "status" + (arrayNumber+1);
+	   			String shSpeciality = "#speciality" + (arrayNumber+1);
+	   			String shUltimate = "#ultimate" + (arrayNumber+1);
+	   			String shStatus = "#status" + (arrayNumber+1);
    		%>
-	   	<div class="col-sm-6">
-			<div class="card mb-3" style="max-width: 500px;">
-		      <div class="row no-gutters">
-		        <div class="col-sm-3">
-		          <img src=<%=imagePath%> class="img-main" alt="...">
-		        </div>
-		        <div class="col-sm-1"></div>
-		        <div class="col-sm-8">
-					<div class="p-3">
-					  <!-- 1個目のタブ -->
-					  <div class="tab-content">
-					    <div id=<%=status%> class="tab-pane active">
-				          <div class="card-body">
-				            <h4 class="card-title"><%=name%></h4>
-				            <div class="card-text">
-						        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
-						        <div class="progress">
-  									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
-  									aria-valuenow=<%=locRatio%>
-  									aria-valuemin="0" aria-valuemax="1"
-  									style="width: <%=locRatio%>%">
-  									</div>
-								</div>
-						        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
-						        <div class="progress">
-  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
-  									aria-valuenow=<%=alcRatio%>
-  									aria-valuemin="0" aria-valuemax="1"
-  									style="width: <%=alcRatio%>%">
-  									</div>
-								</div>
-				            </div>
-				          </div>
-					    </div>
-					    <!-- 2個目のタブ -->
-					    <div id=<%=ultimate%> class="tab-pane">
-					    	<h4 class="card-title"><br><%=ultimateName%></h4>
-							<div class="card-text"><%=ultimateText%></div><br><br>
-					    </div>
-					    <!-- 3個目のタブ -->
-					    <div id=<%=speciality%> class="tab-pane">
-					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text"><%=specialityText%><br><br><br></div>
-					    </div>
-					  </div>
-					  <!-- タブのナビゲーション -->
-					  <ul class="nav nav-pills justify-content-end" >
-					    <li class="nav-item pill-1">
-					      <a href=<%=statusSh%> class="nav-link active" data-toggle="tab">ステータス</a>
-					    </li>
-					    <li class="nav-item pill-2">
-					      <a href=<%=specialitySh%> class="nav-link" data-toggle="tab">特性</a>
-					    </li>
-					    <li class="nav-item pill-3">
-					      <a href=<%=ultimateSh%> class="nav-link" data-toggle="tab">必殺技</a>
-					    </li>
-					  </ul>
-					 </div>
-		        </div>
-		      </div>
-		    </div>
-	    </div>
+	      <div class="row no-gutters" style="color: white;">
+	        <div class="col-sm-3">
+	          <img src=<%=imagePath%> class="img-main" style="width:250px; height:250px;" alt="...">
+	        </div>
+	        <div class="col-sm-1"></div>
+	        <div class="col-sm-8">
+				<div class="p-3">
+				  <!-- 1個目のタブ -->
+				  <div class="tab-content">
+				    <div id=<%=status%> class="tab-pane active">
+			          <div class="card-body">
+			            <h4 class="card-title"><%=name%></h4>
+			            <div class="card-text">
+					        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
+					        <div class="progress">
+ 									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+ 									aria-valuenow=<%=locRatio%>
+ 									aria-valuemin="0" aria-valuemax="1"
+ 									style="width: <%=locRatio%>%">
+ 									</div>
+							</div>
+					        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
+					        <div class="progress">
+ 									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+ 									aria-valuenow=<%=alcRatio%>
+ 									aria-valuemin="0" aria-valuemax="1"
+ 									style="width: <%=alcRatio%>%">
+ 									</div>
+							</div>
+			            </div>
+			          </div>
+				    </div>
+				    <!-- 2個目のタブ -->
+				    <div id=<%=speciality%> class="tab-pane">
+				    	<h4 class="card-title">特性</h4>
+						<div class="card-text" style="font-weight: initial;"><%=specialityText%></div>
+				    </div>
+				  </div>
+				  <!-- タブのナビゲーション -->
+				  <ul class="nav nav-pills justify-content-end" >
+				    <li class="nav-item pill-1">
+				      <a href=<%=shStatus%> class="nav-link active" data-toggle="tab">ステータス</a>
+				    </li>
+				    <li class="nav-item pill-2">
+				      <a href=<%=shSpeciality%> class="nav-link" data-toggle="tab">特性</a>
+				    </li>
+				  </ul>
+				 </div>
+	        </div>
+	      </div>
 	    <% } %>
+	 </div><br><br>
+	<div class="container">
+         <table class="table">
+           <tr>
+               <%
+               	for (int i=0; i<1; i++){
+                       out.print("<tr>");
+                       for (int j=0; j<=manager.getSQUARE()-1; j++){
+                       	boolean[] locationArray = manager.getPlayerList().get(i).getLocationArray();
+                       	if (locationArray[j]){
+							String imagePath =  "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
+                       		out.print("<td><img style='width:40px; height:40px; border-radius: 50%;' src='");
+                       		out.print(imagePath);
+                       		out.print("'></td>");
+                       	} else if (j == manager.getSQUARE()-1){
+  								String imagePath =  "image/flag.png";
+                          		out.print("<td><img style='width:30px; height:30px;' src='");
+                          		out.print(imagePath);
+                          		out.print("'></td>");
+                       	} else{
+							String imagePath =  "image/round.png";
+                       		/* out.print("<td><img class='location' src='"); */
+                       		out.print("<td></td>");
+                       		/* out.print(imagePath); */
+                       		/* out.print("'></td>"); */
+                       	}
+                       }
+               	}
+                   out.println("</tr>");
+               %>
+           </tr>
+       </table>
+      </div><br><br>
 
-	 </div>
-	 </div>
+
 	<div class="container">
     <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>

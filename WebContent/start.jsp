@@ -36,7 +36,7 @@
                 <label>何名様でお越しですか？</label>
                 <div class="radio" onclick="playerChoice()">
                     <label id="1_lb">
-                        <input type="radio" name="nPlayer" value="1" id="1" disabled> 1名様
+                        <input type="radio" name="nPlayer" value="1" id="1"> 1名様
                     </label>
                     <label id="2_lb">
                         <input type="radio" name="nPlayer" value="2" id="2"> 2名様

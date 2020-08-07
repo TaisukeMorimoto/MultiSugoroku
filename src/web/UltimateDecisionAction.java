@@ -27,8 +27,11 @@ public class UltimateDecisionAction {
 			manager.doUltimateOnePlayer(enName);
 		}
 
-		nextPage = "/main.jsp";
-
+		if (manager.getnPlayer() == 0) {
+			nextPage = "/main1p.jsp";
+		} else {
+			nextPage = "/main.jsp";
+		}
 		session.setAttribute("manager", manager);
 
 		return nextPage;

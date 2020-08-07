@@ -104,7 +104,7 @@ public class SugorokuManager {
 
 	public boolean checkAllDie() {
 		boolean isAllDie = true;
-		for (int i = 0; i<nPlayer-1; i++) {
+		for (int i = 0; i<nPlayer; i++) {
 			if (playerList.get(i).getNowRest() < 50) {
 				isAllDie = false;
 				break;
