@@ -25,11 +25,9 @@ public class BackFromUltimateAction {
 //				nextPage = "/main1p.jsp";
 			nextPage = "/error.jsp";
 		} else if (manager.getnPlayer() == 2) {
-//				nextPage = "/main2p.jsp";
-			nextPage = "/error.jsp";
+				nextPage = "/main2p.jsp";
 		} else if (manager.getnPlayer() == 3) {
-//				nextPage = "/main3p.jsp";
-			nextPage = "/error.jsp";
+				nextPage = "/main3p.jsp";
 		} else if (manager.getnPlayer() == 4) {
 			nextPage = "/main4p.jsp";
 		}

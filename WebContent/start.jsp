@@ -39,10 +39,10 @@
                         <input type="radio" name="nPlayer" value="1" id="1" disabled> 1名様
                     </label>
                     <label id="2_lb">
-                        <input type="radio" name="nPlayer" value="2" id="2" disabled> 2名様
+                        <input type="radio" name="nPlayer" value="2" id="2"> 2名様
                     </label>
                     <label id="3_lb">
-                        <input type="radio" name="nPlayer" value="3" id="3" disabled> 3名様
+                        <input type="radio" name="nPlayer" value="3" id="3"> 3名様
                     </label>
                     <label id="4_lb">
                         <input type="radio" name="nPlayer" value="4" checked id="4"> 4名様
