@@ -117,13 +117,13 @@
 					    </div>
 					    <!-- 2個目のタブ -->
 					    <div id=<%=ultimate%> class="tab-pane">
-					    	<h4 class="card-title"><br><%=ultimateName%></h4>
-							<div class="card-text"><%=ultimateText%></div><br><br>
+					    	<h4 class="card-title"><%=ultimateName%></h4>
+							<div class="card-text" style="font-weight: initial;"><%=ultimateText%></div>
 					    </div>
 					    <!-- 3個目のタブ -->
 					    <div id=<%=speciality%> class="tab-pane">
-					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text"><%=specialityText%><br><br><br></div>
+					    	<h4 class="card-title">特性</h4>
+							<div class="card-text" style="font-weight: initial;"><%=specialityText%></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->

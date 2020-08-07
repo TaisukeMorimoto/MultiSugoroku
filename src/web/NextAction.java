@@ -23,6 +23,9 @@ public class NextAction {
 		} else if(manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1){
 			nextPage = "/clear.jsp";
 
+		} else if(manager.checkAllDie()) {
+			nextPage = "/allOver.jsp";
+
 		} else {
 			manager.goNextPayer();
 

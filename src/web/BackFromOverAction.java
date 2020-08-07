@@ -16,7 +16,11 @@ public class BackFromOverAction {
 
 		manager.goNextPayer();
 
-		nextPage = "/main.jsp";
+		if (manager.checkAllDie()) {
+			nextPage = "/allOver.jsp";
+		} else {
+			nextPage = "/main.jsp";
+		}
 
 		session.setAttribute("manager", manager);
 
