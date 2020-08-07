@@ -29,16 +29,14 @@ public class SelectCharaAction {
 				nextPage = "/error.jsp";
 			} else if (manager.getnPlayer() == 2) {
 				manager.StartPlaying(manager.getPlayerNameList().get(0), manager.getPlayerNameList().get(1));
-				nextPage = "/main2p.jsp";
 			} else if (manager.getnPlayer() == 3) {
 				manager.StartPlaying(manager.getPlayerNameList().get(0), manager.getPlayerNameList().get(1),
 									 manager.getPlayerNameList().get(2));
-				nextPage = "/main3p.jsp";
 			} else if (manager.getnPlayer() == 4) {
 				manager.StartPlaying(manager.getPlayerNameList().get(0), manager.getPlayerNameList().get(1),
 									 manager.getPlayerNameList().get(2), manager.getPlayerNameList().get(3));
-				nextPage = "/main4p.jsp";
 			}
+			nextPage = "/main.jsp";
 		} else {
 			manager.setSelectPlayer(manager.getSelectPlayer() + 1);
 			nextPage = "/selectChara.jsp";

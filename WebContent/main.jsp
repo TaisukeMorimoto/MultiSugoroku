@@ -62,7 +62,7 @@
 
 	<div class="container">
    	<div class="row" style="color: black">
-   		<!-- player card -->
+   		<!-- player -->
    		<%
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
 	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
@@ -74,12 +74,12 @@
 	   			int bloodAlcLv = manager.getPlayerList().get(arrayNumber).getBloodAlcLv();
 	   			float alcRatio = bloodAlcLv*100/manager.getLimitAlcLv();
 	   			float locRatio = location*100/(manager.getSQUARE()-1);
-	   			String status = "status" + (arrayNumber+1);
 	   			String speciality = "speciality" + (arrayNumber+1);
 	   			String ultimate = "ultimate" + (arrayNumber+1);
-	   			String statusSh = "#status" + (arrayNumber+1);
-	   			String specialitySh = "#speciality" + (arrayNumber+1);
-	   			String ultimateSh = "#ultimate" + (arrayNumber+1);
+	   			String status = "status" + (arrayNumber+1);
+	   			String shSpeciality = "#speciality" + (arrayNumber+1);
+	   			String shUltimate = "#ultimate" + (arrayNumber+1);
+	   			String shStatus = "#status" + (arrayNumber+1);
    		%>
 	   	<div class="col-sm-6">
 			<div class="card mb-3" style="max-width: 500px;">
@@ -129,13 +129,13 @@
 					  <!-- タブのナビゲーション -->
 					  <ul class="nav nav-pills justify-content-end" >
 					    <li class="nav-item pill-1">
-					      <a href=<%=statusSh%> class="nav-link active" data-toggle="tab">ステータス</a>
+					      <a href=<%=shStatus%> class="nav-link active" data-toggle="tab">ステータス</a>
 					    </li>
 					    <li class="nav-item pill-2">
-					      <a href=<%=specialitySh%> class="nav-link" data-toggle="tab">特性</a>
+					      <a href=<%=shSpeciality%> class="nav-link" data-toggle="tab">特性</a>
 					    </li>
 					    <li class="nav-item pill-3">
-					      <a href=<%=ultimateSh%> class="nav-link" data-toggle="tab">必殺技</a>
+					      <a href=<%=shUltimate%> class="nav-link" data-toggle="tab">必殺技</a>
 					    </li>
 					  </ul>
 					 </div>
