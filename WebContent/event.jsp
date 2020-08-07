@@ -57,7 +57,19 @@
 			<div class="balloon5">
 			  <div class="faceicon">
 			<%
-		    	String playerImagePath0 = "image/" +  manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+				/* アルコールレベルのジャッジ */
+				String alcStatus = "";
+				if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 5) {
+					alcStatus = "1";
+				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 10){
+					alcStatus = "2";
+				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 15) {
+					alcStatus = "3";
+				} else {
+					alcStatus = "4";
+				}
+
+		    	String playerImagePath0 = "image/" +  manager.getPlayerList().get(manager.getTurn()).getEnName() + alcStatus + ".jpg";
 		        out.print("<img src='");
 		        out.print(playerImagePath0);
 		        out.print("'style='width:80px; height:80px; object-fit:cover; border-radius:50%;'>");

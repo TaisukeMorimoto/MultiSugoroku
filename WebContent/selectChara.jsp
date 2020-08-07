@@ -12,7 +12,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="js/selectChara.js"></script>
         <link rel="stylesheet" href="css/selectChara.css">
-        <title>キャラクター選択</title>
+        <title>SELECT</title>
     </head>
     <body>
         <div class="container">
@@ -45,7 +45,7 @@
                 <label for="suzuki">
                     <div class="futatsuna"><span class="skill"><br>必殺技<br><br>
                     飲んでなくない？wowwow⤴</span>
-                        <img src="image/suzuki.jpg">
+                        <img src="image/suzuki1.jpg">
                         <p>アルハラの鈴木</p>
                     </div>
                 </label>
@@ -53,7 +53,7 @@
                 <input id="katada" type="radio" name="chara" value="katada">
                 <label for="katada">
                     <div class="futatsuna"><span class="skill"><br>必殺技<br><br>えぇ、酔ってないですよ～</span>
-                        <img src="image/katada.jpg">
+                        <img src="image/katada1.jpg">
                         <p>千鳥足の堅田</p>
                     </div>
                 </label>
@@ -65,7 +65,7 @@
                     		<br>必殺技<br><br>
                     		幹事挨拶『乾杯』<br><br>
                     	</span>
-                        <img src="image/miyashita.jpg">
+                        <img src="image/miyashita1.jpg">
                         <p>幹事の宮下</p>
                     </div>
                 </label>
@@ -73,7 +73,7 @@
                 <input id="kano" type="radio" name="chara" value="kano">
                 <label for="kano">
                     <div class="futatsuna"><span class="skill"><br>必殺技<br><br>今日、この後デートあるんで♡</span>
-                        <img src="image/kano.jpg">
+                        <img src="image/kano1.jpg">
                         <p>断り上手の狩野</p>
                     </div>
                 </label>
@@ -81,7 +81,7 @@
                 <input id="otake" type="radio" name="chara" value="otake">
                 <label for="otake">
                     <div class="futatsuna"><span class="skill"><br>必殺技<br><br>さよならは悲しい言葉じゃない</span>
-                        <img src="image/otake.jpg">
+                        <img src="image/otake1.jpg">
                         <p>泣き上戸の大竹</p>
                     </div>
                 </label>
@@ -89,7 +89,7 @@
                 <input id="inoue" type="radio" name="chara" value="inoue">
                 <label for="inoue">
                     <div class="futatsuna"><span class="skill"><br>必殺技<br><br>大丈夫ですかー！？！？</span>
-                        <img src="image/inoue.jpg">
+                        <img src="image/inoue1.jpg">
                         <p>介抱の井上</p>
                     </div>
                 </label>
