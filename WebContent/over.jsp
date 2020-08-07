@@ -33,8 +33,12 @@
 	        <h2 class="card-title" style="color:black;">最終結果</h2>
 	        <p class="card-text" style="color:black;">
             <table class='table'>
-                <tr><th>進捗</th><th><%=manager.getPlayerList().get(manager.getTurn()).getLocation()%>/
-                					<%=manager.getSQUARE()-1%></th></tr>
+                <tr><th>進捗</th><th><%=manager.getPlayerList().get(manager.getTurn()).getLocation()%>
+                <% if (!(manager.getnPlayer() == 1)){ %> <!-- 1pのときは表示しない -->
+                	/
+                	<%=manager.getSQUARE()-1%>
+                <% } %>
+                </th></tr>
                 <tr><td>血中アルコール濃度</td><td><%=manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv()%>％</td></tr>
             </table>
 	        </p>

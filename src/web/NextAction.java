@@ -23,22 +23,19 @@ public class NextAction {
 		} else if(manager.getPlayerList().get(manager.getTurn()).getLocation() >= manager.getSQUARE() - 1){
 			nextPage = "/clear.jsp";
 
-		} else {
-			manager.goNextPayer();
-
+		} else if(manager.checkAllDie()) {
 			if (manager.getnPlayer() == 1) {
-//				nextPage = "/main1p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 2) {
-//				nextPage = "/main2p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 3) {
-//				nextPage = "/main3p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 4) {
-				nextPage = "/main4p.jsp";
+				nextPage = "/allOver1p.jsp";
+			} else {
+				nextPage = "/allOver.jsp";
 			}
 
+		} else if (manager.getnPlayer() == 1) {
+			manager.goNextPayer();
+			nextPage = "/main1p.jsp";
+		} else {
+			manager.goNextPayer();
+			nextPage = "/main.jsp";
 		}
 
 		session.setAttribute("manager", manager);

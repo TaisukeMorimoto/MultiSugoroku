@@ -7,26 +7,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/clear2.css">
-    <title>CLEAR</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>MAP</title>
 </head>
 <body>
     <div class="container">
         <header>
         	<div class="row">
-        	<div class="col-sm-7">
-            	<h1 style="font-size: 35px;">　　<%=manager.getPlayerList().get(manager.getTurn()).getName()%>さんの勝利！!</h1><br>
+        	<div class="col-sm-1">
+		   		<%
+		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + ".jpg";
+		   			int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
+					String name0 = manager.getPlayerList().get(manager.getTurn()).getName();
+		   		%>
+		   		<img src=<%=imagePath0%> class="img-icon" alt="...">
+        	</div>
+        	<div class="col-sm-6">
+            	<h3>　　<%=turn%><a>ターン目</a></h3>
+            	<h3>　　<%=name0%>さん<a>の番です</a></h3>
 			</div>
-				<div class="col-sm-1"></div>
-                <div class="col-sm-3">
-					<form action="Sugoroku" method="post">
-						<button type="submit" name="page" value="init" class="btn btn-default">もう一度あそぶ</button>
-					</form>
+
+                <div class="col-sm-4">
+                    <%
+                    	int nowRest = manager.getPlayerList().get(manager.getTurn()).getNowRest();
+                    	boolean canUltimate = manager.getPlayerList().get(manager.getTurn()).getCanUltimate();
+                    %>
+					<%
+                        if((nowRest == 0) && (canUltimate)){
+                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default'>必殺技</button></form>");
+                        } else {
+                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='ultimate' class='btn btn-default' disabled>必殺技</button></form>");
+                        }
+                    %>
+                    <%
+                        if(nowRest == 0){
+                            out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>サイコロをふる</button></form>");
+                        }else {
+                        	out.print("<form action='Sugoroku' method='post'><button type='submit' name='page' value='dice' class='btn btn-default'>次のプレイヤーへ</button></form></div>");
+                        }
+					%>
+		        	<div class="col-sm-1"></div>
                 </div>
-                <div class="col-sm-1"></div>
             </div>
         </header>
     </div>
@@ -88,13 +117,13 @@
 					    </div>
 					    <!-- 2個目のタブ -->
 					    <div id=<%=ultimate%> class="tab-pane">
-					    	<h4 class="card-title"><br><%=ultimateName%></h4>
-							<div class="card-text"><%=ultimateText%></div><br><br>
+					    	<h4 class="card-title"><%=ultimateName%></h4>
+							<div class="card-text" style="font-weight: initial;"><%=ultimateText%></div>
 					    </div>
 					    <!-- 3個目のタブ -->
 					    <div id=<%=speciality%> class="tab-pane">
-					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text"><%=specialityText%><br><br><br></div>
+					    	<h4 class="card-title">特性</h4>
+							<div class="card-text" style="font-weight: initial;"><%=specialityText%></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->
@@ -118,7 +147,6 @@
 
 	 </div>
 	 </div>
-
 	<div class="container">
     <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>

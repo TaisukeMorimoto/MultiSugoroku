@@ -27,20 +27,11 @@ public class UltimateDecisionAction {
 			manager.doUltimateOnePlayer(enName);
 		}
 
-
-		if (manager.getnPlayer() == 1) {
-//			nextPage = "/main1p.jsp";
-			nextPage = "/error.jsp";
-		} else if (manager.getnPlayer() == 2) {
-//			nextPage = "/main2p.jsp";
-			nextPage = "/error.jsp";
-		} else if (manager.getnPlayer() == 3) {
-//			nextPage = "/main3p.jsp";
-			nextPage = "/error.jsp";
-		} else if (manager.getnPlayer() == 4) {
-			nextPage = "/main4p.jsp";
+		if (manager.getnPlayer() == 0) {
+			nextPage = "/main1p.jsp";
+		} else {
+			nextPage = "/main.jsp";
 		}
-
 		session.setAttribute("manager", manager);
 
 		return nextPage;

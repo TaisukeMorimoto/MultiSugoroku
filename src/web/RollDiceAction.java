@@ -18,17 +18,10 @@ public class RollDiceAction {
 		// when player is rest
 		if (manager.getPlayerList().get(manager.getTurn()).getNowRest() > 0) {
 			manager.goNextPayer();
-			if (manager.getnPlayer() == 1) {
-//				nextPage = "/main1p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 2) {
-//				nextPage = "/main2p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 3) {
-//				nextPage = "/main3p.jsp";
-				nextPage = "/error.jsp";
-			} else if (manager.getnPlayer() == 4) {
-				nextPage = "/main4p.jsp";
+			if (manager.getnPlayer() ==1) {
+				nextPage = "/main1p.jsp";
+			} else {
+				nextPage = "/main.jsp";
 			}
 		} else if (manager.checkAllDie()) {
 			nextPage = "/allOver.jsp";

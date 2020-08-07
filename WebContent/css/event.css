@@ -4,10 +4,12 @@ body{
     background-color: rgb(22, 44, 65);
 }
 
-.container{
-    max-width: 800px;
+body .container{
+    max-width: 1000px;
     margin: 0 auto;
+    margin-bottom: 20px;
     color: #fff;
+    font-weight: bold;
 }
 
 header{

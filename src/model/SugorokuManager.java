@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import entity.Liquor;
 import entity.Sugoroku;
+import entity.Sugoroku1p;
 import entity.SugorokuAllDay;
 import entity.SugorokuLong;
 import entity.SugorokuNormal;
@@ -42,7 +43,11 @@ public class SugorokuManager {
 
 	public void InitSugorokuManager(int nPlayer, String course) {
 		// create sugoroku board
-		if (course.equals("2hours")) {
+		if (nPlayer == 1) {
+			sugoroku = new Sugoroku1p(realPath);
+			System.out.println("sugoroku board for 1p");
+			System.out.println(sugoroku.getSQUARE()+" square");
+		} else if (course.equals("2hours")) {
 			sugoroku = new SugorokuNormal(realPath);
 			System.out.println("generate normal sugoroku board");
 		} else if (course.equals("long")) {
@@ -104,7 +109,7 @@ public class SugorokuManager {
 
 	public boolean checkAllDie() {
 		boolean isAllDie = true;
-		for (int i = 0; i<nPlayer-1; i++) {
+		for (int i = 0; i<nPlayer; i++) {
 			if (playerList.get(i).getNowRest() < 50) {
 				isAllDie = false;
 				break;
