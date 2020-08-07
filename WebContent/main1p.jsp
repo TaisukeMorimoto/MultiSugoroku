@@ -15,7 +15,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main1p.css">
     <title>MAP</title>
 </head>
 <body>
@@ -72,6 +72,7 @@
 	   			String shUltimate = "#ultimate" + (arrayNumber+1);
 	   			String shStatus = "#status" + (arrayNumber+1);
    		%>
+   		<div class="card mb-3" style="max-width: 1000px; background-color: rgb(22, 44, 65)">
 	      <div class="row no-gutters" style="color: white;">
 	        <div class="col-sm-3">
 	          <img src=<%=imagePath%> class="img-main" style="width:250px; height:250px;" alt="...">
@@ -83,16 +84,9 @@
 				  <div class="tab-content">
 				    <div id=<%=status%> class="tab-pane active">
 			          <div class="card-body">
-			            <h4 class="card-title"><%=name%></h4>
+			            <h2 class="card-title"><%=name%></h2>
 			            <div class="card-text">
-					        現在地：　<%=location%>/<%=manager.getSQUARE()-1%><br>
-					        <div class="progress">
- 									<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
- 									aria-valuenow=<%=locRatio%>
- 									aria-valuemin="0" aria-valuemax="1"
- 									style="width: <%=locRatio%>%">
- 									</div>
-							</div>
+					        現在地：　<%=location%><br>
 					        <br>血中アルコール濃度：　<%=bloodAlcLv%>%<br>
 					        <div class="progress">
  									<div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
@@ -106,10 +100,10 @@
 				    </div>
 				    <!-- 2個目のタブ -->
 				    <div id=<%=speciality%> class="tab-pane">
-				    	<h4 class="card-title">特性</h4>
+				    	<h2 class="card-title">特性</h2>
 						<div class="card-text" style="font-weight: initial;"><%=specialityText%></div>
 				    </div>
-				  </div>
+				  </div><br>
 				  <!-- タブのナビゲーション -->
 				  <ul class="nav nav-pills justify-content-end" >
 				    <li class="nav-item pill-1">
@@ -124,44 +118,21 @@
 	      </div>
 	    <% } %>
 	 </div><br><br>
-	<div class="container">
-         <table class="table">
-           <tr>
-               <%
-               	for (int i=0; i<1; i++){
-                       out.print("<tr>");
-                       for (int j=0; j<=manager.getSQUARE()-1; j++){
-                       	boolean[] locationArray = manager.getPlayerList().get(i).getLocationArray();
-                       	if (locationArray[j]){
-							String imagePath =  "image/" + manager.getPlayerList().get(i).getEnName() + ".jpg";
-                       		out.print("<td><img style='width:40px; height:40px; border-radius: 50%;' src='");
-                       		out.print(imagePath);
-                       		out.print("'></td>");
-                       	} else if (j == manager.getSQUARE()-1){
-  								String imagePath =  "image/flag.png";
-                          		out.print("<td><img style='width:30px; height:30px;' src='");
-                          		out.print(imagePath);
-                          		out.print("'></td>");
-                       	} else{
-							String imagePath =  "image/round.png";
-                       		/* out.print("<td><img class='location' src='"); */
-                       		out.print("<td></td>");
-                       		/* out.print(imagePath); */
-                       		/* out.print("'></td>"); */
-                       	}
-                       }
-               	}
-                   out.println("</tr>");
-               %>
-           </tr>
-       </table>
-      </div><br><br>
+	 </div>
 
 
 	<div class="container">
-    <form action="Sugoroku" method="post">
-		<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
-	</form>
+	<div class="row">
+		<div class="col-sm-9">
+
+		</div>
+		<div class="col-sm-3">
+			<form action="Sugoroku" method="post">
+				<button type="submit" name="page" value="init" class="btn btn-default">最初から</button>
+			</form>
+		</div>
 	</div>
+	</div>
+
 </body>
 </html>

@@ -11,7 +11,7 @@ public class SugorokuNormal implements Sugoroku {
 
 	public int SQUARE = 25 + 1;
 	private static int DICE_MAX = 6;
-	private ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
+	protected ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
 	private static String realPath;
 
 	public SugorokuNormal(String realPath) {
