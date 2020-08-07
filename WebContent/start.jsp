@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/start.js"></script>
-    <link rel="stylesheet" href="css/start2.css">
+    <link rel="stylesheet" href="css/start.css">
     <title>START</title>
 </head>
     <div class="container">
@@ -67,8 +67,12 @@
                 <div class="rule">
                     <p>・血中アルコール濃度が20％に達する前にゴールしよう<br>
                     ・それぞれのキャラクターは必殺技と特性を持っているぞ<br>
-                    ・キャラクターの特徴を活かして一番最初にゴールしよう！</p>
+                    ・キャラクターの特徴を活かして一番最初にゴールしよう！<br>
+                    </p>
                 </div>
+                <p style="font-size:15px; font-weight: initial;">
+                	※1名様の場合は必殺技は使えず、お酒を飲みながらどこまで先にすすめるかをランキング形式で競っていただきます。
+                </p>
             </section>
 
             <button type="submit" name="page" value="play" class="btn btn-default">PLAY</button>
