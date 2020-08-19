@@ -70,11 +70,11 @@
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
    				/* アルコールレベルのジャッジ */
    				String alcStatus = "";
-   				if (manager.getPlayerList().get(turn).getBloodAlcLv() < 5) {
+   				if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 5) {
    					alcStatus = "1";
-   				} else if (manager.getPlayerList().get(turn).getBloodAlcLv() < 10){
+   				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 10){
    					alcStatus = "2";
-   				} else if (manager.getPlayerList().get(turn).getBloodAlcLv() < 15) {
+   				} else if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 15) {
    					alcStatus = "3";
    				} else {
    					alcStatus = "4";

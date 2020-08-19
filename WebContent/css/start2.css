@@ -95,13 +95,14 @@ label + label {
   font-size: 60px;/*文字サイズ*/
   border: solid white 2px; /*線で囲う*/
   padding: 1px 35px 1px 35px;/*文字と線の間の余白*/
-  color: white;/*文字色*/
+  color: black;/*文字色*/
   text-decoration: none;/*下線を表示させない*/
   border-radius: 5px;
+  background: rgba(255, 255, 255, 0.8);/*背景を半透明に*/
   }
 
 .example a:hover{/*カーソルを当てたとき*/
-  background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+  background: white;/*背景を半透明に*/
   }
 
 .example img {

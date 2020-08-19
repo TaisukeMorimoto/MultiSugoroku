@@ -36,7 +36,18 @@
    		<!-- player -->
    		<%
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
-	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + ".jpg";
+   				/* アルコールレベルのジャッジ */
+   				String alcStatus = "";
+   				if (manager.getPlayerList().get(arrayNumber).getBloodAlcLv() < 5) {
+   					alcStatus = "1";
+   				} else if (manager.getPlayerList().get(arrayNumber).getBloodAlcLv() < 10){
+   					alcStatus = "2";
+   				} else if (manager.getPlayerList().get(arrayNumber).getBloodAlcLv() < 15) {
+   					alcStatus = "3";
+   				} else {
+   					alcStatus = "4";
+   				}
+	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + alcStatus + ".jpg";
 	   			String name = manager.getPlayerList().get(arrayNumber).getName();
 	   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 	   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
@@ -88,13 +99,13 @@
 					    </div>
 					    <!-- 2個目のタブ -->
 					    <div id=<%=ultimate%> class="tab-pane">
-					    	<h4 class="card-title"><br><%=ultimateName%></h4>
-							<div class="card-text"><%=ultimateText%></div><br><br>
+					    	<h4 class="card-title"><%=ultimateName%></h4>
+							<div class="card-text" style="font-weight: initial;"><%=ultimateText%></div>
 					    </div>
 					    <!-- 3個目のタブ -->
 					    <div id=<%=speciality%> class="tab-pane">
-					    	<h4 class="card-title"><br>特性</h4>
-							<div class="card-text"><%=specialityText%><br><br><br></div>
+					    	<h4 class="card-title">特性</h4>
+							<div class="card-text" style="font-weight: initial;"><%=specialityText%></div>
 					    </div>
 					  </div>
 					  <!-- タブのナビゲーション -->
