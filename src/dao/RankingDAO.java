@@ -27,11 +27,10 @@ public class RankingDAO {
 	}
 
 	/**
-	 * ランキングを取得する
+	 * スコア高い順にランキングを取得する
 	 * @return ランキング情報全件
 	 * @throws SQLException
 	 */
-
 	public ArrayList<Result> getRankingList() throws SQLException {
 
 		String sql = "SELECT * FROM ranking ORDER BY score DESC";
@@ -75,7 +74,41 @@ public class RankingDAO {
 		}
 
 		return resultList;
+	}
 
+	/**
+	 * スコア高い順にランキングを取得する
+	 * @return ランキング情報全件
+	 * @throws SQLException
+	 */
+	public ArrayList<Result> putRankingRecord(String name,String date,int score,String select_character) throws SQLException {
+
+		String sql = "insert into ranking (name, date, score, select_character) values (?,?,?,?);";
+
+		PreparedStatement stmt = null;
+		ArrayList<Result> resultList = new ArrayList<Result>();
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, name);
+			stmt.setString(2, date);
+			stmt.setInt(3, score);
+			stmt.setString(4, select_character);
+			System.out.println("execute query start");
+			int num = stmt.executeUpdate();
+			System.out.println("num: " + num);
+			System.out.println("execute query end");
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally{
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
+		return resultList;
 	}
 
 

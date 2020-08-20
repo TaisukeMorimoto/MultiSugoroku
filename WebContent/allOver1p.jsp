@@ -40,6 +40,7 @@
 	   			String shUltimate = "#ultimate" + (arrayNumber+1);
 	   			String shStatus = "#status" + (arrayNumber+1);
 	   			int count = manager.getPlayerList().get(manager.getTurn()).getCount();
+	   			int score = location*100 + count*50;
    		%>
 	      <div class="row no-gutters" style="color: white;">
 	        <div class="col-sm-3">
@@ -50,7 +51,7 @@
 				最終到達マス：　<%=location%><br><br>
 				飲んだ酒の数：　<%=count%><br>
 				____________________________________<br><br>
-				合計得点：　<%=location*100 + count*50%>　point
+				合計得点：　<%=score%>　point
 	        </div>
 	      </div>
 	    <% } %>
@@ -58,7 +59,14 @@
 
 	 <div class="container">
     <form action="Sugoroku" method="post">
-		<button type="submit" name="page" value="init" class="btn btn-default">ランキングに登録</button>
+    	  <div class="form-group">
+   			    <label>あなたのニックネーム
+    			<input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter your nick-name"></label>
+   		 		 <small id="nameHelp" class="form-text text-muted">日本語は現在文字化けします。英字ならok。</small>
+   		  		 <input type="hidden" name="score" value=<%=manager.getPlayerList().get(0).getLocation()*100 + manager.getPlayerList().get(manager.getTurn()).getCount()*50 %> />
+ 				 <input type="hidden" name="select_character" value=<%=manager.getPlayerList().get(0).getEnName() %>>
+  		</div>
+		<button type="submit" name="page" value="ranking" class="btn btn-default">ランキングに登録</button>
 		<button type="submit" name="page" value="init" class="btn btn-default">登録せずに終わる</button>
 	</form>
 	</div>

@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import common.RankingException;
 /**
  * Servlet implementation class Sugoroku
  */
@@ -81,6 +83,15 @@ public class SugorokuController extends HttpServlet {
 			case "ultimate":
 				UltimateAction ultimateAction = new UltimateAction();
 				nextPage = ultimateAction.execute(request);
+				break;
+			case "ranking":
+				System.out.println("ranking");
+				RankingAction rankingAction = new RankingAction();
+				try {
+					nextPage = rankingAction.execute(request);
+				} catch (RankingException e) {
+					e.printStackTrace();
+				}
 				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);

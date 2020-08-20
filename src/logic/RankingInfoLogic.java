@@ -43,4 +43,35 @@ public class RankingInfoLogic {
 		return resultList;
 	}
 
+	/**
+	 *1件のランキング情報の登録。
+	 * @throws RankingException
+	 */
+	public ArrayList<Result> putRankingRecord(String name,String date,int score,String select_character) throws RankingException {
+
+		Connection con = null;
+		ArrayList<Result> resultList = null;
+
+		try {
+			con = ConnectionManager.getConnection();
+
+			// 1件のランキング情報を登録する。
+			RankingDAO rdao = new RankingDAO(con);
+			 rdao.putRankingRecord(name, date, score, select_character);
+
+		} catch (SQLException e) {
+			throw new RankingException("ランキングシステムエラーです。システム管理者に連絡してください。");
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					throw new RankingException("ランキングシステムエラーです。システム管理者に連絡してください。");
+				}
+			}
+		}
+
+		return resultList;
+	}
+
 }
