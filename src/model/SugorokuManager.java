@@ -50,6 +50,7 @@ public class SugorokuManager {
 		} else if (course.equals("2hours")) {
 			sugoroku = new SugorokuNormal(realPath);
 			System.out.println("generate normal sugoroku board");
+			System.out.println(sugoroku.getSQUARE()+" square");
 		} else if (course.equals("long")) {
 			sugoroku = new SugorokuLong(realPath);
 			System.out.println("generate long sugoroku board");

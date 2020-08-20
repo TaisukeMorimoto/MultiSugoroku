@@ -44,6 +44,7 @@ public class SugorokuController extends HttpServlet {
 		switch (buttonId) {
 			case "init":
 				// initialization process
+				System.out.println("======== init action start =========");
 				InitAction initAction = new InitAction();
 				nextPage = initAction.execute(request);
 				break;
