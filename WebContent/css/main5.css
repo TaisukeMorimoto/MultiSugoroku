@@ -6,7 +6,7 @@ body{
 
 body .container{
 	margin-top: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     padding-top: 30px;
     top: 0;
     z-index: 100;
@@ -16,11 +16,11 @@ body .container{
 
 .img-squares {
 	display: block;
-	padding-top: 30px;
+	padding-top: 0px;
 	margin-left: auto;
     margin-right: auto;
-    width: 720px;
-	hight: 560px;
+    width: 700px;
+	hight: 700px;
 }
 
 .img-squares-player {
@@ -29,15 +29,62 @@ body .container{
 	border-radius: 50%;
 }
 
+.img-squares-liquor {
+    width: 90px;
+	hight: 90px;
+}
+
 .plot-icon {
 	position: relative;
 }
 
+
+
+.plot-icon .liquor1 {
+	position: absolute;
+	color: white;
+	top: 33%;
+	left: 24%;
+	transform: translate(-50%,-50%);
+	margin:0;
+    padding:0;
+	}
+
+.plot-icon .liquor2 {
+	position: absolute;
+	color: white;
+	top: 16%;
+	left: 37%;
+	transform: translate(-50%,-50%);
+	margin:0;
+    padding:0;
+	}
+
+.plot-icon .liquor3 {
+	position: absolute;
+	color: white;
+	top: 16%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	margin:0;
+    padding:0;
+	}
+
+.plot-icon .liquor4 {
+	position: absolute;
+	color: white;
+	top: 16%;
+	left: 63%;
+	transform: translate(-50%,-50%);
+	margin:0;
+    padding:0;
+	}
+
 .plot-icon .start1 {
 	position: absolute;
 	color: white;
-	top: 12%;
-	left: 20%;
+	top: 14%;
+	left: 21%;
 	transform: translate(-50%,-50%);
 	margin:0;
     padding:0;
@@ -46,8 +93,8 @@ body .container{
 .plot-icon .start2 {
 	position: absolute;
 	color: white;
-	top: 12%;
-	left: 15%;
+	top: 14%;
+	left: 26%;
 	transform: translate(-51%,-51%);
 	margin:0;
     padding:0;
@@ -57,7 +104,7 @@ body .container{
 	position: absolute;
 	color: white;
 	top: 18%;
-	left: 20%;
+	left: 21%;
 	transform: translate(-51%,-51%);
 	margin:0;
     padding:0;
@@ -67,7 +114,7 @@ body .container{
 	position: absolute;
 	color: white;
 	top: 18%;
-	left: 15%;
+	left: 26%;
 	transform: translate(-51%,-51%);
 	margin:0;
     padding:0;
@@ -91,11 +138,11 @@ card mb-3 {
 }
 
 .container button{
-    margin: 10px auto;
+    margin: 5px auto;
     background-color: rgb(218, 235, 243);
     border-radius: 5px;
     color: #000;
-    padding: 10px auto;
+    padding: 5px auto;
     width: 100%;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, .7);
     font-weight: bold;
@@ -109,7 +156,7 @@ card mb-3 {
 
 .btn.btn-ultimate:hover{
 	background-color: gold;
-	color: #fff;
+	color: yellow;
 }
 
 .img-each-player{
@@ -141,4 +188,272 @@ card mb-3 {
     color: #000;
 	font-size: 2px;
     background-color: rgb(218, 235, 243);
+}
+
+
+/* sass用コード  このサイトでcssに変換（https://www.sassmeister.com/)
+@for $i from 1 through 5 {
+	@for $u from 1 through 5 {
+	.plot-icon .liquor#{$i}-#{$u}
+		{
+			position: absolute;
+			color: white;
+			top: 16% + (17*($i - 1));
+			left: 24% + 13*($u - 1);
+			transform: translate(-50%,-50%);
+			margin:0;
+		    padding:0;
+		}
+	}
+}
+*/
+
+.plot-icon .liquor1-1 {
+  position: absolute;
+  color: white;
+  top: 16%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor1-2 {
+  position: absolute;
+  color: white;
+  top: 16%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor1-3 {
+  position: absolute;
+  color: white;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor1-4 {
+  position: absolute;
+  color: white;
+  top: 16%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor1-5 {
+  position: absolute;
+  color: white;
+  top: 16%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor2-1 {
+  position: absolute;
+  color: white;
+  top: 33%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor2-2 {
+  position: absolute;
+  color: white;
+  top: 33%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor2-3 {
+  position: absolute;
+  color: white;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor2-4 {
+  position: absolute;
+  color: white;
+  top: 33%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor2-5 {
+  position: absolute;
+  color: white;
+  top: 33%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor3-1 {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor3-2 {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor3-3 {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor3-4 {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor3-5 {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor4-1 {
+  position: absolute;
+  color: white;
+  top: 67%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor4-2 {
+  position: absolute;
+  color: white;
+  top: 67%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor4-3 {
+  position: absolute;
+  color: white;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor4-4 {
+  position: absolute;
+  color: white;
+  top: 67%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor4-5 {
+  position: absolute;
+  color: white;
+  top: 67%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor5-1 {
+  position: absolute;
+  color: white;
+  top: 84%;
+  left: 24%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor5-2 {
+  position: absolute;
+  color: white;
+  top: 84%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor5-3 {
+  position: absolute;
+  color: white;
+  top: 84%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor5-4 {
+  position: absolute;
+  color: white;
+  top: 84%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+.plot-icon .liquor5-5 {
+  position: absolute;
+  color: white;
+  top: 84%;
+  left: 76%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="manager" scope="session" class="model.SugorokuManager" />
+<%@ page import="entity.Liquor" %>
 
 <!DOCTYPE html>
 <html>
@@ -54,7 +55,7 @@
     		<!-- 操作画面 -->
          	<div class="col-sm-8">
 
-         		<div class="row" style="padding-top:30px;">
+         		<div class="row" style="padding-top:0px; padding-bottom:0px;">
          			<div class="col-sm-1">
 					</div>
      		   		<div class="col-sm-3">
@@ -91,11 +92,21 @@
 
          		<!-- マス目表示画面 -->
          		<div class="plot-icon">
-	       			<img src=image/squares.jpg class="img-squares" alt="...">
+	       			<img src=image/map.25.png class="img-squares" alt="...">
 	       			<div class="start1"><img src=image/miyashita1.jpg class="img-squares-player"></div>
 	       			<div class="start2"><img src=image/katada1.jpg class="img-squares-player"></div>
 	       			<div class="start3"><img src=image/suzuki1.jpg class="img-squares-player"></div>
 	       			<div class="start4"><img src=image/otake1.jpg class="img-squares-player"></div>
+
+	       			<%
+	       				for (Liquor liquor : manager.getSugoroku().getLiquorList()){
+	       					String liquorEnName = liquor.getLiquorEnName();
+	       				}
+	       			%>
+
+	       			<div class="liquor1-1"><img src=image/beer.png class="img-squares-liquor"></div>
+	       			<div class="liquor1-2"><img src=image/wine.png class="img-squares-liquor"></div>
+	       			<div class="liquor1-3"><img src=image/nihonshu.png class="img-squares-liquor"></div>
 	       		</div>
          	</div>
 

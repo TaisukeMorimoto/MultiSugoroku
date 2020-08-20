@@ -3,11 +3,13 @@ package entity;
 public class Liquor {
 
 	private String liquorName;
+	private String liquorEnName;
 	private int liquorAlcLv;
 	private String liquorText;
 
-	Liquor(String liquorName, int liquorAlcLv, String liquorText){
+	Liquor(String liquorName, String liquorEnName, int liquorAlcLv, String liquorText){
 		this.liquorName = liquorName;
+		this.liquorEnName = liquorEnName;
 		this.liquorAlcLv = liquorAlcLv;
 		this.liquorText = liquorText;
 	}
@@ -34,6 +36,14 @@ public class Liquor {
 
 	public void setLiquorName(String liquorName) {
 		this.liquorName = liquorName;
+	}
+
+	public String getLiquorEnName() {
+		return liquorEnName;
+	}
+
+	public void setLiquorEnName(String liquorEnName) {
+		this.liquorEnName = liquorEnName;
 	}
 
 

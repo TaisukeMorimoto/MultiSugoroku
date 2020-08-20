@@ -39,7 +39,7 @@
 					int score = res.getScore();
 					String select_character =res.getSelect_character();
 		%>
-		<tr><td><%=rank%></td><td><%=score%></td><td><%=id%></td>
+		<tr><td><%=rank%></td><td><%=score%></td>
 		<td><%=name%></td><td><%=select_character%></td><td><%=date%></td></tr>
 		<%} %>
 		</table>
