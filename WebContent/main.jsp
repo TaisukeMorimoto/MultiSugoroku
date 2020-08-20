@@ -98,15 +98,20 @@
 	       			<div class="start3"><img src=image/suzuki1.jpg class="img-squares-player"></div>
 	       			<div class="start4"><img src=image/otake1.jpg class="img-squares-player"></div>
 
+					<!-- 各マスに酒画像を表示 -->
 	       			<%
+	       				int[] x = {2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,5,5};
+	       				int[] y = {1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,5,5,5};
+	       				int num = 0;
 	       				for (Liquor liquor : manager.getSugoroku().getLiquorList()){
 	       					String liquorEnName = liquor.getLiquorEnName();
-	       				}
+	       					String liquorPath = "image/" + liquorEnName + ".png";
+	       					System.out.println(num);
+	       					String liquorClass = "liquor" +  String.valueOf(y[num]) + "-" + String.valueOf(x[num]);
+	       					num++;
 	       			%>
-
-	       			<div class="liquor1-1"><img src=image/beer.png class="img-squares-liquor"></div>
-	       			<div class="liquor1-2"><img src=image/wine.png class="img-squares-liquor"></div>
-	       			<div class="liquor1-3"><img src=image/nihonshu.png class="img-squares-liquor"></div>
+	       			<div class=<%=liquorClass%>><img src=<%=liquorPath%> class="img-squares-liquor"></div>
+	       			<% } %>
 	       		</div>
          	</div>
 
