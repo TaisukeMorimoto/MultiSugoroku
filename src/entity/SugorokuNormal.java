@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class SugorokuNormal implements Sugoroku {
 
-	public int SQUARE = 23 + 1;
+	public int SQUARE = 24 + 1;
 	private static int DICE_MAX = 6;
 	protected ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
 	private static String realPath;

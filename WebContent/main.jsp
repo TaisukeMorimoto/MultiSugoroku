@@ -50,8 +50,6 @@
     <div class="container">
     	<div class="row">
 
-
-
     		<!-- 操作画面 -->
          	<div class="col-sm-8">
 
@@ -93,10 +91,6 @@
          		<!-- マス目表示画面 -->
          		<div class="plot-icon">
 	       			<img src=image/map.25.png class="img-squares" alt="...">
-	       			<div class="start1"><img src=image/miyashita1.jpg class="img-squares-player"></div>
-	       			<div class="start2"><img src=image/katada1.jpg class="img-squares-player"></div>
-	       			<div class="start3"><img src=image/suzuki1.jpg class="img-squares-player"></div>
-	       			<div class="start4"><img src=image/otake1.jpg class="img-squares-player"></div>
 
 					<!-- 各マスに酒画像を表示 -->
 	       			<%
@@ -106,11 +100,25 @@
 	       				for (Liquor liquor : manager.getSugoroku().getLiquorList()){
 	       					String liquorEnName = liquor.getLiquorEnName();
 	       					String liquorPath = "image/" + liquorEnName + ".png";
-	       					System.out.println(num);
 	       					String liquorClass = "liquor" +  String.valueOf(y[num]) + "-" + String.valueOf(x[num]);
 	       					num++;
 	       			%>
-	       			<div class=<%=liquorClass%>><img src=<%=liquorPath%> class="img-squares-liquor"></div>
+	       			<%if (!(num == 25)){ %>
+	       					<div class=<%=liquorClass%>><img src=<%=liquorPath%> class="img-squares-liquor"></div>
+	       			<% }} %>
+
+	       			<!-- 各playerの現在地表示 -->
+	       			<%
+	       				for (int i = 0; i < manager.getnPlayer(); i++){
+		       				int[] xx = {1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,5,5};
+		       				int[] yy = {1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,5,5,5};
+		       				int location = manager.getPlayerList().get(i).getLocation();
+		       				String playerEnName = manager.getPlayerList().get(i).getEnName();
+		       				String playerClass = "player" + String.valueOf(i+1) + "-" + String.valueOf(yy[location]) +
+		       						"-" + String.valueOf(xx[location]);
+		       				String playerPath = "image/" + playerEnName + "1.jpg";
+	       			%>
+	       			<div class=<%=playerClass%>><img src=<%=playerPath%> class="img-squares-player"></div>
 	       			<% } %>
 	       		</div>
          	</div>
