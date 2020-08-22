@@ -94,17 +94,19 @@
 
 					<!-- 各マスに酒画像を表示 -->
 	       			<%
-	       				int[] x = {2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,5,5};
-	       				int[] y = {1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,5,5,5};
+	       				int[] x = {1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,4,3,2,1,1,2,3,4,5,5,5,5};
+	       				int[] y = {1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,5,5,5};
 	       				int num = 0;
 	       				for (Liquor liquor : manager.getSugoroku().getLiquorList()){
 	       					String liquorEnName = liquor.getLiquorEnName();
+	       					int liquorAlc = liquor.getLiquorAlcLv();
 	       					String liquorPath = "image/" + liquorEnName + ".png";
 	       					String liquorClass = "liquor" +  String.valueOf(y[num]) + "-" + String.valueOf(x[num]);
 	       					num++;
 	       			%>
-	       			<%if (!(num == 25)){ %>
+	       			<%if (!(num == 1)){ %>
 	       					<div class=<%=liquorClass%>><img src=<%=liquorPath%> class="img-squares-liquor"></div>
+	       					<%-- <div class=<%=liquorClass%> style="background-color:rgb(22, 44, 65)"><%=liquorAlc%>%</div> --%>
 	       			<% }} %>
 
 	       			<!-- 各playerの現在地表示 -->
