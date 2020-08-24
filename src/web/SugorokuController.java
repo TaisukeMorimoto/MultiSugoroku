@@ -94,6 +94,15 @@ public class SugorokuController extends HttpServlet {
 					e.printStackTrace();
 				}
 				break;
+			case "deleteRanking":
+				System.out.println("delete ranking");
+				DeleteRankingAction deleteRankingAction = new DeleteRankingAction();
+				try {
+					nextPage = deleteRankingAction.execute(request);
+				} catch (RankingException e) {
+					e.printStackTrace();
+				}
+				break;
 			default:
 				System.out.println("error buttonId:" + buttonId);
 				nextPage = "error.jsp";

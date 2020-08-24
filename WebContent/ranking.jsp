@@ -6,7 +6,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.net.URLDecoder" %>
 <%
-	ArrayList<Result> resultList = (ArrayList<Result>) session.getAttribute("resultList");
+	ArrayList<Result> resultList = (ArrayList<Result>) request.getAttribute("resultList");
 %>
 
 <!DOCTYPE html>
@@ -39,12 +39,12 @@
 					int score = res.getScore();
 					String select_character =res.getSelect_character();
 		%>
-		<tr><td><%=rank%></td><td><%=score%></td>
+		<tr><td><%=rank%></td><td><%=score%></td><td><%=id%></td>
 		<td><%=name%></td><td><%=select_character%></td><td><%=date%></td></tr>
 		<%} %>
 		</table>
 
-	<form>
+    <form action="Sugoroku" method="post">
 		<button type="submit" name="page" value="init" class="btn btn-default">タイトルに戻る</button>
 	</form>
 

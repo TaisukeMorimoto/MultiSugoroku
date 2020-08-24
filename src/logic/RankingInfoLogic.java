@@ -74,4 +74,35 @@ public class RankingInfoLogic {
 		return resultList;
 	}
 
+	/**
+	 *指定した名前のreordを削除
+	 * @throws RankingException
+	 */
+	public ArrayList<Result> deleteRankingRecord(int id) throws RankingException {
+
+		Connection con = null;
+		ArrayList<Result> resultList = null;
+
+		try {
+			con = ConnectionManager.getConnection();
+
+			//　nameと紐づいた 1件のランキング情報を削除する。
+			RankingDAO rdao = new RankingDAO(con);
+			 rdao.deleteRankingRecord(id);
+
+		} catch (SQLException e) {
+			throw new RankingException("ランキングシステムエラーです。システム管理者に連絡してください。");
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					throw new RankingException("ランキングシステムエラーです。システム管理者に連絡してください。");
+				}
+			}
+		}
+
+		return resultList;
+	}
+
 }

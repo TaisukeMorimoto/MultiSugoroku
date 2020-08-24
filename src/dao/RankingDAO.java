@@ -77,16 +77,14 @@ public class RankingDAO {
 	}
 
 	/**
-	 * スコア高い順にランキングを取得する
-	 * @return ランキング情報全件
+	 * ランキングにrecordを追加する(うまく動かん)
 	 * @throws SQLException
 	 */
-	public ArrayList<Result> putRankingRecord(String name,String date,int score,String select_character) throws SQLException {
+	public void putRankingRecord(String name,String date,int score,String select_character) throws SQLException {
 
 		String sql = "insert into ranking (name, date, score, select_character) values (?,?,?,?);";
 
 		PreparedStatement stmt = null;
-		ArrayList<Result> resultList = new ArrayList<Result>();
 
 		try {
 			stmt = con.prepareStatement(sql);
@@ -107,8 +105,35 @@ public class RankingDAO {
 				stmt.close();
 			}
 		}
+	}
 
-		return resultList;
+	/**
+	 * 指定した名前のrecordを削除
+	 * @throws SQLException
+	 */
+	public void deleteRankingRecord(int id) throws SQLException {
+
+		String sql = "delete from ranking where id=?;";
+
+		PreparedStatement stmt = null;
+
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, id);
+			System.out.println("execute query start");
+			int num = stmt.executeUpdate();
+			System.out.println("num: " + num);
+			System.out.println("execute query end");
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally{
+			if(stmt != null) {
+				stmt.close();
+			}
+		}
+
 	}
 
 
