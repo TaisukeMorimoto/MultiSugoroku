@@ -28,6 +28,37 @@ header h1{
     font-family: 'Kosugi Maru';
 }
 
+.row{
+	margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    top: 0;
+    z-index: 100;
+}
+
+.img {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.img p {
+  position: absolute;/*絶対配置*/
+  color: yellow;
+  font-size: 25px;
+  top: 10%;
+  left: 4%;
+  }
+
+ .bold{
+    color: yellow;
+  	font-size: 25px;
+  }
+
+.img .img-liquor-text {
+    width: 70px;
+	hight: 70px;
+	border-radius: 50%;
+}
+
 label + input[type="radio"],
 label + label {
     margin-left: 2em;
@@ -115,7 +146,7 @@ label + label {
 .balloon5 .faceicon img{
   width: 100%;
   height: auto;
-  border: solid 3px rgb(157, 125, 150);
+  border: solid 2px white;
   border-radius: 50%;
 }
 
@@ -145,4 +176,34 @@ label + label {
 .says p {
   margin: 0;
   padding: 0;
+}
+
+/* 吹き出し本体 */
+.balloon2{
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #0888ff;
+  margin-right: 110px;          /* 右に余白を設ける */
+}
+/* 画像 - 絶対配置で右上に配置 */
+.balloon2 .icon{
+  position: absolute;
+  right: -110px;
+  top: 0;
+op: 0;
+}
+/* 三角アイコン */
+.balloon2::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -15px;
+  top: 20px;
+  border-left: 15px solid #0888ff;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }

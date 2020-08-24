@@ -32,7 +32,6 @@
 
 					<!-- 改行をする場合はstyleを追加します -->
 					<div id="typed" style="white-space:pre"></div>
-
 					いらっしゃいませ
 			    </div>
 			  </div>
@@ -65,10 +64,11 @@
                         <input type="radio" name="course" value="2hours" checked id="2"> 2時間飲み放題
                     </label>
                     <label id="3_ls">
-                        <input type="radio" name="course" value="long" id="3"> 終電コース
+                        <input type="radio" name="course" value="long" id="3" disabled> 終電コース
                     </label>
                     <label id="4_ls">
-                        <input type="radio" name="course" value="allday" id="4"> 朝までコース
+                        <input type="radio" name="course" value="allday" id="4" disabled> 朝までコース
+                       </label>
                 </div>
             </div>
             <section class="information">

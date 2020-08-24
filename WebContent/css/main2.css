@@ -24,8 +24,8 @@ body .container{
 }
 
 .img-squares-player {
-    width: 50px;
-	hight: 50px;
+    width: 70px;
+	hight: 70px;
 	border-radius: 50%;
 }
 
@@ -37,89 +37,6 @@ body .container{
 .plot-icon {
 	position: relative;
 }
-
-
-
-.plot-icon .liquor1 {
-	position: absolute;
-	color: white;
-	top: 33%;
-	left: 24%;
-	transform: translate(-50%,-50%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .liquor2 {
-	position: absolute;
-	color: white;
-	top: 16%;
-	left: 37%;
-	transform: translate(-50%,-50%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .liquor3 {
-	position: absolute;
-	color: white;
-	top: 16%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .liquor4 {
-	position: absolute;
-	color: white;
-	top: 16%;
-	left: 63%;
-	transform: translate(-50%,-50%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .start1 {
-	position: absolute;
-	color: white;
-	top: 14%;
-	left: 21%;
-	transform: translate(-50%,-50%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .start2 {
-	position: absolute;
-	color: white;
-	top: 14%;
-	left: 26%;
-	transform: translate(-51%,-51%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .start3 {
-	position: absolute;
-	color: white;
-	top: 18%;
-	left: 21%;
-	transform: translate(-51%,-51%);
-	margin:0;
-    padding:0;
-	}
-
-.plot-icon .start4 {
-	position: absolute;
-	color: white;
-	top: 18%;
-	left: 26%;
-	transform: translate(-51%,-51%);
-	margin:0;
-    padding:0;
-	}
-
 
 card mb-3 {
     color: black;
@@ -162,7 +79,7 @@ card mb-3 {
 .img-each-player{
 	width: 160px;
 	hight: 160px;
-	border-radius: 5%;
+	border-radius: 2%;
 }
 
 .now-player-icon{
@@ -192,6 +109,10 @@ card mb-3 {
 
 
 /* sass用コード  このサイトでcssに変換（https://www.sassmeister.com/)
+liquor
+top = 16%
+left = 24%
+
 @for $i from 1 through 5 {
 	@for $u from 1 through 5 {
 	.plot-icon .liquor#{$i}-#{$u}
@@ -206,6 +127,23 @@ card mb-3 {
 		}
 	}
 }
+
+player1
+  top: 10%;
+  left: 21%;
+
+player2
+  top: 10%;
+  left: 26%;
+
+player3
+  top: 18%;
+  left: 21%;
+
+player4
+  top: 18%;
+  left: 26%;
+
 */
 
 .plot-icon .liquor1-1 {
@@ -461,7 +399,7 @@ card mb-3 {
 .plot-icon .player1-1-1 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 21%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -471,7 +409,7 @@ card mb-3 {
 .plot-icon .player1-1-2 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 34%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -481,7 +419,7 @@ card mb-3 {
 .plot-icon .player1-1-3 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -491,7 +429,7 @@ card mb-3 {
 .plot-icon .player1-1-4 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 60%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -501,7 +439,7 @@ card mb-3 {
 .plot-icon .player1-1-5 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 73%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -511,7 +449,7 @@ card mb-3 {
 .plot-icon .player1-2-1 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 21%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -521,7 +459,7 @@ card mb-3 {
 .plot-icon .player1-2-2 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 34%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -531,7 +469,7 @@ card mb-3 {
 .plot-icon .player1-2-3 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -541,7 +479,7 @@ card mb-3 {
 .plot-icon .player1-2-4 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 60%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -551,7 +489,7 @@ card mb-3 {
 .plot-icon .player1-2-5 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 73%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -561,7 +499,7 @@ card mb-3 {
 .plot-icon .player1-3-1 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 21%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -571,7 +509,7 @@ card mb-3 {
 .plot-icon .player1-3-2 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 34%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -581,7 +519,7 @@ card mb-3 {
 .plot-icon .player1-3-3 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -591,7 +529,7 @@ card mb-3 {
 .plot-icon .player1-3-4 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 60%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -601,7 +539,7 @@ card mb-3 {
 .plot-icon .player1-3-5 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 73%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -611,7 +549,7 @@ card mb-3 {
 .plot-icon .player1-4-1 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 21%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -621,7 +559,7 @@ card mb-3 {
 .plot-icon .player1-4-2 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 34%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -631,7 +569,7 @@ card mb-3 {
 .plot-icon .player1-4-3 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -641,7 +579,7 @@ card mb-3 {
 .plot-icon .player1-4-4 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 60%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -651,7 +589,7 @@ card mb-3 {
 .plot-icon .player1-4-5 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 73%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -661,7 +599,7 @@ card mb-3 {
 .plot-icon .player1-5-1 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 21%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -671,7 +609,7 @@ card mb-3 {
 .plot-icon .player1-5-2 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 34%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -681,7 +619,7 @@ card mb-3 {
 .plot-icon .player1-5-3 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -691,7 +629,7 @@ card mb-3 {
 .plot-icon .player1-5-4 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 60%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -701,17 +639,18 @@ card mb-3 {
 .plot-icon .player1-5-5 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 73%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
 }
 
+
 .plot-icon .player2-1-1 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 26%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -721,7 +660,7 @@ card mb-3 {
 .plot-icon .player2-1-2 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 39%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -731,7 +670,7 @@ card mb-3 {
 .plot-icon .player2-1-3 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 52%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -741,7 +680,7 @@ card mb-3 {
 .plot-icon .player2-1-4 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 65%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -751,7 +690,7 @@ card mb-3 {
 .plot-icon .player2-1-5 {
   position: absolute;
   color: white;
-  top: 14%;
+  top: 10%;
   left: 78%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -761,7 +700,7 @@ card mb-3 {
 .plot-icon .player2-2-1 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 26%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -771,7 +710,7 @@ card mb-3 {
 .plot-icon .player2-2-2 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 39%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -781,7 +720,7 @@ card mb-3 {
 .plot-icon .player2-2-3 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 52%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -791,7 +730,7 @@ card mb-3 {
 .plot-icon .player2-2-4 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 65%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -801,7 +740,7 @@ card mb-3 {
 .plot-icon .player2-2-5 {
   position: absolute;
   color: white;
-  top: 31%;
+  top: 27%;
   left: 78%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -811,7 +750,7 @@ card mb-3 {
 .plot-icon .player2-3-1 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 26%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -821,7 +760,7 @@ card mb-3 {
 .plot-icon .player2-3-2 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 39%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -831,7 +770,7 @@ card mb-3 {
 .plot-icon .player2-3-3 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 52%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -841,7 +780,7 @@ card mb-3 {
 .plot-icon .player2-3-4 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 65%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -851,7 +790,7 @@ card mb-3 {
 .plot-icon .player2-3-5 {
   position: absolute;
   color: white;
-  top: 48%;
+  top: 44%;
   left: 78%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -861,7 +800,7 @@ card mb-3 {
 .plot-icon .player2-4-1 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 26%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -871,7 +810,7 @@ card mb-3 {
 .plot-icon .player2-4-2 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 39%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -881,7 +820,7 @@ card mb-3 {
 .plot-icon .player2-4-3 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 52%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -891,7 +830,7 @@ card mb-3 {
 .plot-icon .player2-4-4 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 65%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -901,7 +840,7 @@ card mb-3 {
 .plot-icon .player2-4-5 {
   position: absolute;
   color: white;
-  top: 65%;
+  top: 61%;
   left: 78%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -911,7 +850,7 @@ card mb-3 {
 .plot-icon .player2-5-1 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 26%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -921,7 +860,7 @@ card mb-3 {
 .plot-icon .player2-5-2 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 39%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -931,7 +870,7 @@ card mb-3 {
 .plot-icon .player2-5-3 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 52%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -941,7 +880,7 @@ card mb-3 {
 .plot-icon .player2-5-4 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 65%;
   transform: translate(-50%, -50%);
   margin: 0;
@@ -951,7 +890,7 @@ card mb-3 {
 .plot-icon .player2-5-5 {
   position: absolute;
   color: white;
-  top: 82%;
+  top: 78%;
   left: 78%;
   transform: translate(-50%, -50%);
   margin: 0;

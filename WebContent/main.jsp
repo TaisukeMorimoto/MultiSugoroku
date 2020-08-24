@@ -16,7 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main5.css">
+    <link rel="stylesheet" href="css/main2.css">
     <title>MAP</title>
 </head>
 <body>
@@ -118,7 +118,7 @@
 		       				String playerEnName = manager.getPlayerList().get(i).getEnName();
 		       				String playerClass = "player" + String.valueOf(i+1) + "-" + String.valueOf(yy[location]) +
 		       						"-" + String.valueOf(xx[location]);
-		       				String playerPath = "image/" + playerEnName + "1.jpg";
+		       				String playerPath = "image/" + playerEnName + ".trans.png";
 	       			%>
 	       			<div class=<%=playerClass%>><img src=<%=playerPath%> class="img-squares-player"></div>
 	       			<% } %>
@@ -157,8 +157,15 @@
 			   			String shSpeciality = "#speciality" + (arrayNumber+1);
 			   			String shUltimate = "#ultimate" + (arrayNumber+1);
 			   			String shStatus = "#status" + (arrayNumber+1);
+
+			   			// 自分のターンの場合cardに外枠を表示
+			   			String cardConfig = "style='color: black; line-height:1rem;'";
+			   			if (name0 == name){
+				   			cardConfig = "style='color: black; line-height:1rem; border: 5px solid; border-color: rgb(253, 223, 72);'";
+			   			}
+			   			System.out.println(cardConfig);
 		   		%>
-				<div class="card mb-4" style="color: black; line-height:1rem">
+				<div class="card mb-3"  <%=cardConfig%>>
 			      <div class="row no-gutters">
 			        <div class="col-sm-3">
 			          <img src=<%=imagePath%> class="img-each-player" alt="...">
