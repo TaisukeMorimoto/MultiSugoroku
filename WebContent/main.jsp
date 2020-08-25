@@ -36,7 +36,8 @@
 
 		/* 現在のプレイヤーの各種情報 */
 		/* 画像url */
-		String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName() + alcStatus0 + ".jpg";
+		String enName = manager.getPlayerList().get(manager.getTurn()).getEnName();
+		String imagePath0 = "image/character/" + enName + "/" + enName + alcStatus0 + ".jpg";
 		/* ターン数 */
 		int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
 		/* プレイヤー名 */
@@ -100,7 +101,7 @@
 	       				for (Liquor liquor : manager.getSugoroku().getLiquorList()){
 	       					String liquorEnName = liquor.getLiquorEnName();
 	       					int liquorAlc = liquor.getLiquorAlcLv();
-	       					String liquorPath = "image/" + liquorEnName + ".png";
+	       					String liquorPath = "image/liquor/" + liquorEnName + ".png";
 	       					String liquorClass = "liquor" +  String.valueOf(y[num]) + "-" + String.valueOf(x[num]);
 	       					num++;
 	       			%>
@@ -118,7 +119,7 @@
 		       				String playerEnName = manager.getPlayerList().get(i).getEnName();
 		       				String playerClass = "player" + String.valueOf(i+1) + "-" + String.valueOf(yy[location]) +
 		       						"-" + String.valueOf(xx[location]);
-		       				String playerPath = "image/" + playerEnName + ".trans.png";
+		       				String playerPath = "image/character/" + playerEnName + "/" + playerEnName + ".trans.png";
 	       			%>
 	       			<div class=<%=playerClass%>><img src=<%=playerPath%> class="img-squares-player"></div>
 	       			<% } %>
@@ -142,7 +143,8 @@
 		   				} else {
 		   					alcStatus = "4";
 		   				}
-			   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + alcStatus + ".jpg";
+		   				String enName1 = manager.getPlayerList().get(arrayNumber).getEnName();
+		   				String imagePath = "image/character/" + enName1 + "/" + enName1 + alcStatus + ".jpg";
 			   			String name = manager.getPlayerList().get(arrayNumber).getName();
 			   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 			   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();
@@ -163,7 +165,6 @@
 			   			if (name0 == name){
 				   			cardConfig = "style='color: black; line-height:1rem; border: 5px solid; border-color: rgb(253, 223, 72);'";
 			   			}
-			   			System.out.println(cardConfig);
 		   		%>
 				<div class="card mb-3"  <%=cardConfig%>>
 			      <div class="row no-gutters">

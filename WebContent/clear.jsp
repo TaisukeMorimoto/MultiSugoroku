@@ -47,7 +47,8 @@
    				} else {
    					alcStatus = "4";
    				}
-	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + alcStatus + ".jpg";
+   				String enName = manager.getPlayerList().get(arrayNumber).getEnName();
+   				String imagePath = "image/character/" + enName + "/" + enName + alcStatus + ".jpg";
 	   			String name = manager.getPlayerList().get(arrayNumber).getName();
 	   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 	   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();

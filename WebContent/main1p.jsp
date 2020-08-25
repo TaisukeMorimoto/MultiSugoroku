@@ -35,7 +35,8 @@
 	   					alcStatus0 = "4";
 	   				}
 
-		   			String imagePath0 = "image/" + manager.getPlayerList().get(manager.getTurn()).getEnName()+ alcStatus0 + ".jpg";
+	   				String enName = manager.getPlayerList().get(manager.getTurn()).getEnName();
+	   				String imagePath0 = "image/character/" + enName + "/" + enName + alcStatus0 + ".jpg";
 		   			int turn = manager.getPlayerList().get(manager.getTurn()).getCount() + 1;
 					String name0 = manager.getPlayerList().get(manager.getTurn()).getName();
 		   		%>
@@ -79,7 +80,8 @@
    				} else {
    					alcStatus = "4";
    				}
-	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + alcStatus + ".jpg";
+   				String enName1 = manager.getPlayerList().get(manager.getTurn()).getEnName();
+   				String imagePath = "image/character/" + enName1 + "/" + enName1 + alcStatus + ".jpg";
 	   			String name = manager.getPlayerList().get(arrayNumber).getName();
 	   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 	   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();

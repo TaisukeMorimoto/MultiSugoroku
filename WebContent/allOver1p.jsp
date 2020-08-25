@@ -24,7 +24,8 @@
    		<!-- player -->
    		<%
    			for (int arrayNumber=0; arrayNumber<manager.getnPlayer(); arrayNumber++){
-	   			String imagePath = "image/" + manager.getPlayerList().get(arrayNumber).getEnName() + "5.jpg";
+   				String enName = manager.getPlayerList().get(manager.getTurn()).getEnName();
+   				String imagePath = "image/character/" + enName + "/" + enName + "5.jpg";
 	   			String name = manager.getPlayerList().get(arrayNumber).getName();
 	   			String ultimateName = manager.getPlayerList().get(arrayNumber).getUltimateName();
 	   			String ultimateText = manager.getPlayerList().get(arrayNumber).getUltimateText();

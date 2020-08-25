@@ -19,6 +19,9 @@ public class PlayAction {
 		SugorokuManager manager = new SugorokuManager(realPath);
 		manager.InitSugorokuManager(nPlayer, course);
 
+		// キャラクター選択画面表示用
+		manager.setAllCharacterList();
+
 		nextPage = "/selectChara.jsp";
 		session.setAttribute("manager", manager);
 

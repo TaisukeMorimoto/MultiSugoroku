@@ -1,6 +1,9 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import entity.Liquor;
@@ -28,6 +31,7 @@ public class SugorokuManager {
 	private String realPath;
 	private ArrayList<String> playerNameList = new ArrayList<String>();
 	private ArrayList<UltimatePlayer> playerList = new ArrayList<UltimatePlayer>();
+	private ArrayList<String> allCharacterList = new ArrayList<String>();
 
 	public SugorokuManager() {
 	}
@@ -280,6 +284,27 @@ public class SugorokuManager {
 				playerList.get(u).setNowRest(res[6]);
 			}
 		}
+	}
+
+	public void setAllCharacterList() {
+	    try {
+	    	File f = new File(realPath + "/WEB-INF/csv/specialities.csv");
+	        BufferedReader br = new BufferedReader(new FileReader(f));
+	        String line;
+	        String[] title = br.readLine().split(",", 0);
+	        // 1行ずつCSVファイルを読み込む
+	        while ((line = br.readLine()) != null) {
+	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
+	          allCharacterList.add(data[1]);
+	        }
+	        br.close();
+	      } catch (IOException e) {
+	        System.out.println(e);
+	      }
+	}
+
+	public ArrayList<String> getAllCharacterList(){
+		return allCharacterList;
 	}
 
 	public Sugoroku getSugoroku() {

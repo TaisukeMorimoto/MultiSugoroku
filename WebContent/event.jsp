@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/map.js"></script>
-    <link rel="stylesheet" href="css/event4.css">
+    <link rel="stylesheet" href="css/event5.css">
     <title>EVENT</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
        	<div class="col-sm-1"></div>
        	<div class="col-sm-2">
 			<%
-		    	String imagePath = "image/" +  manager.getPlayerList().get(manager.getTurn()).getDice() + ".png";
+		    	String imagePath = "image/dice/" +  manager.getPlayerList().get(manager.getTurn()).getDice() + ".png";
 				int dice = manager.getPlayerList().get(manager.getTurn()).getDice();
 				int resDice = manager.getPlayerList().get(manager.getTurn()).getDice() +  manager.getPlayerList().get(manager.getTurn()).getSpecialitySpuares();
 		    %>
@@ -38,7 +38,7 @@
              	<br>
              	<a style="color: #4bced3;"><%=name%></a>の能力により、<a style="color: #4bced3; font-size:40px;"><%=resDice%>マス</a>進みます。<br>
                <% } else { %>
-				<%=resDice%>マス進みます。
+				<a style="color: #4bced3; font-size:40px;"><%=resDice%>マス</a>進みます。
 				<% } %>
 				</h4>
           </div>
@@ -61,8 +61,8 @@
 				} else {
 					alcStatus = "4";
 				}
-
-		    	String playerImagePath0 = "image/" +  manager.getPlayerList().get(manager.getTurn()).getEnName() + alcStatus + ".jpg";
+				String enName = manager.getPlayerList().get(manager.getTurn()).getEnName();
+				String playerImagePath0 = "image/character/" + enName + "/" + enName + alcStatus + ".jpg";
 		    %>
 		    <img src=<%=playerImagePath0%> style="style=width:80px; height:80px; object-fit:cover; border-radius:50%;">
 
@@ -74,7 +74,7 @@
             		String liquorText0 = manager.getSugoroku().getLiquorList().get(location0).getLiquorText();
             		String liquorName = manager.getSugoroku().getLiquorList().get(location0).getLiquorName();
             		String liquorEnName = manager.getSugoroku().getLiquorList().get(location0).getLiquorEnName();
-            		String liquorPath = "image/" + liquorEnName + ".png";
+            		String liquorPath = "image/liquor/" + liquorEnName + ".png";
             		int liquorAlcLv0 = manager.getSugoroku().getLiquorList().get(location0).getLiquorAlcLv();
             		String liquorAlcLv0Char = "";
             		if (liquorAlcLv0 > 0){
@@ -85,7 +85,7 @@
 
 
             	%>
-			      <h4><%=liquorText0 %></h4>
+			      <h2><%=liquorText0 %></h2>
 			    </div>
 			  </div>
 			</div>
@@ -96,6 +96,7 @@
 					<img src=<%=liquorPath%>>
 					<p><%=liquorAlcLv0Char%>%</p>
 				</div>
+				<%=liquorName%>
 			</div>
 		</div>
 		<div class="row">
@@ -119,7 +120,7 @@
                <% } else {
             	   int specialityAlc = manager.getPlayerList().get(manager.getTurn()).getSpecialityAlc();
             	%>
-				血中アルコール濃度に<%=liquorAlcLv0 + specialityAlc%>%加わります。
+				血中アルコール濃度に<a style="color: #4bced3; font-size:40px;"><%=liquorAlcLv0 + specialityAlc%>%</a>加わります。
 				<% } %>
 		</h4>
 	     </div>
