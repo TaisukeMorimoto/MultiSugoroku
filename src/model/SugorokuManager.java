@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import entity.EachCharacter;
 import entity.Liquor;
 import entity.Sugoroku;
 import entity.Sugoroku1p;
@@ -31,7 +32,7 @@ public class SugorokuManager {
 	private String realPath;
 	private ArrayList<String> playerNameList = new ArrayList<String>();
 	private ArrayList<UltimatePlayer> playerList = new ArrayList<UltimatePlayer>();
-	private ArrayList<String> allCharacterList = new ArrayList<String>();
+	private ArrayList<EachCharacter> allCharacterList = new ArrayList<EachCharacter>();
 
 	public SugorokuManager() {
 	}
@@ -295,7 +296,13 @@ public class SugorokuManager {
 	        // 1行ずつCSVファイルを読み込む
 	        while ((line = br.readLine()) != null) {
 	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
-	          allCharacterList.add(data[1]);
+	          System.out.println(data[0]);
+	          System.out.println(data[1]);
+	          System.out.println(data[2]);
+	          System.out.println(data[3]);
+	          System.out.println(data[4]);
+	          EachCharacter character = new EachCharacter(data[0], data[1], data[2], Integer.parseInt(data[4]), Integer.parseInt(data[5]));
+	          allCharacterList.add(character);
 	        }
 	        br.close();
 	      } catch (IOException e) {
@@ -303,7 +310,7 @@ public class SugorokuManager {
 	      }
 	}
 
-	public ArrayList<String> getAllCharacterList(){
+	public ArrayList<EachCharacter> getAllCharacterList(){
 		return allCharacterList;
 	}
 

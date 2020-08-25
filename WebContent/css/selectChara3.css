@@ -28,7 +28,7 @@ header h1{
 }
 
 .selection-group input[type="radio"]:checked + label img {
-    background-color: #DA003D;
+    background-color: yellow;
 }
 
 header h2{
@@ -93,12 +93,12 @@ label img:hover{
     z-index: 2;
     display: none;
     padding: 2px;
-    background-color:  rgba(157, 125, 150, .9);
-    width: 100px;
-    height: 100px;
+    background-color:  rgb(157, 125, 150);
+    width: 200px;
+    height: 200px;
     left: 3.8%;
-    top: 10px;
-    font-size: 25px;
+    top: 130px;
+    font-size: 20px;
     text-align: center;
     color: #fff;
     border-radius: 20px;

@@ -84,9 +84,9 @@ public class UltimatePlayer extends AbstractPlayer {
 	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
 	          if (data[1].equals(enName)){
 	        	 name = data[0];
-	        	 specialityText = data[2];
-	        	 specialitySpuares = Integer.parseInt(data[3]);
-	        	 specialityAlc = Integer.parseInt(data[4]);
+	        	 specialityText = data[3];
+	        	 specialitySpuares = Integer.parseInt(data[4]);
+	        	 specialityAlc = Integer.parseInt(data[5]);
 	          }
 	        }
 	        br.close();
