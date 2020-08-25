@@ -226,11 +226,11 @@ public class UltimatePlayer extends AbstractPlayer {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((bloodAlcLv >= ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		} else {
-			if ((bloodAlcLv < ultimateGage) && (numUltimate != 0)) {
+			if ((bloodAlcLv <= ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		}
@@ -244,11 +244,11 @@ public class UltimatePlayer extends AbstractPlayer {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((bloodAlcLv >= ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		} else {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((bloodAlcLv >= ultimateGage) && (numUltimate != 0)) {
 				canUltimate = true;
 			}
 		}
