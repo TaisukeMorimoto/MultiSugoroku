@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="manager" scope="session" class="model.SugorokuManager" />
+<jsp:useBean id="allCharacterList" scope="session" class="model.SugorokuManager" />
 
 <!DOCUTYPE html>
 <html>
@@ -11,10 +12,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="js/selectChara.js"></script>
-        <link rel="stylesheet" href="css/selectChara.css">
+        <link rel="stylesheet" href="css/selectChara2.css">
         <title>SELECT</title>
     </head>
     <body>
+
         <div class="container">
 		<header>
 			<div class="row">
@@ -39,6 +41,8 @@
 			<div class="col-sm-1"></div>
 			</div>
 		</header>
+
+
 			<form action="Sugoroku" method="post" id="selectChara">
             <div class="selection-group">
                 <input id="suzuki" type="radio" name="chara" value="suzuki" checked>

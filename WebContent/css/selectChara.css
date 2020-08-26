@@ -48,8 +48,8 @@ label img {
     transition-timing-function: ease;
     transition-delay: 0s;
     vertical-align:bottom;
-    width: 120px;
-    height: 120px;
+    width: 280px;
+    height: 280px;
 }
 
 label img:hover{
@@ -94,8 +94,8 @@ label img:hover{
     display: none;
     padding: 2px;
     background-color:  rgba(157, 125, 150, .9);
-    width: 100px;
-    height: 100px;
+    width: 280px;
+    height: 280px;
     left: 3.8%;
     top: 10px;
     font-size: 25px;
