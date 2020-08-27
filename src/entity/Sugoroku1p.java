@@ -7,8 +7,8 @@ public class Sugoroku1p extends SugorokuNormal {
 
 	private int SQUARE = 999 + 1;
 
-	public Sugoroku1p(String realPath) {
-		super(realPath);
+	public Sugoroku1p(String realPath, String csvPath) {
+		super(realPath, csvPath);
 		ArrayList<Liquor> liquorAllList = getLiquorAllList();
 		for (int i = 0; i < SQUARE ; i++) {
 			// move liquor instance from allList to liquorList at random

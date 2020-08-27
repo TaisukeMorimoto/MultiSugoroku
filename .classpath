@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="csv"/>
 	<classpathentry kind="lib" path="C:/Fujitsu/pleiades-2020-06-java-win-64bit-jre_20200702 (1)/pleiades/syasis/Servers/mysql-connector-java-8.0.21/mysql-connector-java-8.0.21.jar">
 		<attributes>
 			<attribute name="module" value="true"/>

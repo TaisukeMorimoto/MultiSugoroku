@@ -10,8 +10,6 @@ import entity.EachCharacter;
 import entity.Liquor;
 import entity.Sugoroku;
 import entity.Sugoroku1p;
-import entity.SugorokuAllDay;
-import entity.SugorokuLong;
 import entity.SugorokuNormal;
 import entity.UltimatePlayer;
 
@@ -49,19 +47,29 @@ public class SugorokuManager {
 	public void InitSugorokuManager(int nPlayer, String course) {
 		// create sugoroku board
 		if (nPlayer == 1) {
-			sugoroku = new Sugoroku1p(realPath);
+			String csvPath = "/WEB-INF/csv/liquor1p.csv";
+			sugoroku = new Sugoroku1p(realPath, csvPath);
 			System.out.println("sugoroku board for 1p");
+			System.out.println("csvPath: " + csvPath);
 			System.out.println(sugoroku.getSQUARE()+" square");
-		} else if (course.equals("2hours")) {
-			sugoroku = new SugorokuNormal(realPath);
-			System.out.println("generate normal sugoroku board");
+		} else if (course.equals("izakaya")) {
+			String csvPath = "/WEB-INF/csv/liquorIzakaya.csv";
+			sugoroku = new SugorokuNormal(realPath, csvPath);
+			System.out.println("generate normal sugoroku board which has izakaya-type liquor");
+			System.out.println("csvPath: " + csvPath);
 			System.out.println(sugoroku.getSQUARE()+" square");
-		} else if (course.equals("long")) {
-			sugoroku = new SugorokuLong(realPath);
-			System.out.println("generate long sugoroku board");
-			System.out.println(sugoroku.getSQUARE());
-		} else if (course.equals("allday")) {
-			sugoroku = new SugorokuAllDay(realPath);
+		} else if (course.equals("bar")) {
+			String csvPath = "/WEB-INF/csv/liquorBar.csv";
+			sugoroku = new SugorokuNormal(realPath, csvPath);
+			System.out.println("generate normal sugoroku board which has bar-type liquor");
+			System.out.println("csvPath: " + csvPath);
+			System.out.println(sugoroku.getSQUARE()+" square");
+		} else if (course.equals("home")) {
+			String csvPath = "/WEB-INF/csv/liquorHome.csv";
+			sugoroku = new SugorokuNormal(realPath, csvPath);
+			System.out.println("generate normal sugoroku board which has home-type liquor");
+			System.out.println("csvPath: " + csvPath);
+			System.out.println(sugoroku.getSQUARE()+" square");
 		} else {
 			System.out.println("the course hasn't implemented yet");
 		}
@@ -296,11 +304,6 @@ public class SugorokuManager {
 	        // 1行ずつCSVファイルを読み込む
 	        while ((line = br.readLine()) != null) {
 	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
-	          System.out.println(data[0]);
-	          System.out.println(data[1]);
-	          System.out.println(data[2]);
-	          System.out.println(data[3]);
-	          System.out.println(data[4]);
 	          EachCharacter character = new EachCharacter(data[0], data[1], data[2], Integer.parseInt(data[4]), Integer.parseInt(data[5]));
 	          allCharacterList.add(character);
 	        }

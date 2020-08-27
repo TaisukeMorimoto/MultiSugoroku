@@ -5,10 +5,10 @@ body{
 }
 
 .container{
-    max-width: 700px;
+    max-width: 1100px;
     margin: 0 auto;
     color: #fff;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -36,6 +36,11 @@ header h1{
     font-family: 'Kosugi Maru';
 }
 
+.enp {
+	color: #ff8040;
+	display: inline;
+}
+
 label + input[type="radio"],
 label + label {
     margin-left: 2em;
@@ -44,6 +49,8 @@ label + label {
 .information{
     width: 100%;
     margin-top: 20px;
+    padding-left:60px;
+    padding-right:60px;
 }
 
 .information h2{
@@ -53,13 +60,14 @@ label + label {
 }
 
 .rule{
+
     border-color: #ddd;
     border-radius: 5px;
     background-color: rgb(157, 125, 150);
     color: #fff;
-    font-size: 18px;
-    padding-top: 2px;
-    padding-left: 3px;
+    font-size: 24px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .container button{
@@ -123,15 +131,39 @@ label + label {
 }
 
 .balloon5 .faceicon img{
-  width: 100%;
+  width: 90px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .balloon5 .chatting {
   width: 100%;
 }
 
+.img-text {/*親div*/
+  position: relative;/*相対配置*/
+  display: inline;
+  }
+
+.img-text p {
+  position: absolute;/*絶対配置*/
+  color: #ffacff;
+  background-color: rgb(22, 44, 65);
+  font-size: 20px;
+  top: -50%;
+  left: 65%;
+  border-radius: 3px;
+  }
+
+  .img-text a {
+  position: absolute;/*絶対配置*/
+  color: #13c4ff;
+  background-color:  rgb(22, 44, 65);
+  font-size: 20px;
+  top: -50%;
+  left: 65%;
+  border-radius: 3px;
+  }
 
 .says {
   display: inline-block;
@@ -155,4 +187,64 @@ label + label {
 .says p {
   margin: 0;
   padding: 0;
+}
+
+.selection-group input[type="radio"] {
+    display: none;/*ラジオボタンを見えないようにするCSS*/
+}
+
+.selection-group input[type="radio"]:checked + label img {
+    background-color: yellow;
+}
+
+
+label .img1 {
+    margin: 5px;
+    margint-top: 30px;
+    margin-left: 80px;
+    padding: 5px;
+    float: center;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .6);
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    vertical-align:bottom;
+    width: 160px;
+    height: 160px;
+}
+
+label .img2 {
+    margin: 5px;
+    padding: 5px;
+    float: center;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .6);
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    vertical-align:bottom;
+    width: 350px;
+    height: 350px;
+}
+
+.img3 {
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+}
+
+.img4 {
+    margin: 5px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.img5 {
+    margin: 5px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
 }
