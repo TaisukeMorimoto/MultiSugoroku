@@ -141,16 +141,16 @@ public class SugorokuManager {
 				} else {
 					// roll dice
 					int dice = playerList.get(i).rollDice();
-					System.out.println("<" + playerList.get(i).getName() + ">dice: " + dice);
+					System.out.println("<" + playerList.get(i).getName() + ">サイコロの出た目: " + dice);
 					// go forward
 					playerList.get(i).goForward(dice);
 					// drink liquor which is on the current location
 					Liquor liq = sugoroku.getLiquorList().get(playerList.get(i).getLocation());
 					playerList.get(i).drinkLiquor(liq);
-					System.out.println("<" + playerList.get(i).getName() + ">liquor name: " + liq.getLiquorName()
+					System.out.println("<" + playerList.get(i).getName() + ">飲む飲み物: " + liq.getLiquorName()
 					+ ": " + liq.getLiquorAlcLv() + "%");
-					System.out.println("<" + playerList.get(i).getName() + ">location: " + playerList.get(i).getLocation());
-					System.out.println("<" + playerList.get(i).getName() + ">bloodAlcLv: " + playerList.get(i).getBloodAlcLv() + "%");
+					System.out.println("<" + playerList.get(i).getName() + ">現在地: " + playerList.get(i).getLocation());
+					System.out.println("<" + playerList.get(i).getName() + ">アルコールレベル: " + playerList.get(i).getBloodAlcLv() + "%");
 				}
 			}
 		}
@@ -165,7 +165,7 @@ public class SugorokuManager {
 		System.out.println("<"+playerList.get(turn).getName()+"> start next player");
 	}
 
-	// do ultimate when ultimate1 target is select type
+	// do ultimate when ultimate1 or ultimate2 target is select type
 	public void doUltimateOnePlayer(String enName) {
 		for (int i=0; i<=nPlayer; i++) {
 			if (turn == i) {
@@ -179,17 +179,23 @@ public class SugorokuManager {
 
 				if (res[0] == 1) {
 					reflectUltimate1ToAll(res);
+					System.out.println("対象1：全員");
 				} else if (res[0] == 2) {
 					reflectUltimate1ToMe(res, i);
+					System.out.println("対象1：自分");
 				} else if (res[0] == 3) {
 					reflectUltimate1ToSelect(enName, res);
+					System.out.println("対象1：選択");
 				}
 				if (res[3] == 1) {
 					reflectUltimate2ToAll(res);
+					System.out.println("対象2：全員");
 				} else if (res[3] == 2) {
 					reflectUltimate2ToMe(res, i);
+					System.out.println("対象2：自分");
 				} else if (res[3] == 3) {
 					reflectUltimate2ToSelect(enName, res);
+					System.out.println("対象2：選択");
 				}
 				playerList.get(i).setCanUltimate(false);
 			}
@@ -214,7 +220,7 @@ public class SugorokuManager {
 					reflectUltimate1ToMe(res, i);
 					System.out.println("対象1：自分");
 				} else if (res[0] == 3) {
-					System.out.println("logic error: branch not specified in doUltimate1");
+					System.out.println("logic error: have to input selected name");
 //					reflectUltimate1ToSelect(enName, res);
 				}
 				if (res[3] == 1) {
@@ -224,7 +230,7 @@ public class SugorokuManager {
 					reflectUltimate2ToMe(res, i);
 					System.out.println("対象2：自分");
 				} else if (res[3] == 3) {
-					System.out.println("logic error: branch not specified in doUltimate2");
+					System.out.println("logic error: have to input selected name");
 //					reflectUltimate2ToSelect(enName, res);
 				}
 				playerList.get(i).setCanUltimate(false);
@@ -235,12 +241,9 @@ public class SugorokuManager {
 	// ultimate1 target is all players
 	public void reflectUltimate1ToAll(int[] res) {
 		for (int u=0; u<=nPlayer-1; u++) {
-			// 自分はすでに反映済み
-			if (!(u == turn)){
-				// method which do not count when goforward in ultimate event
-				playerList.get(u).goForwardForUltimate(res[1]);
-				playerList.get(u).drinkLiquorForUltimate(res[2]);
-			}
+			// method which do not count when goforward in ultimate event
+			playerList.get(u).goForwardForUltimate(res[1]);
+			playerList.get(u).drinkLiquorForUltimate(res[2]);
 	}
 }
 

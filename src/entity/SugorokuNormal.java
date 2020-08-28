@@ -34,9 +34,9 @@ public class SugorokuNormal implements Sugoroku {
 	        String[] title = br.readLine().split(",", 0);
 	        // 1行ずつCSVファイルを読み込む
 	        while ((line = br.readLine()) != null) {
-	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
-	          Liquor liquor = new Liquor(data[0], data[1], Integer.parseInt(data[2]), data[3]);
-	          liquorAllList.add(liquor);
+	        	String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
+	        	Liquor liquor = new Liquor(data[0], data[1], Integer.parseInt(data[2]), data[3]);
+	        	liquorAllList.add(liquor);
 	        }
 	        br.close();
 	      } catch (IOException e) {
