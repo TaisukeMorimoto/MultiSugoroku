@@ -26,23 +26,32 @@ public class RankingAction {
 		int score = Integer.parseInt(req.getParameter("score"));
 		String select_character = req.getParameter("select_character");
 
-//		現在時刻の取得
-		LocalDateTime nowDateTime = LocalDateTime.now();
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		String date = nowDateTime.format(format );
+		// 名前の入力チェック
+		if (name.length() == 0) {
+			System.out.println(name);
+			boolean isError = true;
+			req.setAttribute("isError", isError);
+			nextPage = "/allOver1p.jsp";
+		} else {
 
-//		rankingDBに登録
-		RankingInfoLogic logic = new RankingInfoLogic();
-		logic.putRankingRecord(name, date, score, select_character);
+	//		現在時刻の取得
+			LocalDateTime nowDateTime = LocalDateTime.now();
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			String date = nowDateTime.format(format );
 
-//		rankingDBから一覧を取得
-		ArrayList<Result> resultList = logic.getRanking();
+	//		rankingDBに登録
+			RankingInfoLogic logic = new RankingInfoLogic();
+			logic.putRankingRecord(name, date, score, select_character);
 
-		System.out.println("number of result: " + resultList.size());
-		req.setAttribute("resultList", resultList);
-		session.setAttribute("manager", manager);
+	//		rankingDBから一覧を取得
+			ArrayList<Result> resultList = logic.getRanking();
 
-		nextPage = "/ranking.jsp";
+			System.out.println("number of result: " + resultList.size());
+			req.setAttribute("resultList", resultList);
+			session.setAttribute("manager", manager);
+
+			nextPage = "/ranking.jsp";
+		}
 
 		return nextPage;
 	}

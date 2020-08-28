@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="manager" scope="session" class="model.SugorokuManager" />
+<%
+	boolean isError = (boolean) request.getAttribute("isError");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -62,7 +65,17 @@
     <form action="Sugoroku" method="post">
     	  <div class="form-group">
    			    <label>あなたのニックネーム
-    			<input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter your nick-name"></label>
+    			<%
+    				if(isError){
+    			%>
+    			<input type="text" class="form-control is-invalid" name="name" aria-describedby="nameHelp" placeholder="Enter your nick-name">
+    			<div class="invalid-feedback">名前を入力してください。</div>
+    			<%
+    				} else {
+    			%>
+				<input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter your nick-name">
+    			<% } %>
+    			</label>
    		 		 <small id="nameHelp" class="form-text text-muted">日本語は現在文字化けします。英字ならok。</small>
    		  		 <input type="hidden" name="score" value=<%=manager.getPlayerList().get(0).getLocation()*100 + manager.getPlayerList().get(manager.getTurn()).getCount()*50 %> />
  				 <input type="hidden" name="select_character" value=<%=manager.getPlayerList().get(0).getEnName() %>>

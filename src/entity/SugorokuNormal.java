@@ -13,9 +13,11 @@ public class SugorokuNormal implements Sugoroku {
 	private static int DICE_MAX = 6;
 	protected ArrayList<Liquor> liquorList = new ArrayList<Liquor>();
 	private static String realPath;
+	private static String csvPath;
 
-	public SugorokuNormal(String realPath) {
+	public SugorokuNormal(String realPath, String csvPath) {
 		this.realPath = realPath;
+		this.csvPath = csvPath;
 		ArrayList<Liquor> liquorAllList = getLiquorAllList();
 		for (int i = 0; i < SQUARE ; i++) {
 			// move liquor instance from allList to liquorList at random
@@ -26,15 +28,15 @@ public class SugorokuNormal implements Sugoroku {
 	static ArrayList<Liquor> getLiquorAllList() {
 		ArrayList<Liquor> liquorAllList = new ArrayList<Liquor>();
 	    try {
-	    	File f = new File(realPath + "/WEB-INF/csv/liquor.csv");
+	    	File f = new File(realPath + csvPath);
 	        BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
 	        // 1行ずつCSVファイルを読み込む
 	        while ((line = br.readLine()) != null) {
-	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
-	          Liquor liquor = new Liquor(data[0], data[1], Integer.parseInt(data[2]), data[3]);
-	          liquorAllList.add(liquor);
+	        	String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
+	        	Liquor liquor = new Liquor(data[0], data[1], Integer.parseInt(data[2]), data[3]);
+	        	liquorAllList.add(liquor);
 	        }
 	        br.close();
 	      } catch (IOException e) {

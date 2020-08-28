@@ -4,8 +4,8 @@ public class SugorokuAllDay extends SugorokuNormal {
 
 	private int SQUARE = 60 + 1;
 
-	public SugorokuAllDay(String realPath) {
-		super(realPath);
+	public SugorokuAllDay(String realPath, String csvPath) {
+		super(realPath, csvPath);
 		super.SQUARE = this.SQUARE;
 	}
 

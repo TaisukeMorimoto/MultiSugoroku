@@ -5,7 +5,7 @@ body{
 }
 
 .container{
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
         color: #fff;
     font-size: 20px;
@@ -28,7 +28,7 @@ header h1{
 }
 
 .selection-group input[type="radio"]:checked + label img {
-    background-color: #DA003D;
+    background-color: yellow;
 }
 
 header h2{
@@ -48,8 +48,8 @@ label img {
     transition-timing-function: ease;
     transition-delay: 0s;
     vertical-align:bottom;
-    width: 280px;
-    height: 280px;
+    width: 130px;
+    height: 130px;
 }
 
 label img:hover{
@@ -93,12 +93,18 @@ label img:hover{
     z-index: 2;
     display: none;
     padding: 2px;
+<<<<<<< HEAD:WebContent/css/selectChara.css
     background-color:  rgba(157, 125, 150, .9);
     width: 280px;
     height: 280px;
+=======
+    background-color:  rgb(157, 125, 150);
+    width: 200px;
+    height: 200px;
+>>>>>>> dev:WebContent/css/selectChara4.css
     left: 3.8%;
-    top: 10px;
-    font-size: 25px;
+    top: 130px;
+    font-size: 20px;
     text-align: center;
     color: #fff;
     border-radius: 20px;
@@ -141,9 +147,9 @@ img {
 }
 
 .balloon5 .faceicon img{
-  width: 100%;
+  width: 90px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .balloon5 .chatting {

@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/start.js"></script>
 
-    <link rel="stylesheet" href="css/start.css">
+    <link rel="stylesheet" href="css/start7.css">
     <title>START</title>
 </head>
     <div class="container">
@@ -22,7 +22,7 @@
             <!--吹き出しはじまり-->
 			<div class="balloon5">
 			  <div class="faceicon">
-				<img src="image/staff2.png" alt="...">
+				<img src="image/tenin.png" alt="...">
 			  </div>
 			  <div class="chatting">
 			    <div class="says">
@@ -40,48 +40,108 @@
 		</header>
 
         <form action="Sugoroku" method="post" class="row">
-            <div class="form-group">
-                <label>何名様でお越しですか？</label>
-                <div class="radio" onclick="playerChoice()">
-                    <label id="1_lb">
-                        <input type="radio" name="nPlayer" value="1" id="1"> 1名様
-                    </label>
-                    <label id="2_lb">
-                        <input type="radio" name="nPlayer" value="2" id="2"> 2名様
-                    </label>
-                    <label id="3_lb">
-                        <input type="radio" name="nPlayer" value="3" id="3"> 3名様
-                    </label>
-                    <label id="4_lb">
-                        <input type="radio" name="nPlayer" value="4" checked id="4"> 4名様
-                    </label>
-                </div>
+           	<div class="selection-group">
+			 	<label>何名様でお越しですか？</label><br>
+			 	<input id="1" type="radio" name="nPlayer" value="1" class="radio">
+            	<label for="1"><img src="image/numPlayer/player.1p.jpg" class="img1"></label>
+            	<input id="2" type="radio" name="nPlayer" value="2" class="radio">
+            	<label for="2"><img src="image/numPlayer/player.2p.jpg" class="img1"></label>
+            	<input id="3" type="radio" name="nPlayer" value="3" class="radio">
+            	<label for="3"><img src="image/numPlayer/player.3p.jpg" class="img1"></label>
+            	<input id="4" type="radio" name="nPlayer" value="4" class="radio" checked>
+            	<label for="4"><img src="image/numPlayer/player.4p.jpg" class="img1"></label>
             </div>
-            <div class="form-group">
-                <label>コース選択</label>
-                <div class="radio" onclick="squareChoice()">
-                    <label id="2_ls">
-                        <input type="radio" name="course" value="2hours" checked id="2"> 2時間飲み放題
-                    </label>
-                    <label id="3_ls">
-                        <input type="radio" name="course" value="long" id="3" disabled> 終電コース
-                    </label>
-                    <label id="4_ls">
-                        <input type="radio" name="course" value="allday" id="4" disabled> 朝までコース
-                       </label>
-                </div>
+
+			 <div class="selection-group">
+			 	 <br><label>どちらで飲みますか？</label><br>
+			 	<input id="izakaya" type="radio" name="course" value="izakaya" class="radio" checked>
+            	<label for="izakaya"><img src="image/course/course.izakaya.png" class="img2"></label>
+            	<input id="bar" type="radio" name="course" value="bar" class="radio">
+            	<label for="bar"><img src="image/course/course.bar.png" class="img2"></label>
+            	<input id="home" type="radio" name="course" value="home" class="radio">
+            	<label for="home"><img src="image/course/course.home.png" class="img2"></label>
             </div>
+
+
             <section class="information">
-                <h2>ルール説明</h2>
+            <br>
+                ルール説明
                 <div class="rule">
-                    <p>・血中アルコール濃度が20％に達する前にゴールしよう<br>
-                    ・それぞれのキャラクターは必殺技と特性を持っているぞ<br>
-                    ・キャラクターの特徴を活かして一番最初にゴールしよう！<br>
-                    </p>
-                </div>
-                <p style="font-size:15px; font-weight: initial;">
-                	※1名様の場合は必殺技は使えず、お酒を飲みながらどこまで先にすすめるかをランキング形式で競っていただきます。
-                </p>
+                	<br><br>
+                	サイコロを振って、出た目の数だけ進むことができるよ！　　
+                	<br>
+                	<img src="image/character/katada/katada.trans.png" class="img3">
+                	<img src="image/dice/1.png" class="img4">
+                	<img src="image/dice/2.png" class="img4">
+                	<img src="image/dice/6.png" class="img4">
+					<br><br>
+
+					進んだ先のマスにはいろいろなアルコール度数のお酒が用意されているよ。<br>手に取ってしまったら飲むしかない！
+					<br>
+					<img src="image/character/inoue/inoue.trans.png" class="img3">
+					<div class="img-text">
+					<img  src="image/liquor/beer.png" class="img5">
+					<p>+3%</p>
+					</div>
+					<div class="img-text">
+					<img src="image/liquor/wine.png" class="img5">
+					<p>+4%</p>
+					</div>
+					<div class="img-text">
+					<img src="image/liquor/tequila.png" class="img5">
+					<p>+8%</p>
+					</div>
+					<a style="font-size: 15px; font-weight:initial;">　←テキーラには気を付けて...</a>
+                	<br><br>
+
+                	ソフトドリンクの場合は、酔いを醒ますことができるぞ！
+					<br>
+					<div class="img-text">
+					<img src="image/liquor/cola.png" class="img5">
+					<a>-1%</a>
+					</div>
+					<div class="img-text">
+					<img src="image/liquor/ryokucha.png" class="img5">
+					<a>-2%</a>
+					</div>
+					<div class="img-text">
+					<img src="image/liquor/water.png" class="img5">
+					<a>-1%</a>
+					</div>
+					<div class="img-text">
+					<img src="image/liquor/ukon.png" class="img5">
+					<a>-1%</a>
+					</div>
+                	<br><br>
+
+                	お酒を飲むとだんだん酔っぱらってしまうよ。<br>完全につぶれちゃうとGAME OVER !!
+                	<br>
+                	<img src="image/character/miyashita/miyashita.trans1.png" class="img5">
+                	<img src="image/character/miyashita/miyashita.trans2.png" class="img5">
+                	<img src="image/character/miyashita/miyashita.trans3.png" class="img5">
+                	<img src="image/character/miyashita/miyashita.trans4.png" class="img5">
+                	<a style="font-size: 20px; font-weight:initial;">Game Over →</a>
+                	<img src="image/character/miyashita/miyashita.trans5.png" class="img5">
+                	<br><br>
+
+					それぞれのキャラクターは<p class="enp">必殺技</p>と<p class="enp">特性</p>を持っているよ。<br>上手に使ってつぶれる前にゴールまで先にたどり着こう！
+					<br>
+					<img src="image/character/kano/kano.trans.png" class="img3">
+					<img src="image/character/suzuki/suzuki.trans.png" class="img3">
+					<img src="image/character/otake/otake.trans.png" class="img3">
+					<br><br>
+				</div>
+            </section>
+            <section class="information">
+            <div class="rule">
+
+					<br>
+					一人プレイの場合はエンドレスモードだよ。<br>お酒をひたすら飲みながらどこまで先に進めるかにチャレンジ！
+					<br>全国の大酒豪たちとランキング形式で頂点を目指せ！！
+
+
+					<br><br>
+			</div>
             </section>
 
             <button type="submit" name="page" value="play" class="btn btn-default">PLAY</button>

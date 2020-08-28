@@ -20,6 +20,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	// about my ultimate skill
 	private String ultimateName;
 	private String ultimateText;
+	private boolean isUltimate1;
 	private String ultimate1Target;
 	private int ultimate1Squares1;
 	private int ultimate1Squares2;
@@ -30,7 +31,8 @@ public class UltimatePlayer extends AbstractPlayer {
 	private int ultimate2Alc;
 	private int numRest;
 	private int nowRest = 0; // 0:normal 1:last rest tern 2:...
-	private int ultimateGage;
+	private int ultimateAlcGage;
+	private int ultimateSquaresGage;
 	private String ultimateConditions;
 	private boolean canUltimate = false;
 	private int numUltimate = 1;
@@ -52,7 +54,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 this.setEnName(data[1]);
 	        	 ultimateName = data[2];
 	        	 ultimateText = data[3];
-	        	 Boolean isUltimate1 = Boolean.valueOf(data[9]).booleanValue();;
+	        	 isUltimate1 = Boolean.valueOf(data[4]).booleanValue();;
 	        	 ultimate1Target = data[5];
 	        	 ultimate1Squares1 = Integer.parseInt(data[6]);
 	        	 ultimate1Squares2 = Integer.parseInt(data[7]);
@@ -62,14 +64,13 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 ultimate2Squares = Integer.parseInt(data[11]);
 	        	 ultimate2Alc = Integer.parseInt(data[12]);
 	        	 numRest = Integer.parseInt(data[13]);
-	        	 ultimateGage = Integer.parseInt(data[14]);
+	        	 ultimateAlcGage = Integer.parseInt(data[14]);
+	        	 ultimateSquaresGage = Integer.parseInt(data[15]);
 	        	 ultimateConditions = data[15];
 	          }
 	        }
-	        System.out.println("generate " + enName);
-	        System.out.println(enName + " has a " + ultimateName);
-	        System.out.println("ultimate1squares: " + ultimate1Squares1);
-	        System.out.println("ultimate1alc: " + ultimate1Alc);
+	        System.out.println(name + "を生成した。");
+	        System.out.println(name + " は必殺技 " + ultimateName + " を持っている");
 	        br.close();
 	      } catch (IOException e) {
 	        System.out.println(e + "in ultimate.csv");
@@ -84,9 +85,9 @@ public class UltimatePlayer extends AbstractPlayer {
 	          String[] data = line.split(",", 0); // 行をカンマ区切りで配列に変換
 	          if (data[1].equals(enName)){
 	        	 name = data[0];
-	        	 specialityText = data[2];
-	        	 specialitySpuares = Integer.parseInt(data[3]);
-	        	 specialityAlc = Integer.parseInt(data[4]);
+	        	 specialityText = data[3];
+	        	 specialitySpuares = Integer.parseInt(data[4]);
+	        	 specialityAlc = Integer.parseInt(data[5]);
 	          }
 	        }
 	        br.close();
@@ -105,9 +106,12 @@ public class UltimatePlayer extends AbstractPlayer {
 		int[] res2 = {0, 0, 0, 0};
 		if (canUltimate) {
 			System.out.println("<<<<" + name + "の必殺技>>>>   " + ultimateName);
-			res1 = doUltimate1();
+			if(isUltimate1) {
+				System.out.println("必殺技①あり");
+				res1 = doUltimate1();
+			}
 			if (isUltimate2) {
-				System.out.println("ultimate2あり");
+				System.out.println("必殺技②あり");
 				res2 = doUltimate2();
 			}
 			canUltimate = false;
@@ -118,13 +122,15 @@ public class UltimatePlayer extends AbstractPlayer {
 		int[] res = new int[res1.length + res2.length];
 		System.arraycopy(res1, 0, res, 0, res1.length);
 		System.arraycopy(res2, 0, res, res1.length, res2.length);
-		System.out.println("ultimate1 target: " + res[0]);
-		System.out.println("ultimate1 square: " + res[1]);
-		System.out.println("ultimate1 alc: " + res[2]);
-		System.out.println("ultimate2 target: " + res[3]);
-		System.out.println("ultimate2 square: " + res[4]);
-		System.out.println("ultimate2 alc: " + res[5]);
-		System.out.println("ultimate2 rest: " + res[6]);
+//		System.out.println("isUltimate1: " + isUltimate1);
+//		System.out.println("isUltimate2: " + isUltimate2);
+//		System.out.println("ultimate1 target: " + res[0]);
+//		System.out.println("ultimate1 square: " + res[1]);
+//		System.out.println("ultimate1 alc: " + res[2]);
+//		System.out.println("ultimate2 target: " + res[3]);
+//		System.out.println("ultimate2 square: " + res[4]);
+//		System.out.println("ultimate2 alc: " + res[5]);
+//		System.out.println("ultimate2 rest: " + res[6]);
 		return res;
 	}
 
@@ -135,21 +141,21 @@ public class UltimatePlayer extends AbstractPlayer {
 	public int[] doUltimate1(){
 		int res[] = {0, 0, 0};
 		if (ultimate1Target.equals("all")) {
-			bloodAlcLv += ultimate1Alc;
+//			drinkLiquorForUltimate(ultimate1Alc);
 			int[] array = {ultimate1Squares1, ultimate1Squares2};
 			int rnd = new Random().nextInt(array.length);
-			goForwardForUltimate(array[rnd]); // go forward square1 or square2 at ramdom
+//			goForwardForUltimate(array[rnd]); // go forward square1 or square2 at ramdom
 			res[0] = 1;
 			res[1] = array[rnd];
 			res[2] = ultimate1Alc;
 		} else if (ultimate1Target.equals("me")) {
-			bloodAlcLv += ultimate1Alc;
+//			drinkLiquorForUltimate(ultimate1Alc);
 			int[] array = {ultimate1Squares1, ultimate1Squares2};
 			int rnd = new Random().nextInt(array.length);
-			goForwardForUltimate(array[rnd]); // go forward square1 or square2 at ramdom
+//			goForwardForUltimate(array[rnd]); // go forward square1 or square2 at ramdom
 			res[0] = 2;
-			res[1] = 0;
-			res[2] = 0;
+			res[1] = array[rnd];
+			res[2] = ultimate1Alc;
 		} else {
 			int[] array = {ultimate1Squares1, ultimate1Squares2};
 			int rnd = new Random().nextInt(array.length);
@@ -167,9 +173,21 @@ public class UltimatePlayer extends AbstractPlayer {
 	public int[] doUltimate2(){
 		int res[] = {0, 0, 0, 0};
 		if (ultimate2Target.equals("all")) {
-			System.out.println("the ultimate2 case is not yet implemented");
+//			drinkLiquorForUltimate(ultimate2Alc);
+//			goForwardForUltimate(ultimate2Squares);
+//			nowRest += numRest;
+			res[0] = 1;
+			res[1] = ultimate2Squares;
+			res[2] = ultimate2Alc;
+			res[3] = numRest;
 		} else if (ultimate2Target.equals("me")) {
-			System.out.println("the ultimate2 case is not yet implemented");
+//			bloodAlcLv += ultimate2Alc;
+//			goForwardForUltimate(ultimate2Squares);
+//			nowRest += numRest;
+			res[0] = 2;
+			res[1] = ultimate2Squares;
+			res[2] = ultimate2Alc;
+			res[3] = numRest;
 		} else {
 			res[0] = 3;
 			res[1] = ultimate2Squares;
@@ -181,7 +199,7 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	public void restOneTime() {
 		if (nowRest != 0) {
-			System.out.println("<"+this.getName()+"> rest one time");
+			System.out.println("<"+this.getName()+"> 一回休む");
 			nowRest--;
 			count++;
 		}
@@ -191,7 +209,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	public void goForward(int dice) {
 		// update location and locationArray
 		locationArray[location] = false;
-		System.out.println("<" + name + ">specialities dice: " + specialitySpuares);
+		System.out.println("<" + name + "> マス特性: " + specialitySpuares);
 		location += dice + specialitySpuares;
 		// if location is over goal
 		if (location >= SQUARE - 1) {
@@ -220,39 +238,47 @@ public class UltimatePlayer extends AbstractPlayer {
 
 	@Override
 	public void drinkLiquor(Liquor liquor) {
-		System.out.println("<" + name + ">specialities alchole: " + specialityAlc);
+		System.out.println("<" + name + ">アルコール特性: " + specialityAlc);
 		bloodAlcLv += liquor.getLiquorAlcLv() + specialityAlc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((ultimateAlcGage == 0) && (location >= ultimateSquaresGage) && (numUltimate != 0))  {
+				canUltimate = true;
+			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv >= ultimateAlcGage) && (numUltimate != 0)){
 				canUltimate = true;
 			}
 		} else {
-			if ((bloodAlcLv < ultimateGage) && (numUltimate != 0)) {
+			if ((ultimateAlcGage == 0) && (location <= ultimateSquaresGage) && (numUltimate != 0))  {
+				canUltimate = true;
+			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv <= ultimateAlcGage) && (numUltimate != 0)){
 				canUltimate = true;
 			}
 		}
 	}
 
 	public void drinkLiquorForUltimate(int alc) {
-		System.out.println(enName + "は現在" + bloodAlcLv + "%");
-		System.out.println(enName + "は必殺技により" + alc +"%飲む");
+		System.out.println(name + "は現在" + bloodAlcLv + "%");
+		System.out.println(name + "は必殺技により" + alc +"%飲む");
 		bloodAlcLv += alc;
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
 		}
 		if ("above".equals(ultimateConditions)) {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((ultimateAlcGage == 0) && (location >= ultimateSquaresGage) && (numUltimate != 0))  {
+				canUltimate = true;
+			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv >= ultimateAlcGage) && (numUltimate != 0)){
 				canUltimate = true;
 			}
 		} else {
-			if ((bloodAlcLv > ultimateGage) && (numUltimate != 0)) {
+			if ((ultimateAlcGage == 0) && (location <= ultimateSquaresGage) && (numUltimate != 0))  {
+				canUltimate = true;
+			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv <= ultimateAlcGage) && (numUltimate != 0)){
 				canUltimate = true;
 			}
 		}
-		System.out.println(enName + "は現在" + bloodAlcLv + "%");
+		System.out.println(name + "は現在" + bloodAlcLv + "%");
 	}
 
 
@@ -360,12 +386,22 @@ public class UltimatePlayer extends AbstractPlayer {
 		this.numRest = numRest;
 	}
 
-	public int getUltimateGage() {
-		return ultimateGage;
+
+
+	public int getUltimateAlcGage() {
+		return ultimateAlcGage;
 	}
 
-	public void setUltimateGage(int ultimateGage) {
-		this.ultimateGage = ultimateGage;
+	public void setUltimateAlcGage(int ultimateAlcGage) {
+		this.ultimateAlcGage = ultimateAlcGage;
+	}
+
+	public int getUltimateSquaresGage() {
+		return ultimateSquaresGage;
+	}
+
+	public void setUltimateSquaresGage(int ultimateSquaresGage) {
+		this.ultimateSquaresGage = ultimateSquaresGage;
 	}
 
 	public String getUltimateConditions() {
