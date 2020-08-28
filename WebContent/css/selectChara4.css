@@ -5,7 +5,7 @@ body{
 }
 
 .container{
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
         color: #fff;
     font-size: 20px;
@@ -48,8 +48,8 @@ label img {
     transition-timing-function: ease;
     transition-delay: 0s;
     vertical-align:bottom;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
 }
 
 label img:hover{
@@ -141,9 +141,9 @@ img {
 }
 
 .balloon5 .faceicon img{
-  width: 100%;
+  width: 90px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .balloon5 .chatting {

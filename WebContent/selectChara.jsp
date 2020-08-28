@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script src="js/selectChara.js"></script>
-        <link rel="stylesheet" href="css/selectChara3.css">
+        <link rel="stylesheet" href="css/selectChara4.css">
         <title>SELECT</title>
     </head>
     <body>
@@ -25,7 +25,7 @@
 	            <!--吹き出しはじまり-->
 				<div class="balloon5">
 				  <div class="faceicon">
-					<img src="image/staff2.png" alt="...">
+					<img src="image/tenin.png" alt="...">
 				  </div>
 				  <div class="chatting">
 				    <div class="says">
@@ -65,7 +65,7 @@
 	            		}
 	            		String imagePath = "image/character/" + enName + "/" + enName + "1.jpg";
             	%>
-                <input id=<%=enName%> type="radio" name="chara" value=<%=enName%> checked>
+                <input id=<%=enName%> type="radio" name="chara" value=<%=enName%>>
                 <label for=<%=enName%>>
                     <div class="futatsuna"><span class="skill">
                     <%=name%>

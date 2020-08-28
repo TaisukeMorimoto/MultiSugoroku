@@ -19,6 +19,8 @@ public class BackFromOverAction {
 		if (manager.checkAllDie()) {
 			if (manager.getnPlayer() == 1) {
 				nextPage = "/allOver1p.jsp";
+				boolean isError = false;
+				req.setAttribute("isError", isError);
 			} else {
 				nextPage = "/allOver.jsp";
 			}
