@@ -16,6 +16,7 @@ public class Sugoroku1p extends SugorokuNormal {
 		}
 	}
 
+	@Override
 	public int getSQUARE() {
 		return SQUARE;
 	}

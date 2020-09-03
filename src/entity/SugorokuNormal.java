@@ -16,8 +16,8 @@ public class SugorokuNormal implements Sugoroku {
 	private static String csvPath;
 
 	public SugorokuNormal(String realPath, String csvPath) {
-		this.realPath = realPath;
-		this.csvPath = csvPath;
+		SugorokuNormal.realPath = realPath;
+		SugorokuNormal.csvPath = csvPath;
 		ArrayList<Liquor> liquorAllList = getLiquorAllList();
 		for (int i = 0; i < SQUARE ; i++) {
 			// move liquor instance from allList to liquorList at random

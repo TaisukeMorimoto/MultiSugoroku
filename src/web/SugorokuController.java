@@ -23,7 +23,8 @@ public class SugorokuController extends HttpServlet {
         super();
     }
 
-    public void doPost (HttpServletRequest request, HttpServletResponse response)
+    @Override
+	public void doPost (HttpServletRequest request, HttpServletResponse response)
     		throws IOException, ServletException
     		{
     		this.doGet(request, response);
@@ -32,6 +33,7 @@ public class SugorokuController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String buttonId = request.getParameter("page");

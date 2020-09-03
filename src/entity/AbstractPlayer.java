@@ -36,6 +36,7 @@ public abstract class AbstractPlayer implements Player {
 		return dice;
 	}
 
+	@Override
 	public void goForward(int dice) {
 		// update location and locationArray
 		locationArray[location] = false;

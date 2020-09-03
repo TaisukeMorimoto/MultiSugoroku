@@ -9,6 +9,7 @@ public class SugorokuLong extends SugorokuNormal {
 		super.SQUARE = this.SQUARE;
 	}
 
+	@Override
 	public int getSQUARE() {
 		return SQUARE;
 	}

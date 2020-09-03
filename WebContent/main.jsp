@@ -16,7 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/main3.css">
     <title>MAP</title>
 </head>
 <body>
@@ -47,6 +47,8 @@
 		/* 必殺技が使えるかどうか */
        	boolean canUltimate = manager.getPlayerList().get(manager.getTurn()).getCanUltimate();
 	%>
+
+	<div class="container" style="background-image: url('image/background/course.bar.back.jpg');">
 
     <div class="container">
     	<div class="row">
@@ -241,6 +243,7 @@
 			</div>
 		</div>
 
+    </div>
     </div>
 </body>
 </html>

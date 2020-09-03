@@ -27,6 +27,7 @@ public class SugorokuManager {
 	private int nPlayer;
 	private int turn = 0;
 	private int selectPlayer = 1;
+	private String course;
 	private String realPath;
 	private ArrayList<String> playerNameList = new ArrayList<String>();
 	private ArrayList<UltimatePlayer> playerList = new ArrayList<UltimatePlayer>();
@@ -45,6 +46,7 @@ public class SugorokuManager {
 	}
 
 	public void InitSugorokuManager(int nPlayer, String course) {
+		this.course = course;
 		// create sugoroku board
 		if (nPlayer == 1) {
 			String csvPath = "/WEB-INF/csv/liquor1p.csv";
