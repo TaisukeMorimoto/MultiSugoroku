@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="manager" scope="session" class="model.SugorokuManager" />
 <jsp:useBean id="allCharacterList" scope="session" class="model.SugorokuManager" />
+<%@ page import="java.util.Random"%>
 
 <!DOCUTYPE html>
 <html>
@@ -77,6 +78,22 @@
                     </div>
                 </label>
                	<% } %>
+               	<%
+               		int randomNum = (int)(Math.random() * nChara);
+               		String randomName = manager.getAllCharacterList().get(randomNum).getEnName();
+               	%>
+
+               	<input id="random" type="radio" name="chara" value=<%=randomName%> checked>
+               	<label for="random">
+               		<div class="futatsuna"><span class="skill">
+               		ランダム
+               		<p style="font-size:18px; font-weight: initial; text-align: left;">
+               		<br><br>ランダムにキャラクターを選択します。
+               		</p>
+               		</span>
+               		<img src="image/random.jpg">
+               		</div>
+               	</label>
 
             </div><br><br>
             <button type="submit" name="page" value="init" class="btn btn-default">最初から</button>

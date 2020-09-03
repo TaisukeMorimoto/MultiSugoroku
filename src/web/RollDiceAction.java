@@ -16,9 +16,10 @@ public class RollDiceAction {
 
 		System.out.println("now rest: " + manager.getPlayerList().get(manager.getTurn()).getNowRest());
 
-		manager.rollDiceOnePlayer();
-		// when player is rest
+
+
 		if (manager.getPlayerList().get(manager.getTurn()).getNowRest() > 0) {
+			manager.restOnePlayer();
 			manager.goNextPayer();
 			if (manager.getnPlayer() ==1) {
 				nextPage = "/main1p.jsp";
@@ -26,9 +27,11 @@ public class RollDiceAction {
 				nextPage = "/main.jsp";
 			}
 		} else if (manager.checkAllDie()) {
+			manager.rollDiceOnePlayer();
 			nextPage = "/allOver.jsp";
 		} else {
 			//when player roll dice usually
+			manager.rollDiceOnePlayer();
 			nextPage = "/event.jsp";
 		}
 

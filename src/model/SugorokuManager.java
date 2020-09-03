@@ -132,13 +132,24 @@ public class SugorokuManager {
 		return isAllDie;
 	}
 
-	public void rollDiceOnePlayer() {
+	public void restOnePlayer() {
 		for (int i=0; i<=nPlayer; i++) {
 			if (turn == i) {
 				// if player status is rest
 				if (playerList.get(i).getNowRest() != 0) {
 					playerList.get(i).restOneTime();
-				} else {
+				}
+			}
+		}
+	}
+
+	public void rollDiceOnePlayer() {
+		for (int i=0; i<=nPlayer; i++) {
+			if (turn == i) {
+				// if player status is rest
+//				if (playerList.get(i).getNowRest() != 0) {
+//					playerList.get(i).restOneTime();
+//				} else {
 					// roll dice
 					int dice = playerList.get(i).rollDice();
 					System.out.println("<" + playerList.get(i).getName() + ">サイコロの出た目: " + dice);
@@ -151,7 +162,7 @@ public class SugorokuManager {
 					+ ": " + liq.getLiquorAlcLv() + "%");
 					System.out.println("<" + playerList.get(i).getName() + ">現在地: " + playerList.get(i).getLocation());
 					System.out.println("<" + playerList.get(i).getName() + ">アルコールレベル: " + playerList.get(i).getBloodAlcLv() + "%");
-				}
+//				}
 			}
 		}
 	}
