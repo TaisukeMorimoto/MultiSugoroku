@@ -32,6 +32,7 @@ public abstract class AbstractPlayer implements Player {
 	public int rollDice() {
 		int dice = new Random().nextInt(DICE_MAX) + 1;
 		this.dice = dice;
+		System.out.println("dice: "+dice);
 		return dice;
 	}
 

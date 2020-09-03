@@ -66,7 +66,7 @@ public class UltimatePlayer extends AbstractPlayer {
 	        	 numRest = Integer.parseInt(data[13]);
 	        	 ultimateAlcGage = Integer.parseInt(data[14]);
 	        	 ultimateSquaresGage = Integer.parseInt(data[15]);
-	        	 ultimateConditions = data[15];
+	        	 ultimateConditions = data[16];
 	          }
 	        }
 	        System.out.println(name + "を生成した。");
@@ -243,20 +243,58 @@ public class UltimatePlayer extends AbstractPlayer {
 		if (bloodAlcLv < 0) {
 			bloodAlcLv = 0;
 		}
+		System.out.println("以上か以下か: " + ultimateConditions);
+		System.out.println("マス条件: " + ultimateSquaresGage);
+		System.out.println("アルコール条件: " + ultimateAlcGage);
+		// ＜以上＞の必殺技判定
 		if ("above".equals(ultimateConditions)) {
-			if ((ultimateAlcGage == 0) && (location >= ultimateSquaresGage) && (numUltimate != 0))  {
-				canUltimate = true;
-			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv >= ultimateAlcGage) && (numUltimate != 0)){
-				canUltimate = true;
+			// ＜マス＞の判定
+			if ((ultimateAlcGage == 0) && (numUltimate != 0))  {
+				if (location >= ultimateSquaresGage) {
+					System.out.println("マス条件（以上）true：" + location);
+					canUltimate = true;
+				} else {
+					System.out.println("マス条件（以下）false：" + location);
+					canUltimate = false;
+				}
 			}
-		} else {
-			if ((ultimateAlcGage == 0) && (location <= ultimateSquaresGage) && (numUltimate != 0))  {
-				canUltimate = true;
-			} else if ((ultimateSquaresGage == 0) && (bloodAlcLv <= ultimateAlcGage) && (numUltimate != 0)){
-				canUltimate = true;
+			// <アルコール>の判定
+			if ((ultimateSquaresGage == 0) && (numUltimate != 0)) {
+				if (bloodAlcLv >= ultimateAlcGage) {
+					System.out.println("アルコール条件（以上）true：" + bloodAlcLv);
+					canUltimate = true;
+				} else {
+					System.out.println("アルコール条件（以下）false：" + bloodAlcLv);
+					canUltimate = false;
+				}
 			}
 		}
+		// ＜以下＞の必殺技判定
+		if ("below".equals(ultimateConditions)) {
+			// ＜マス＞の判定
+			if ((ultimateAlcGage == 0) && (numUltimate != 0))  {
+				if (location <= ultimateSquaresGage) {
+					System.out.println("マス条件（以下）true：" + location);
+					canUltimate = true;
+				} else {
+					System.out.println("マス条件（以上）false：" + location);
+					canUltimate = false;
+				}
+			}
+			// <ゲージ>の判定
+			if ((ultimateSquaresGage == 0) && (numUltimate != 0)) {
+				if (bloodAlcLv <= ultimateAlcGage) {
+					System.out.println("アルコール条件（以下）true：" + bloodAlcLv);
+					canUltimate = true;
+				} else {
+					System.out.println("アルコール条件（以下）false：" + bloodAlcLv);
+					canUltimate = false;
+				}
+			}
+		}
+
 	}
+
 
 	public void drinkLiquorForUltimate(int alc) {
 		System.out.println(name + "は現在" + bloodAlcLv + "%");

@@ -12,7 +12,9 @@ public class RollDiceAction {
 		HttpSession session = req.getSession(true);
 		SugorokuManager manager = (SugorokuManager) session.getAttribute("manager");
 
-		String nextPage = null;
+		String nextPage =  "/event.jsp";
+
+		System.out.println("now rest: " + manager.getPlayerList().get(manager.getTurn()).getNowRest());
 
 		manager.rollDiceOnePlayer();
 		// when player is rest
