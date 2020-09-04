@@ -40,7 +40,7 @@ the application is under development.
 # Author
 
 * T.morimoto
-* S.shumpei
+* S.domoto
 * R.miyashita
 
 Enjoy playing and waiting for your pull request.
