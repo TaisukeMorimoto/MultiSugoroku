@@ -42,4 +42,4 @@ the application is under development.
 * S.shumpei
 * R.miyashita
 
-Enjoy playing!
+Enjoy playing and waiting for your pull request.
