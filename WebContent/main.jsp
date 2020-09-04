@@ -22,6 +22,10 @@
 <body>
 	<!-- 各変数の取得 -->
 	<%
+		/* コース情報 */
+		String course = manager.getCourse();
+		String coursePath = "image/background/course." + course + ".back.jpg";
+
 		/* アルコールレベルのジャッジ */
 		String alcStatus0 = "";
 		if (manager.getPlayerList().get(manager.getTurn()).getBloodAlcLv() < 5) {
@@ -48,7 +52,7 @@
        	boolean canUltimate = manager.getPlayerList().get(manager.getTurn()).getCanUltimate();
 	%>
 
-	<div class="container" style="background-image: url('image/background/course.bar.back.jpg');">
+	<div class="container" style="background-image: url(<%=coursePath%>);">
 
     <div class="container">
     	<div class="row">
