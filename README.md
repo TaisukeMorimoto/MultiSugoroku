@@ -31,6 +31,7 @@ Reach the goal before you get drunk!
 # Usage
 
 Please deploy files to localhost, start the server and jump to http://localhost:8080/Game/Sugoroku
+before building, you have to specify build path (JRE system library and tomcat path).
 
 # Note
 
