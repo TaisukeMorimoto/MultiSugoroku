@@ -1,6 +1,6 @@
 # MultiSugoroku
 
-"MultiSugoroku" is a game application which run on web pages.
+"MultiSugoroku" is a game application which runs on web pages.
 
 # DEMO
 
