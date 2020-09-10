@@ -42,7 +42,7 @@
         <form action="Sugoroku" method="post" class="row">
            	<div class="selection-group">
 			 	<label>何名様でお越しですか？</label><br>
-			 	<input id="1" type="radio" name="nPlayer" value="1" class="radio">
+			 	<input id="1" type="radio" name="nPlayer" value="1" class="radio" disabled>
             	<label for="1"><img src="image/numPlayer/player.1p.jpg" class="img1"></label>
             	<input id="2" type="radio" name="nPlayer" value="2" class="radio">
             	<label for="2"><img src="image/numPlayer/player.2p.jpg" class="img1"></label>

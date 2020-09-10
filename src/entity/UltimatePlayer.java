@@ -42,7 +42,7 @@ public class UltimatePlayer extends AbstractPlayer {
 		super(SQUARE, DICE_MAX);
 		File f;
 	    try {
-	    	f = new File(realPath + "/WEB-INF/csv/ultimate2.csv");
+	    	f = new File(realPath + "/WEB-INF/csv/ultimate3.csv");
 			BufferedReader br = new BufferedReader(new FileReader(f));
 	        String line;
 	        String[] title = br.readLine().split(",", 0);
